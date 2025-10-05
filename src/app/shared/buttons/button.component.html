@@ -1,0 +1,22 @@
+@if(buttonStyles) {
+    <div class="button-inner" [ngStyle]="buttonStyles">
+        <a [href]="url">
+        @if(englishText && germanText) {
+            <p [ngClass]="{'disNone': !portService.englishActivated}">{{ englishText }}</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">{{ germanText }}</p>
+        }
+        @if(sign) {
+            <p>{{ sign }}</p>
+        }
+        </a>
+        <img [src]="iconSrc" alt="">
+    </div>
+}@else {
+    <div class="button-inner" [ngStyle]="buttonStyles">
+        <a [href]="url">
+            <p [ngClass]="{'disNone': !portService.englishActivated}">{{ englishText }}</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">{{ germanText }}</p>
+        </a>
+        <img [src]="iconSrc" alt="" [ngClass]="{'disNone': !iconSrc && !sign}">
+    </div>
+}

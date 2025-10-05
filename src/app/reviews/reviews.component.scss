@@ -1,0 +1,146 @@
+@import '../mixins.scss';
+
+.disNone {
+    display: none !important;
+}
+
+h1 {
+    font-family: 'fira-code', Verdana, sans-serif;
+    font-size: 32px;
+    color: $standard-green;
+    text-align: center;
+    margin: 0;
+}
+
+p {
+    font-family: 'karla', Verdana, sans-serif;
+    font-size: 18px;
+    color: white;
+    line-height: 120%;
+    letter-spacing: 0;
+    margin: 0;
+    width: fit-content;
+    // word-break: break-all;
+    white-space: wrap;
+}
+
+.slider-outer {
+    @include disFlex($fD: column, $aI: center, $jC: space-between, $rG: 48px);
+    @include pos($pos: relative);
+    overflow: hidden;
+    width: 100%;
+    min-height: 362px;
+    padding-top: 30px;
+    box-sizing: border-box;
+
+    .slider {
+        @include disFlex($aI: center, $jC: center, $cG: 40px);
+        align-self: flex-start;
+        @include pos($pos: relative);
+        min-width: 100%;
+        height: 274px;
+        box-sizing: border-box;
+
+        .slide {
+            @include disFlex($fD: column, $jC: space-between, $rG: 40px);
+            height: 90%;
+            aspect-ratio: 316 / 137;
+            @include pos($pos: relative);
+            border: 2px solid $standard-green;
+            border-radius: 50px;
+            padding: 40px 40px;
+            background-color: #3dcfb610;
+            cursor: pointer;
+            box-sizing: border-box;
+
+            .review-text {
+                @include disFlex($aI: center, $jC: center);
+                width: 100%;
+                height: 100%;
+            }
+
+            .author-block {
+                @include disFlex($aI: center, $jC: space-between, $cG: 16px);
+                width: 100%;
+
+                p {
+                    white-space: nowrap;
+                }
+
+                .white-line {
+                    width: 100%;
+                    height: 2px;
+                    background-color: white;
+                }
+            }
+
+            .quotation-marks {
+                @include pos($pos: absolute, $t: 0, $l: 0);
+                transform: translate(-25%, -50%);
+                display: none;
+            }
+
+            &.active {
+                height: 100%;
+                background-color: $standard-green-blurry;
+
+                .quotation-marks {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .controls {
+        @include disFlex($aI: center, $jC: center, $cG: 35px);
+
+        .dots {
+            @include disFlex($aI: center, $jC: center, $rG: 20px, $cG: 20px, $fWrap: wrap);
+
+            .dot {
+                width: 8px;
+                height: 8px;
+                background-color: white;
+                border-radius: 100%;
+                cursor: pointer;
+
+                &.active {
+                    background-color: $standard-green;
+                }
+            }
+        }
+
+        .arrow {
+            cursor: pointer;
+
+            &.blurred {
+                opacity: 0.5;
+                cursor: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .slider-outer {
+        .slider {
+            height: 368px;
+            column-gap: 8px;
+
+            .slide {
+                width: 358px;
+                height: 248px;
+                
+                &.active {
+                    width: 95vw;
+                    max-width: 358px;
+                    aspect-ratio: 358 / 360;
+                }
+
+                /* .quotation-marks {
+                    display: none !important;
+                } */
+            }
+        }
+    }
+}

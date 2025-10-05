@@ -1,0 +1,77 @@
+@import '../../mixins.scss';
+
+.disNone {
+    display: none !important;
+}
+
+p {
+    margin: 0;
+}
+
+.center-block {
+    @include disFlex($aI: flex-end, $jC: space-between, $rG: 32px);
+    width: 100%;
+
+    .logo-block {
+        @include disFlex($fD: column, $jC: center, $rG: 32px);
+        width: fit-content;
+
+        img {
+            width: 100%;
+            max-width: 132px;
+            height: auto;
+        }
+
+        .text-block {
+            @include disFlex($fD: column, $rG: 8px);
+
+            p {
+                font-family: 'fira-code', Verdana, sans-serif;
+                font-size: 16px;
+                color: white;
+                font-weight: 400;
+                line-height: 120%;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .links {
+        @include disFlex($fD: column, $rG: 8px);
+
+        a {
+            font-family: 'fira-code', Verdana, sans-serif;
+            font-size: 16px;
+            color: white;
+            font-weight: 400;
+            line-height: 120%;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+    }
+}
+
+p.copyright {
+    font-family: 'karla', Verdana, sans-serif;
+    font-size: 18px;
+    color: $standard-green;
+    font-weight: 400;
+    line-height: 120%;
+    @include pos($pos: absolute, $b: 36px, $l: 50%);
+    transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 750px) {
+    .center-block {
+        align-items: flex-start;
+    }
+
+    p.copyright {
+        position: static;
+        transform: unset;
+    }
+}

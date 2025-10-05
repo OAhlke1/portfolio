@@ -1,0 +1,210 @@
+@import '../mixins.scss';
+
+.disNone {
+    display: none !important;
+}
+
+p {
+    color: white;
+    margin: 0;
+}
+
+.container {
+    @include disFlex($aI: center, $jC: space-between, $rG: 40px, $fWrap: wrap);
+    width: 100%;
+    max-width: 1232px;
+    min-height: 708px;
+
+    .outer-container {
+        @include disFlex($aI: center, $jC: space-between, $rG: 40px, $fWrap: wrap);
+        width: 100%;
+
+        .green-box:nth-child(1) {
+            align-self: flex-start;
+            margin-bottom: 130px;
+        }
+
+        .green-box:nth-child(2) {
+            align-self: flex-end;
+            margin-top: 130px;
+        }
+    }
+
+    .green-box {
+        @include disFlex($fD: column, $aI: flex-start !important, $jC: center, $rG: 20px);
+        width: 100%;
+        max-width: 568px;
+        height: fit-content;
+
+        &.image {
+            border-radius: 30px;
+            background-color: red;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &.last {
+            align-self: flex-start !important;
+            max-width: 568px;
+            margin-bottom: 0 !important;
+        }
+
+        h2 {
+            font-family: 'karla', Verdana, sans-serif;
+            font-size: 24px;
+            color: $standard-green;
+            font-weight: 500;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bottom {
+            @include disFlex($fD: column, $jC: center, $rG: 40px);
+            align-self: flex-end;
+            width: 100%;
+            min-height: 540px;
+            height: fit-content;
+            padding: 32px;
+            background-color: #3dcfb610;
+            border-radius: 30px;
+            border: 1px solid $standard-green;
+            box-sizing: border-box;
+
+            h1 {
+                font-family: 'fira-code', Verdana, sans-serif;
+                font-size: 64px;
+                color: $standard-green;
+                line-height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            p.outer-container-text {
+                font-family: 'karla', Verdana, sans-serif;
+                color: white;
+            }
+
+            ul {
+                @include disFlex($fD: column, $rG: 16px);
+
+                li {
+                    @include pos($pos: relative);
+                    font-family: 'karla', Verdana, sans-serif;
+                    color: white;
+                    list-style: none;
+                    padding: 0 0 0 56px;
+
+                    .li-icon {
+                        width: 32px;
+                        height: 32px;
+                        @include pos($pos: absolute, $t: 0, $l: 0);
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            p.big {
+                font-family: 'fira-code', Verdana, sans-serif;
+                font-size: 24px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .icons {
+        @include disFlex($cG: 72px, $rG: 40px, $fWrap: wrap);
+        width: 100%;
+        max-width: 632px;
+        box-sizing: border-box;
+
+        img {
+            width: 104px;
+            height: auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 1435px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+        height: fit-content;
+        padding: $standard-padding-mobile;
+
+        .box {
+            align-self: center !important;
+        }
+
+        .green-box {
+            border-radius: 30px;
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .bottom {
+                h1 {
+                    font-size: 54px;
+                }
+            }
+
+            p.big {
+                font-size: 20px;
+            }
+        }
+
+        .outer-container {
+            flex-direction: column;
+            align-items: center;
+            row-gap: 40px;
+
+            .green-box:nth-child(1),
+            .green-box:nth-child(2) {
+                align-self: center;
+                margin: 0;
+            }
+        }
+
+        .icons {
+            justify-content: center;
+            column-gap: 16px;
+            row-gap: 32px;
+        }
+    }
+
+    .container .green-box.last {
+        align-self: center !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        .green-box {
+            h1 {
+                font-size: 48px;
+            }
+
+            .bottom {
+                ul {
+                    padding: 0;
+                    row-gap: 30px;
+
+                    li {
+                        display: flex;
+                        flex-direction: column-reverse;
+                        padding: 0;
+
+                        .li-icon {
+                            position: static;
+                            transform: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

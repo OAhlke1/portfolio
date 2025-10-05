@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="outer-container">
+        <div class="green-box image">
+            <img src="assets/images/head-icon.svg" alt="">
+        </div>
+
+        <div class="green-box">
+            <h2 [ngClass]="{'disNone': !portService.englishActivated}">Who I am</h2>
+            <h2 [ngClass]="{'disNone': !portService.germanActivated}">Wer ich bin</h2>
+            <div class="bottom box">
+                <h1 [ngClass]="{'disNone': !portService.englishActivated}">About me</h1>
+                <h1 [ngClass]="{'disNone': !portService.germanActivated}">Über mich</h1>
+
+                <p class="top-text">
+                    lorem ipsum.
+                </p>
+
+                <ul>
+                    <li>
+                        Lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        <img src="assets/images/map-needle.svg" alt="" class="li-icon">
+                    </li>
+                    <li>
+                        Lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        <img src="assets/images/head-icon.svg" alt="" class="li-icon">
+                    </li>
+                    <li>
+                        Lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        <img src="assets/images/tic-wheel-icon.svg" alt="" class="li-icon">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="outer-container" id="skills">
+        <div class="green-box last">
+            <h2 [ngClass]="{'disNone': !portService.englishActivated}">Technologies</h2>
+            <h2 [ngClass]="{'disNone': !portService.germanActivated}">Technologien</h2>
+            <div class="bottom box">
+                <h1 [ngClass]="{'disNone': !portService.englishActivated}">Skill Set</h1>
+                <h1 [ngClass]="{'disNone': !portService.germanActivated}">Skill-Set</h1>
+
+                <p class="top-text">
+                    lorem ipsum.
+                </p>
+
+                <p class="big" [ngClass]="{'disNone': !portService.englishActivated}">
+                    <span style="color: white;">You need</span> another Skill?
+                </p>
+                <p class="big" [ngClass]="{'disNone': !portService.germanActivated}">
+                    <span style="color: white;">Sie brauchen</span> noch weitere Skills?
+                </p>
+            </div>
+
+            <app-button [englishText]="'Let´s Talk'" [germanText]="'Melden Sie sich'" [url]="'#work-together'"></app-button>
+        </div>
+
+        <div class="icons">
+            <img src="assets/images/html-icon.svg" alt="">
+            <img src="assets/images/css-icon.svg" alt="">
+            <img src="assets/images/java-script-icon.svg" alt="">
+            <img src="assets/images/material-design-icon.svg" alt="">
+            <img src="assets/images/type-script-icon.svg" alt="">
+            <img src="assets/images/angular-icon.svg" alt="">
+            <img src="assets/images/firebase-icon.svg" alt="">
+            <img src="assets/images/git-icon.svg" alt="">
+            <img src="assets/images/rest-api-icon.svg" alt="">
+            <img src="assets/images/scrum-icon.svg" alt="">
+            <img src="assets/images/growth-mindset-icon.svg" alt="">
+        </div>
+    </div>
+</div>

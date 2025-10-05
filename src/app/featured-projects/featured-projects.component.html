@@ -1,0 +1,91 @@
+<div class="headline-block">
+    <h2>Portfolio</h2>
+    <h1 [ngClass]="{'disNone': !portService.englishActivated}">Featured Projects</h1>
+    <h1 [ngClass]="{'disNone': !portService.germanActivated}">Meine Projekte</h1>
+</div>
+
+<p class="description" [ngClass]="{'disNone': !portService.englishActivated}">
+    Explore a selection of my work here – interact with projects to see my skills in action
+</p>
+<p class="description" [ngClass]="{'disNone': !portService.germanActivated}">
+    Erkunden Sie hier eine Auswahl meiner Arbeit. Interagieren Sie mit meiner Arbeit um meine Fähigkeiten in Aktion zu
+    sehen.
+</p>
+
+<div class="list">
+    @for(project of portService.projects; track project.name; let index = $index) {
+    <div class="project" (click)="openLightBox(index)">
+        <p class="name">{{ project.name }}</p>
+        <div class="p-langs">
+            @for(lang of project.pLangs; track lang.pLang; let index = $index) {
+            <p class="p-lang">{{ lang.pLang }}</p>
+            @if(index+1 < project.pLangs.length) { <div class="green-separator">
+        </div>}
+        }
+    </div>
+</div>
+}
+</div>
+
+@if(project) {
+<div class="project-lightbox" [ngClass]="{'disNone': !overlayShown}">
+    <div class="container">
+
+        <div class="close-lightbox" (click)="overlayShown=false;">
+            <img src="assets/images/close-lightbox.svg" alt="">
+        </div>
+
+        <div class="left">
+            <div class="headline-block">
+                @if(project.index < 10) { <h1>0{{ project.index + 1 }}</h1>
+                    }@else {
+                    <h1>{{ project.index + 1 }}</h1>
+                    }
+                    <h2>{{ project.name }}</h2>
+            </div>
+
+            <div class="center-block">
+                <h2 [ngClass]="{'disNone': !portService.englishActivated}">What is this project about?</h2>
+                <h2 [ngClass]="{'disNone': !portService.germanActivated}">Worum geht es in diesem Project?</h2>
+
+                <p class="description" [ngClass]="{'disNone': !portService.englishActivated}">{{
+                    project.description.english
+                    }}</p>
+                <p class="description" [ngClass]="{'disNone': !portService.germanActivated}">{{
+                    project.description.german
+                    }}</p>
+
+                <div class="languages">
+                    @for(language of project.pLangs; track language.pIconSrc) {
+                    <img [src]="language.pIconSrc" alt="">
+                    }
+                </div>
+            </div>
+
+            <div class="bottom-block">
+                <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="project.gitHubLink"
+                    [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
+                <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="project.link"
+                    [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
+            </div>
+        </div>
+
+        <div class="right">
+            <img [src]="project.imageSrc" alt="">
+        </div>
+
+        <div class="prev-project" [ngClass]="{'disNone': project.index === 0}"
+            (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
+            <img src="assets/images/prev-project-arrow.svg" alt="">
+            <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
+        </div>
+        <div class="next-project" [ngClass]="{'disNone': project.index + 1 === portService.projects.length}"
+            (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
+            <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>
+            <img src="assets/images/next-project-arrow.svg" alt="">
+        </div>
+    </div>
+</div>
+}

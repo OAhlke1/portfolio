@@ -1,0 +1,90 @@
+@import './mixins.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+.all-containing {
+    padding-bottom: 80px;
+    background-color: #1c1c1c
+}
+
+top-section {
+    display: block;
+    width: 100%;
+    min-height: 500px;
+    height: 100vh;
+    max-height: 900px;
+    background: #080707;
+    background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
+    padding: $standard-padding;
+    @include pos($pos: relative);
+    overflow: hidden;
+}
+
+myself-section {
+    @include disFlex($aI: center, $jC: center);
+    padding: 72px 60px;
+    background-color: $standard-black;
+}
+
+featured-projects {
+    @include disFlex($fD: column, $rG: 40px);
+    background-color: $standard-black !important;
+    padding: 72px 60px;
+    width: 100%;
+    @include pos($pos: relative, $zIndex: 1);
+}
+
+work-together {
+    @include disFlex($aI: center, $rG: 40px, $cG: 64px);
+    padding: 72px 60px;
+}
+
+reviews-section {
+    @include disFlex($fD: column, $aI: center, $rG: 40px);
+    background-color: $standard-black;
+    padding: 72px 60px;
+}
+
+app-footer {
+    @include disFlex($fD: column, $aI: center, $jC: space-between, $rG: 36px, $fWrap: wrap);
+    width: 100%;
+    max-width: 1440px;
+    background-color: $standard-black;
+    padding: 0 60px;
+    position: relative;
+}
+
+@media only screen and (max-width: 750px) {
+    top-section {
+        min-height: 500px;
+        max-height: 844px;
+        padding: $standard-padding-mobile;
+    }
+
+    myself-section {
+        padding: 50px 15px;
+    }
+
+    featured-projects {
+        padding: 50px 15px;
+    }
+
+    work-together {
+        flex-direction: column;
+        padding: 50px 15px;
+
+        .left, .right {
+            width: 100%;
+        }
+    }
+
+    reviews-section {
+        padding: 50px 15px;
+    }
+
+    app-footer {
+        padding: 50px 15px 0 15px;
+    }
+}

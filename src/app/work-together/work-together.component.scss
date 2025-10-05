@@ -1,0 +1,158 @@
+@import '../mixins.scss';
+
+.disNone {
+    display: none !important;
+}
+
+h1,
+h2,
+span,
+a,
+label {
+    color: $standard-green;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1 {
+    font-family: 'fira-code';
+}
+
+.left {
+    @include disFlex($fD: column, $rG: 40px);
+    width: 100%;
+
+    .headline-block {
+        @include disFlex($fD: column, $rG: 40px);
+
+        h1,
+        h2 {
+            color: $standard-green;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 64px;
+            line-height: 120%;
+        }
+
+        h2 {
+            font-family: 'Karla', Verdana, sans-serif;
+            font-size: 24px;
+            line-height: 100%;
+            font-weight: 700;
+        }
+    }
+
+    .text-block {
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-family: 'karla', Verdana, sans-serif;
+            color: white;
+        }
+
+        span {
+            font-weight: 500;
+        }
+    }
+}
+
+.right {
+    @include disFlex($fD: column, $rG: 0px);
+    width: 100%;
+
+    form {
+        @include disFlex($fD: column, $rG: 0px);
+
+        &>div {
+            @include disFlex($fD: column, $rG: 16px);
+            width: 100%;
+            padding: 32px;
+            border-top: 1px solid $standard-green;
+            box-sizing: border-box;
+
+            label {
+                font-family: 'fira-code', Verdana, sans-serif;
+                font-size: 24px;
+                line-height: 120%;
+                font-weight: 400;
+            }
+
+            input,
+            input[placeholder] {
+                width: 100%;
+                font-family: 'karla', Verdana, sans-serif;
+                font-size: 24px;
+                color: white;
+                background-color: transparent;
+            }
+
+            input {
+                background-color: transparent;
+                outline: 0px;
+                border: unset;
+                padding: 0;
+            }
+
+            &.last {
+                padding: 32px 0;
+                flex-direction: row;
+                column-gap: 5px;
+
+                input[type='checkbox'] {
+                    width: fit-content;
+                    background: $standard-black;
+                    outline: 2px solid $standard-green;
+
+                    &:checked {
+                        background-color: $standard-black;
+                    }
+                }
+
+                label {
+                    font-family: 'karla', Verdana, sans-serif;
+                    font-size: 15px;
+                    color: white !important;
+                    font-weight: normal;
+                }
+            }
+        }
+
+        button {
+            background-color: transparent;
+            outline: unset;
+            border: none;
+            padding: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .headline-block {
+        h2 {
+            font-size: 56px;
+        }
+    }
+
+    .right {
+        form {
+            &>div {
+                padding: 32px 16px;
+                
+                label {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

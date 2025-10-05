@@ -1,0 +1,61 @@
+<div class="left">
+    <div class="headline-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Contact me</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Kontaktieren Sie mich</h2>
+        <h1 [ngClass]="{'disNone': !portService.englishActivated}">Let's work together</h1>
+        <h1 [ngClass]="{'disNone': !portService.germanActivated}">Lassen Sie uns zusammenarbeiten</h1>
+    </div>
+
+    <div class="text-block">
+        <h1 [ngClass]="{'disNone': !portService.englishActivated}">Got a problem to solve?</h1>
+        <h1 [ngClass]="{'disNone': !portService.germanActivated}">Sie haben ein Problem zu lösen?</h1>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
+            <br>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
+            <br>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
+        </p>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">Need a Frontend developer? <span>Lets talk!</span></p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Sie brauchen einen Frontend-Entwickler? <span>Lassen
+                Sie uns sprechen!</span></p>
+    </div>
+</div>
+<div class="right">
+    <form action="" onsubmit="submitFunction(event)">
+        <div>
+            <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}">What's your name?</label>
+            <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}">Wie heißen Sie?</label>
+            <input type="text" id="yourname" name="yourname" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
+        </div>
+        <div>
+            <label for="email" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail?</label>
+            <label for="email" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse?</label>
+            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
+        </div>
+        <div>
+            <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}">How can I help you?</label>
+            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}">Wie kann ich Ihnen helfen?</label>
+            <input type="text" id="concern" name="concern"
+                [placeholder]="portService.englishActivated ? 'Hello Oscar, I am initerested in...' : 'Hallo Oscar. Ich wollte fragen...'"
+                required>
+        </div>
+        <div class="last">
+            <input type="checkbox" #checker id="privacy" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'"
+                required>
+            <label for="privacy" [ngClass]="{'disNone': !portService.englishActivated}">I've read the <a href="privacy-policy">privacy
+                    policy</a> and agree to the processing of my data as outlined</label>
+            <label for="privacy" [ngClass]="{'disNone': !portService.germanActivated}">Ich habe die <a
+                    href="privacy-policy">Datenschutzrichtlinien</a> gelesen und bin mit der Verarbeitung meiner Daten
+                einverstanden</label>
+        </div>
+        <button type="submit" #submitButton class="">
+            <app-button
+                (click)="clickButton($event)" [englishText]="'Say hello'" [germanText]="'Sagen Sie Hallo'"
+                [buttonStyles]="{'width': 'fit-content'}" [sign]="''" [iconSrc]="''" type="submit"></app-button>
+        </button>
+    </form>
+</div>

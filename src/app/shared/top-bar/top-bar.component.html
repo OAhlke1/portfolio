@@ -1,0 +1,53 @@
+<div class="top-bar-menu">
+    <div class="lang-switch" (click)="portService.switchLanguage()">
+        <div class="lang" [ngClass]="{'activated': portService.englishActivated}">
+            <p>EN</p>
+        </div>
+        <div class="lang" [ngClass]="{'activated': portService.germanActivated}">
+            <p>DE</p>
+        </div>
+    </div>
+    <div class="menu-button">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">About me</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Über mich</p>
+    </div>
+    <div class="menu-button">
+        <p>Skills</p>
+    </div>
+    <div class="menu-button">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">Projects</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Projekte</p>
+    </div>
+</div>
+
+<div class="burger-menu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+</div>
+
+<div class="top-bar-logo">
+    <img src="assets/images/heart.png" alt="">
+</div>
+
+<div class="top-bar-burger-menu" [ngClass]="{'shifted-in': portService.burgerMenuShiftedIn, 'shifted-out': portService.burgerMenuShiftedOut}">
+    <div class="lang-switch" (click)="portService.switchLanguage()">
+        <div class="lang" [ngClass]="{'activated': portService.englishActivated}">
+            <p>EN</p>
+        </div>
+        <div class="lang" [ngClass]="{'activated': portService.germanActivated}">
+            <p>DE</p>
+        </div>
+    </div>
+    <a class="menu-button" href="#projects">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">Projects</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Projekte</p>
+    </a>
+    <a class="menu-button" href="#skills">
+        <p>Skills</p>
+    </a>
+    <a class="menu-button" href="#about-me">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">About me</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Über mich</p>
+    </a>
+</div>

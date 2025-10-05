@@ -1,0 +1,26 @@
+<h1 [ngClass]="{'disNone': !portService.englishActivated}">What my colleagues say about me</h1>
+<h1 [ngClass]="{'disNone': !portService.germanActivated}">Was meine Kollegen über mich sagen</h1>
+
+<div class="slider-outer" #sliderOuter>
+    <div class="slider" #slider>
+        @for(review of portService.reviews; track review.author; let index = $index) {
+        <div class="slide" [ngClass]="{'active': review.isActive}" (click)="setNewSlideActive(index)" #slide>
+            <img src="assets/images/big-quotations.svg" alt="" class="quotation-marks">
+            <div class="review-text"><p>{{ review.review }}</p></div>
+            <div class="author-block">
+                <div class="white-line"></div>
+                <p>{{ review.author}}</p>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="controls">
+        <img src="assets/images/prev-arrow.svg" alt="" class="arrow prev" (click)="setNewSlideActive(newActiveSlideIndex-1)" [ngClass]="{'blurred': newActiveSlideIndex === 0}">
+        <div class="dots">
+            @for(review of portService.reviews; track review.author; let index = $index) {
+                <div class="dot" [ngClass]="{'active': portService.reviews[index].isActive}" (click)="setNewSlideActive(index)"></div>
+            }
+        </div>
+        <img src="../../assets/images/next-arrow.svg" alt="" class="arrow next" (click)="setNewSlideActive(newActiveSlideIndex+1)" [ngClass]="{'blurred': newActiveSlideIndex+1 === portService.reviews.length}">
+    </div>
+</div>

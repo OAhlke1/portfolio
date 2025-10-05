@@ -1,0 +1,34 @@
+$standard-green: #3dcfb6;
+$standard-green-blurry: #3dcfb630;
+$standard-black: #1c1c1c;
+$standard-padding: 0 104px;
+$standard-padding-mobile: 0 15px;
+
+@mixin disFlex($fD: row, $aI: flex-start, $jC: flex-start, $rG: 0, $cG: 0, $fWrap: nowrap) {
+    display: flex;
+    flex-direction: $fD;
+    align-items: $aI;
+    justify-content: $jC;
+    row-gap: $rG;
+    column-gap: $cG;
+    flex-wrap: $fWrap;
+}
+
+@mixin pos($pos: static, $t: unset, $r: unset, $b: unset, $l: unset, $zIndex: 0) {
+    position: $pos;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+    z-index: $zIndex;
+}
+
+@font-face {
+    font-family: 'fira-code';
+    src: url('/assets/fonts/fira-code.ttf');
+}
+
+@font-face {
+    font-family: 'karla';
+    src: url('/assets/fonts/karla.ttf');
+}

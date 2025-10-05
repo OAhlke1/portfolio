@@ -74,12 +74,12 @@
             <img [src]="project.imageSrc" alt="">
         </div>
 
-        <div class="prev-project" [ngClass]="{'disNone': project.index === 0}"
+        <!-- <div class="prev-project" [ngClass]="{'disNone': project.index === 0}"
             (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
             <img src="assets/images/prev-project-arrow.svg" alt="">
             <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
-        </div>
+        </div> -->
         <div class="next-project" [ngClass]="{'disNone': project.index + 1 === portService.projects.length}"
             (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
             <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>

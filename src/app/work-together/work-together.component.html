@@ -32,9 +32,9 @@
             <input type="text" id="yourname" name="yourname" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
         </div>
         <div>
-            <label for="email" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail?</label>
-            <label for="email" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse?</label>
-            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
+            <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail?</label>
+            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse?</label>
+            <input type="email" id="email" name="youremail" pattern="/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
         </div>
         <div>
             <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}">How can I help you?</label>

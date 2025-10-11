@@ -89,6 +89,7 @@ h1 {
             }
 
             input,
+            textarea,
             input[placeholder] {
                 width: 100%;
                 font-family: 'karla', Verdana, sans-serif;
@@ -97,7 +98,8 @@ h1 {
                 background-color: transparent;
             }
 
-            input {
+            input,
+            textarea {
                 background-color: transparent;
                 outline: 0px;
                 border: unset;

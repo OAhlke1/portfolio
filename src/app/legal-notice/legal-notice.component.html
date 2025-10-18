@@ -1,5 +1,11 @@
-<div (click)="portService.showHideBurgerMenu($event)">
-    <top-bar></top-bar>
+<div class="all-containing" (click)="portService.showHideBurgerMenu($event)">
+    
+    <div class="block">
+        <top-bar></top-bar>
+        <h1 [ngClass]="{'disNone': !portService.englishActivated}">Legal Notice</h1>
+        <h1 [ngClass]="{'disNone': !portService.germanActivated}">Impressum</h1>
+    </div>
+
     <div class="block terms">
         <div class="inner-block">
             <h2 [ngClass]="{'disNone': !portService.englishActivated}">Imprint</h2>
@@ -175,8 +181,6 @@
             </p>
         </div>
     </div>
-
-
 
     <div class="block">
         <div class="inner-block">

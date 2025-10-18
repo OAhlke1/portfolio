@@ -35,7 +35,7 @@ export class PortfolioService {
       },
       imageSrc: "assets/images/join.png",
       gitHubLink: "https://github.com/OAhlke1/join.git",
-      link: "https://oscar-ahlke.de/games/join"
+      link: "https://oscar-ahlke.de/join/"
     },
     {
       name: 'Space Jumper',

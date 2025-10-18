@@ -13,7 +13,7 @@
     </div>
 }@else {
     <div class="button-inner" [ngStyle]="buttonStyles">
-        <a [href]="url">
+        <a [href]="url" target="_blank">
             <p [ngClass]="{'disNone': !portService.englishActivated}">{{ englishText }}</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">{{ germanText }}</p>
         </a>

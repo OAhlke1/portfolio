@@ -123,6 +123,7 @@ a {
         border-radius: 30px;
         border: 1px solid $standard-green;
         background-color: $standard-black;
+        transform: translate(150%);
 
         &.shifted-in {
             animation: shift-in 125ms linear;
@@ -131,7 +132,7 @@ a {
 
         &.shifted-out {
             animation: shift-out 125ms linear;
-            transform: translateX(100%);
+            transform: translateX(150%);
         }
     }
 }

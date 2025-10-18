@@ -8,6 +8,16 @@
     display: none !important;
 }
 
+h1 {
+    font-family: 'fira-code', Verdana, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    color: $standard-green;
+    width: 100%;
+    margin: 0;
+}
+
 h2,
 a,
 p,
@@ -49,19 +59,24 @@ h2 {
     color: white;
 }
 
-top-bar {
-    @include disFlex($aI: center, $jC: space-between);
-    width: 100%;
-    max-width: 1440px;
-    min-height: 98px;
-    padding: 36px 60px;
-    background-color: $standard-black;
-    @include pos($pos: relative, $t: 0, $l: 50%, $zIndex: 5);
-    transform: translateX(-50%);
-    // overflow: hidden;
+.all-containing {
+    overflow: hidden;
 }
 
 .block {
+    top-bar {
+        @include disFlex($aI: center, $jC: space-between);
+        width: 100%;
+        max-width: 1440px;
+        min-height: 98px;
+        padding: 36px 0;
+        background-color: transparent;
+        @include pos($pos: relative, $t: 0, $l: 50%, $zIndex: 5);
+        transform: translateX(-50%);
+        z-index: 50;
+        background-color: $standard-black;
+    }
+
     @include disFlex($fD: column, $jC: space-between, $rG: 16px);
     background-color: $standard-black;
     padding: 12px 60px 12px 60px;
@@ -74,7 +89,8 @@ top-bar {
         @include disFlex($fD: column, $jC: space-between, $rG: 4px);
     }
 
-    a, span {
+    a,
+    span {
         color: white;
     }
 }
@@ -89,7 +105,15 @@ app-footer {
 }
 
 @media only screen and (max-width: 650px) {
-    top-bar, app-footer, .block {
+    h1 {
+        font-size: 32px;
+        color: white;
+        text-align: left;
+    }
+
+    top-bar,
+    app-footer,
+    .block {
         padding: 24px 15px;
     }
 }

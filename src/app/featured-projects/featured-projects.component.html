@@ -63,23 +63,14 @@
             </div>
 
             <div class="bottom-block">
-                <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="project.gitHubLink"
-                    [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
-                <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="project.link"
-                    [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
+                <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="project.gitHubLink" [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
+                <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="project.link" [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
             </div>
         </div>
 
         <div class="right">
             <img [src]="project.imageSrc" alt="">
         </div>
-
-        <!-- <div class="prev-project" [ngClass]="{'disNone': project.index === 0}"
-            (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
-            <img src="assets/images/prev-project-arrow.svg" alt="">
-            <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
-        </div> -->
         <div class="next-project" [ngClass]="{'disNone': project.index + 1 === portService.projects.length}"
             (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
             <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>

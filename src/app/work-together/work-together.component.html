@@ -27,30 +27,28 @@
 <div class="right">
     <form action="" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
         <div>
-            <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}">What's your name?</label>
-            <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}">Wie heißen Sie?</label>
+            <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}">What's your name? *</label>
+            <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}">Wie heißen Sie? *</label>
             <input [(ngModel)]="contactData.name" type="text" id="yourname" name="yourname" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
         </div>
         <div>
-            <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail?</label>
-            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse?</label>
+            <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail? *</label>
+            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse? *</label>
             <input [(ngModel)]="contactData.email" type="email" id="email" name="youremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
         </div>
         <div>
-            <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}">How can I help you?</label>
-            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}">Wie kann ich Ihnen helfen?</label>
+            <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}">How can I help you? *</label>
+            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}">Wie kann ich Ihnen helfen? *</label>
             <textarea [(ngModel)]="contactData.message" type="text" id="concern" name="concern"
                 [placeholder]="portService.englishActivated ? 'Hello Oscar, I am initerested in...' : 'Hallo Oscar. Ich wollte fragen...'"
                 required></textarea>
         </div>
         <div class="last">
-            <input type="checkbox" #checker id="privacy" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'"
-                required>
-            <label for="privacy" [ngClass]="{'disNone': !portService.englishActivated}">I've read the <a href="privacy-policy">privacy
-                    policy</a> and agree to the processing of my data as outlined</label>
-            <label for="privacy" [ngClass]="{'disNone': !portService.germanActivated}">Ich habe die <a
-                    href="privacy-policy">Datenschutzrichtlinien</a> gelesen und bin mit der Verarbeitung meiner Daten
-                einverstanden</label>
+            <input type="checkbox" #checker id="privacy" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
+            <label for="privacy" [ngClass]="{'disNone': !portService.englishActivated}">I've read the <a (click)="router.navigateByUrl('legal-notice')">Legal Notice</a>
+                and agree to the processing of my data as outlined</label>
+            <label for="privacy" [ngClass]="{'disNone': !portService.germanActivated}" required>Ich habe die
+                <a (click)="router.navigateByUrl('legal-notice')">Legal Notice</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden</label>
         </div>
         <button type="submit" #submitButton class="">
             <app-button [englishText]="'Say hello'" [germanText]="'Sagen Sie Hallo'"

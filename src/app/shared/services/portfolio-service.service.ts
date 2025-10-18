@@ -12,7 +12,7 @@ export class PortfolioService {
   englishActivated: boolean = true;
   germanActivated: boolean = false;
   links = {
-    mailAddress: 'oahlke1@gmail.com',
+    mailAddress: 'mail@oscar-ahlke.de',
     mailIcon: 'assets/images/mail-icon.svg',
     linkedInLink: 'https://www.linkedin.com/in/oscar-ahlke-949a64320/',
     linkedInIcon: 'assets/images/icon-linked-in.svg',
@@ -35,7 +35,7 @@ export class PortfolioService {
       },
       imageSrc: "assets/images/join.png",
       gitHubLink: "https://github.com/OAhlke1/join.git",
-      link: "https://oscar-ahlke.de/games/join.git"
+      link: "https://oscar-ahlke.de/games/join"
     },
     {
       name: 'Space Jumper',
@@ -52,6 +52,22 @@ export class PortfolioService {
       imageSrc: "assets/images/space-jumper.png",
       gitHubLink: "https://github.com/OAhlke1/game.git",
       link: "https://oscar-ahlke.de/games/space-jumper"
+    },
+    {
+      name: 'Pokedex',
+      index: 2,
+      pLangs: [
+        { pLang: 'HTML', pIconSrc: 'assets/images/html-icon.svg' },
+        { pLang: 'CSS', pIconSrc: 'assets/images/css-icon.svg' },
+        { pLang: 'JavaScript', pIconSrc: 'assets/images/java-script-icon.svg' },
+      ],
+      description: {
+        english: "Here you cam generate a list of Pokemon with informations to each.",
+        german: "Hier kann man sich eine Liste mit Pokemon generieren lassen mit Informatationen zu jedem."
+      },
+      imageSrc: "assets/images/pokedex.png",
+      gitHubLink: "https://github.com/OAhlke1/pokedex.git",
+      link: "https://oscar-ahlke.de/pokedex"
     }
   ];
 

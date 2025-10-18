@@ -1,0 +1,184 @@
+<top-bar></top-bar>
+<div class="block terms">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Imprint</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Impressum</h2>
+
+        <ul>
+            <li>Oscar Ahlke</li>
+            <li>Maikottenweg 124</li>
+            <li [ngClass]="{'disNone': !portService.englishActivated}">Germany</li>
+            <li [ngClass]="{'disNone': !portService.germanActivated}">Deutschland</li>
+        </ul>
+    </div>
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Exploring the board</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Erkunden des Boards</h2>
+        <p>Email: <a href="mailto:{{ portService.links.mailAddress }}">{{ portService.links.mailAddress }}</a></p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Acceptance of Terms</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Zustimmung der Bedingungen</h2>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            By accessing and using <a (click)="routes.navigateByUrl('')"><span>Portfolio</span></a> (Product), you acknowledge and
+            agree
+            to the following terms and conditions, and
+            any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the
+            listed
+            students, may update or change the terms and conditions from time to time without notice.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Durch den Zugriff auf und die Nutzung von <a (click)="routes.navigateByUrl('')"><span>Portfolio</span></a> (Product)
+            erkennen
+            Sie die folgenden Bedingungen sowie alle
+            Richtlinien, Leitlinien und Änderungen an, die Ihnen von Zeit zu Zeit vorgelegt werden. Wir, die
+            aufgeführten
+            Studierenden, können die Bedingungen von Zeit zu Zeit ohne vorherige Ankündigung aktualisieren oder ändern.
+        </p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Scope and ownership of the product</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Umfang und Eigentümer des Produkts</h2>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            <span>Portfolio</span> has been developed as part of a student group project in a web development bootcamp at the
+            <span>Developer Akademie GmbH</span>. It has an educational purpose and is not intended for extensive personal & business usage. As
+            such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality
+            regarding this Product.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            <span>Portfolio</span> wurde im Rahmen eines studentischen Gruppenprojekts eines Webentwicklungs-Bootcamps der
+            <span>Developer Akademie GmbH</span> entwickelt. Es dient einem pädagogischen Zweck und ist nicht für die umfassende
+            private und geschäftliche Nutzung vorgesehen. Daher können wir keine konstante Verfügbarkeit, Zuverlässigkeit,
+            Genauigkeit oder andere Qualitätsaspekte dieses Produkts garantieren.
+        </p>
+    </div>
+    <div class="inner-block">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            The design of <span>Portfolio</span> is owned by the <span>Developer Akademie GmbH</span>. Unauthorized use, reproduction,
+            modification, distribution, or replication of the design is strictly prohibited.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Das Design von <span>Portfolio</span> ist Eigentum der <span>Developer Akademie GmbH</span>. Die unbefugte Verwendung, Reproduktion,
+            Änderung, Verbreitung oder Vervielfältigung des Designs ist strengstens untersagt.
+        </p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Proprietary rights</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Eigentumsrechte</h2>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            Aside from the design owned by <span>Developer Akademie GmbH</span>, we, the listed students, retain all proprietary
+            rights in <span>Portfolio</span>, including any associated copyrighted material, trademarks, and other proprietary
+            information.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Neben vom Design, das Eigentum der <span>Developer Akademie GmbH</span> ist, behalte ich, Oscar Ahlke, alle
+            Eigentumsrechte am <span>Portfolio</span>, einschließlich aller zugehörigen urheberrechtlich geschützten
+            Materialien, Marken und sonstigen geschützten Informationen.
+        </p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Use of the product</h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Bentzung des Produkts</h2>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            <span>Portfolio</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and
+            regulations. Any use of <span>Portfolio</span> for illegal activities, or to harass, harm, threaten, or intimidate
+            another person, is strictly prohibited. You are solely responsible for your interactions with other users of
+            <span>Portfolio</span>.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            <span>Portfolio</span> ist ausschließlich für rechtmäßige Zwecke und in Übereinstimmung mit allen geltenden Gesetzen und
+            Vorschriften bestimmt. Jegliche Nutzung von <span>Portfolio</span> für illegale Aktivitäten oder zur Belästigung,
+            Schädigung, Bedrohung oder Einschüchterung anderer Personen ist strengstens untersagt. Sie sind allein
+            verantwortlich für Ihre Interaktionen mit anderen Nutzern von <span>Portfolio</span>.
+        </p>
+    </div>
+</div>
+
+<div class="block">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">Disclaimer of warranties and limitation of liability
+        </h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">Gewährleistungsausschluss und Haftungsbeschränkung
+        </h2>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            <span>Portfolio</span> is provided "as is" without warranty of any kind, whether express or implied, including but not
+            limited to the implied warranties of merchantability, fitness for a particular purpose, and
+            non-infringement. In no event will we, the listed students, or the <span>Developer Akademie</span>, be liable for any
+            direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to,
+            damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised
+            of the possibility of such damages, arising out of or in connection with the use or performance of <span>Portfolio</span>
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            <span>Portfolio</span> wird „wie besehen“ ohne jegliche ausdrückliche oder stillschweigende Gewährleistung
+            bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigende Gewährleistung der
+            Marktgängigkeit, der Eignung für einen bestimmten Zweck und der Nichtverletzung von Rechten Dritter. In
+            keinem Fall haften wir, die aufgeführten Studierenden oder die <span>Developer Akademie</span> für direkte, indirekte,
+            zufällige, besondere, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden
+            durch entgangenen Gewinn, Geschäftswert, Nutzung, Daten oder andere immaterielle Verluste, selbst wenn wir
+            auf die Möglichkeit solcher Schäden hingewiesen wurden, die sich aus oder im Zusammenhang mit der Nutzung
+            oder Leistung von <span>Portfolio</span> ergeben.
+        </p>
+    </div>
+</div>
+
+
+
+<div class="block">
+    <div class="inner-block">
+        <h2 [ngClass]="{'disNone': !portService.englishActivated}">
+            Indemnity
+        </h2>
+        <h2 [ngClass]="{'disNone': !portService.germanActivated}">
+            Entschädigung
+        </h2>
+
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            You agree to indemnify, defend and hold harmless us, the listed students, the <span>Developer Akademie</span>, and our
+            affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss,
+            damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of
+            <span>Portfolio</span> and/or your breach of this Legal Notice.
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Sie erklären sich damit einverstanden, uns, die aufgeführten Studenten, die <span>Developer Akademie</span> und unsere
+            verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeiter von allen
+            Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener
+            Anwaltskosten) freizustellen, zu verteidigen und schadlos zu halten, die sich aus Ihrer Nutzung von
+            <span>Portfolio</span> und/oder Ihrem Verstoß gegen diesen rechtlichen Hinweis ergeben oder damit in Zusammenhang stehen.
+        </p>
+    </div>
+    <div class="inner-block">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            For any questions or notices, please contact us at [Contact Email].
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Bei Fragen oder Hinweisen kontaktieren Sie uns bitte unter [Kontakt-E-Mail].
+        </p>
+    </div>
+    <div class="inner-block">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">
+            Date: Octorber 26, 2025
+        </p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">
+            Datum: 26. Oktober 2025
+        </p>
+    </div>
+</div>
+
+<app-footer></app-footer>

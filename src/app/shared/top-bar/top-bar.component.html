@@ -7,17 +7,17 @@
             <p>DE</p>
         </div>
     </div>
-    <div class="menu-button">
+    <a class="menu-button" href="#about-me">
         <p [ngClass]="{'disNone': !portService.englishActivated}">About me</p>
         <p [ngClass]="{'disNone': !portService.germanActivated}">Über mich</p>
-    </div>
-    <div class="menu-button">
+    </a>
+    <a class="menu-button" href="#skills">
         <p>Skills</p>
-    </div>
-    <div class="menu-button">
+    </a>
+    <a class="menu-button" href="#projects">
         <p [ngClass]="{'disNone': !portService.englishActivated}">Projects</p>
         <p [ngClass]="{'disNone': !portService.germanActivated}">Projekte</p>
-    </div>
+    </a>
 </div>
 
 <div class="burger-menu">

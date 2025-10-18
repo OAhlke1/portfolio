@@ -1,8 +1,9 @@
-import { Router, RouterOutlet, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LegalNotice } from './legal-notice/legal-notice.component';
+import { Routes } from '@angular/router';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 
 export const routes: Routes = [
-    {path: '', component: AppComponent},
-    {path: 'legal-notice', component: LegalNotice}
+    {path: '', component: MainPageComponent},
+    {path: 'legal-notice', component: LegalNoticeComponent}
 ];

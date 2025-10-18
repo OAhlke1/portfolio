@@ -11,6 +11,7 @@ a {
 .top-bar-menu,
 .top-bar-burger-menu {
     @include disFlex($aI: center, $jC: center, $cG: 24px, $fWrap: wrap);
+    overflow: hidden;
 
     .lang-switch {
         @include disFlex($fD: row, $aI: center, $jC: center);

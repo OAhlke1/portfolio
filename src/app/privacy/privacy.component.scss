@@ -54,11 +54,11 @@ top-bar {
     width: 100%;
     max-width: 1440px;
     min-height: 98px;
-    padding: 36px 60px;
+    padding: 36px 104px;
     background-color: $standard-black;
     @include pos($pos: relative, $t: 0, $l: 50%, $zIndex: 5);
     transform: translateX(-50%);
-    // overflow: hidden;
+    z-index: 50;
 }
 
 .block {
@@ -86,10 +86,4 @@ app-footer {
     background-color: $standard-black;
     padding: 72px 60px;
     position: relative;
-}
-
-@media only screen and (max-width: 650px) {
-    top-bar, app-footer, .block {
-        padding: 24px 15px;
-    }
 }

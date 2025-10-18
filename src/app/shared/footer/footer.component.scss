@@ -9,7 +9,7 @@ p {
 }
 
 .center-block {
-    @include disFlex($aI: flex-end, $jC: space-between, $rG: 32px);
+    @include disFlex($aI: flex-end, $jC: space-between, $rG: 32px, $fWrap: wrap);
     width: 100%;
 
     .logo-block {

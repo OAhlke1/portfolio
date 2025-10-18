@@ -3,7 +3,9 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { NgClass } from "../../../node_modules/@angular/common/";
 import { PortfolioService } from '../shared/services/portfolio-service.service';
 import { ButtonComponent } from "../shared/buttons/button.component";
-import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+// import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'work-together',
@@ -12,17 +14,18 @@ import { FormsModule, NgForm, NgModel } from '@angular/forms';
   templateUrl: './work-together.component.html',
   styleUrl: './work-together.component.scss'
 })
-export class WorkTogether {
+export class WorkTogetherComponent {
   @ViewChild('submitButton') submitButton!:ElementRef;
   http = inject(HttpClient);
   contactData = {
     name: "",
     email: "",
-    message: ""
+    message: "",
+    receivingMail: ""
   }
   mailTest = false;
 
-  constructor(public portService:PortfolioService) { }
+  constructor(public portService:PortfolioService, public router:Router) { }
 
   post = {
     endPoint: 'https://oscar-ahlke.de/angular/portfolio/sendMail.php',
@@ -36,7 +39,6 @@ export class WorkTogether {
   };
 
   onSubmit(ngForm: NgForm) {
-    console.log('läuft vielleicht', ngForm);
     if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
       this.http
         .post(this.post.endPoint, this.post.body(this.contactData))
@@ -51,7 +53,6 @@ export class WorkTogether {
           complete: () => console.info('send post complete'),
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      console.log(ngForm);
       ngForm.resetForm();
     }
   }

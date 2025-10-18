@@ -9,9 +9,9 @@ import { Footer } from "../shared/footer/footer.component";
   selector: 'app-privacy-policy',
   standalone: true,
   imports: [TopBarComponent, NgClass, Footer],
-  templateUrl: './legal-notice.component.html',
-  styleUrl: './legal-notice.component.scss'
+  templateUrl: './privacy.component.html',
+  styleUrl: './privacy.component.scss'
 })
-export class LegalNoticeComponent {
+export class PrivacyComponent {
   constructor(public portService:PortfolioService, public routes:Router) { }
 }

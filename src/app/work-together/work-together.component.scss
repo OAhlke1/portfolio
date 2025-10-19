@@ -25,6 +25,15 @@ h1 {
     font-family: 'fira-code';
 }
 
+.lets-talk {
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .left {
     @include disFlex($fD: column, $rG: 40px);
     width: 100%;

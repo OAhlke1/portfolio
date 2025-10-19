@@ -19,7 +19,5 @@ export class ButtonComponent {
 
   constructor(public portService:PortfolioService) { }
   
-  ngOnInit() {
-    console.log(this.englishText, this.iconSrc, this.sign);
-  }
+  ngOnInit() { }
 }

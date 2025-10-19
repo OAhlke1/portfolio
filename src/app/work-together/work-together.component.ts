@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrl: './work-together.component.scss'
 })
 export class WorkTogetherComponent {
+  @ViewChild('yourName') yourNameInput!:ElementRef;
   @ViewChild('submitButton') submitButton!:ElementRef;
   http = inject(HttpClient);
   contactData = {
@@ -55,5 +56,9 @@ export class WorkTogetherComponent {
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
       ngForm.resetForm();
     }
+  }
+
+  focusYourNameInput() {
+    this.yourNameInput.nativeElement.focus();
   }
 }

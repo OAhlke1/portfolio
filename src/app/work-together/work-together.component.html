@@ -27,9 +27,8 @@
             <br>Schicken Sie mir ihre Idee und ich werde mir nicht überlegen ob sondern, wie man diese umsetzen kann.
         </p>
 
-        <p [ngClass]="{'disNone': !portService.englishActivated}">Need a Frontend developer? <span>Lets talk!</span></p>
-        <p [ngClass]="{'disNone': !portService.germanActivated}">Sie brauchen einen Frontend-Entwickler? <span>Lassen
-                Sie uns sprechen!</span></p>
+        <p [ngClass]="{'disNone': !portService.englishActivated}">Need a Frontend developer? <span class="lets-talk" (click)="focusYourNameInput()">Lets talk!</span></p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Sie brauchen einen Frontend-Entwickler? <span class="lets-talk" (click)="focusYourNameInput()">Lassen Sie uns sprechen!</span></p>
     </div>
 </div>
 <div class="right">
@@ -38,7 +37,7 @@
             <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}">What's your name? *</label>
             <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}">Wie heißen Sie? *</label>
             <input [(ngModel)]="contactData.name" type="text" id="yourname" name="yourname"
-                [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
+                [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required #yourName>
         </div>
         <div>
             <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail? *</label>

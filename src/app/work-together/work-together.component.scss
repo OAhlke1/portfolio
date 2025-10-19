@@ -67,6 +67,14 @@ h1 {
     }
 }
 
+.show-at-over-650 {
+    display: block;
+}
+
+.show-at-under-650 {
+    display: none;
+}
+
 .right {
     @include disFlex($fD: column, $rG: 0px);
     width: 100%;
@@ -140,20 +148,40 @@ h1 {
 }
 
 @media only screen and (max-width: 650px) {
-    .headline-block {
-        h2 {
-            font-size: 56px;
+    .left {
+        .headline-block {
+            h1 {
+                font-size: 56px;
+            }
+        }
+
+        .right {
+            form {
+                &>div {
+                    padding: 32px 16px;
+
+                    label {
+                        font-size: 20px;
+                    }
+                }
+            }
         }
     }
 
-    .right {
-        form {
-            &>div {
-                padding: 32px 16px;
-                
-                label {
-                    font-size: 20px;
-                }
+    .show-at-over-650 {
+        display: none;
+    }
+
+    .show-at-under-650 {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .left {
+        .headline-block {
+            h1 {
+                font-size: 44px;
             }
         }
     }

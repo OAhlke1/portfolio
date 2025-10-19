@@ -18,4 +18,8 @@ export class ButtonComponent {
   @Input() buttonStyles!: {};
 
   constructor(public portService:PortfolioService) { }
+  
+  ngOnInit() {
+    console.log(this.englishText, this.iconSrc, this.sign);
+  }
 }

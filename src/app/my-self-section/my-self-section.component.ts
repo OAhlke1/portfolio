@@ -10,6 +10,6 @@ import { ButtonComponent } from '../shared/buttons/button.component';
   templateUrl: './my-self-section.component.html',
   styleUrl: './my-self-section.component.scss'
 })
-export class MySelfSection {
+export class MySelfSectionComponent {
   constructor(public portService:PortfolioService) { }
 }

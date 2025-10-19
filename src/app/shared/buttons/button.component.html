@@ -16,7 +16,7 @@
         <a [href]="url" target="_blank">
             <p [ngClass]="{'disNone': !portService.englishActivated}">{{ englishText }}</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">{{ germanText }}</p>
+            <img [src]="iconSrc" alt="" [ngClass]="{'disBlock': iconSrc || sign}">
         </a>
-        <img [src]="iconSrc" alt="" [ngClass]="{'disNone': !iconSrc && !sign}">
     </div>
 }

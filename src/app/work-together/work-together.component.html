@@ -3,7 +3,9 @@
         <h2 [ngClass]="{'disNone': !portService.englishActivated}">Contact me</h2>
         <h2 [ngClass]="{'disNone': !portService.germanActivated}">Kontaktieren Sie mich</h2>
         <h1 [ngClass]="{'disNone': !portService.englishActivated}">Let's work together</h1>
-        <h1 [ngClass]="{'disNone': !portService.germanActivated}">Lassen Sie uns zusammenarbeiten</h1>
+        <h1 [ngClass]="{'disNone': !portService.germanActivated}">Lassen Sie uns <span
+                class="show-at-over-650">zusammenarbeiten</span><span class="show-at-under-650">zusammen-arbeiten</span>
+        </h1>
     </div>
 
     <div class="text-block">
@@ -11,12 +13,18 @@
         <h1 [ngClass]="{'disNone': !portService.germanActivated}">Sie haben ein Problem zu lösen?</h1>
 
         <p [ngClass]="{'disNone': !portService.englishActivated}">
-            Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
-            <br>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
+            Are you looking for a front-end developer who is motivated to participate in every project?
+            <br>I'm always open to new projects, ideas, and tasks.
+            <br>In my four years of experience as a developer, I haven't encountered a single problem I haven't been
+            able to solve.
+            <br>Send me your idea, and I'll focus not on whether it can be implemented, but on how.
         </p>
         <p [ngClass]="{'disNone': !portService.germanActivated}">
-            Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
-            <br>Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
+            Sie suchen einen Frontend-Entwickler der bei jedem Projekt motiviert mitmacht?
+            <br>Ich bin immer offen für neue Projekte, Ideen und Aufgaben.
+            <br>Es gab in meinen bislang schon vierjährigen Erfahrung als Entwickler noch kein Problem, das ich nicht
+            lösen konnte.
+            <br>Schicken Sie mir ihre Idee und ich werde mir nicht überlegen ob sondern, wie man diese umsetzen kann.
         </p>
 
         <p [ngClass]="{'disNone': !portService.englishActivated}">Need a Frontend developer? <span>Lets talk!</span></p>
@@ -29,30 +37,38 @@
         <div>
             <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}">What's your name? *</label>
             <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}">Wie heißen Sie? *</label>
-            <input [(ngModel)]="contactData.name" type="text" id="yourname" name="yourname" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
+            <input [(ngModel)]="contactData.name" type="text" id="yourname" name="yourname"
+                [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
         </div>
         <div>
             <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail? *</label>
-            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse? *</label>
-            <input [(ngModel)]="contactData.email" type="email" id="email" name="youremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
+            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse?
+                *</label>
+            <input [(ngModel)]="contactData.email" type="email" id="email" name="youremail"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
         </div>
         <div>
             <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}">How can I help you? *</label>
-            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}">Wie kann ich Ihnen helfen? *</label>
+            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}">Wie kann ich Ihnen helfen?
+                *</label>
             <textarea [(ngModel)]="contactData.message" type="text" id="concern" name="concern"
                 [placeholder]="portService.englishActivated ? 'Hello Oscar, I am initerested in...' : 'Hallo Oscar. Ich wollte fragen...'"
                 required></textarea>
         </div>
         <div class="last">
-            <input type="checkbox" #checker id="privacy" [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
-            <label for="privacy" [ngClass]="{'disNone': !portService.englishActivated}">I've read the <a (click)="router.navigateByUrl('legal-notice')">Legal Notice</a>
+            <input type="checkbox" #checker id="privacy"
+                [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required>
+            <label for="privacy" [ngClass]="{'disNone': !portService.englishActivated}">I've read the <a
+                    (click)="router.navigateByUrl('legal-notice')">Legal Notice</a>
                 and agree to the processing of my data as outlined</label>
             <label for="privacy" [ngClass]="{'disNone': !portService.germanActivated}" required>Ich habe die
-                <a (click)="router.navigateByUrl('legal-notice')">Legal Notice</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden</label>
+                <a (click)="router.navigateByUrl('legal-notice')">Legal Notice</a> gelesen und bin mit der Verarbeitung
+                meiner Daten einverstanden</label>
         </div>
-        <button type="submit" #submitButton class="">
+        <button type="submit" #submitButton>
             <app-button [englishText]="'Say hello'" [germanText]="'Sagen Sie Hallo'"
-                [buttonStyles]="{'width': 'fit-content'}" [sign]="''" [iconSrc]="''" type="submit"></app-button>
+                [buttonStyles]="{'width': 'fit-content'}"></app-button>
         </button>
     </form>
 </div>

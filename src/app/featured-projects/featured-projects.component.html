@@ -29,49 +29,61 @@
 
 @if(project) {
 <div class="project-lightbox" [ngClass]="{'disNone': !overlayShown}">
-    <div class="container">
-
-        <div class="close-lightbox" (click)="overlayShown=false;">
-            <img src="assets/images/close-lightbox.svg" alt="">
-        </div>
-
-        <div class="left">
-            <div class="headline-block">
-                @if(project.index < 10) { <h1>0{{ project.index + 1 }}</h1>
-                    }@else {
-                    <h1>{{ project.index + 1 }}</h1>
-                    }
-                    <h2>{{ project.name }}</h2>
+    <div class="outer-container">
+        <div class="container">
+            <div class="close-lightbox" (click)="overlayShown=false;">
+                <img src="assets/images/close-lightbox.svg" alt="">
             </div>
 
-            <div class="center-block">
-                <h2 [ngClass]="{'disNone': !portService.englishActivated}">What is this project about?</h2>
-                <h2 [ngClass]="{'disNone': !portService.germanActivated}">Worum geht es in diesem Projekt?</h2>
+            <div class="left">
+                <div class="headline-block">
+                    @if(project.index < 10) { <h1>0{{ project.index + 1 }}</h1>
+                        }@else {
+                        <h1>{{ project.index + 1 }}</h1>
+                        }
+                        <h2>{{ project.name }}</h2>
+                </div>
 
-                <p class="description" [ngClass]="{'disNone': !portService.englishActivated}">{{
-                    project.description.english
-                    }}</p>
-                <p class="description" [ngClass]="{'disNone': !portService.germanActivated}">{{
-                    project.description.german
-                    }}</p>
+                <div class="center-block">
+                    <h2 [ngClass]="{'disNone': !portService.englishActivated}">What is this project about?</h2>
+                    <h2 [ngClass]="{'disNone': !portService.germanActivated}">Worum geht es in diesem Projekt?</h2>
 
-                <div class="languages">
-                    @for(language of project.pLangs; track language.pIconSrc) {
-                    <img [src]="language.pIconSrc" alt="">
-                    }
+                    <p class="description" [ngClass]="{'disNone': !portService.englishActivated}">{{
+                        project.description.english
+                        }}</p>
+                    <p class="description" [ngClass]="{'disNone': !portService.germanActivated}">{{
+                        project.description.german
+                        }}</p>
+
+                    <div class="languages">
+                        @for(language of project.pLangs; track language.pIconSrc) {
+                        <img [src]="language.pIconSrc" alt="">
+                        }
+                    </div>
+                </div>
+
+                <div class="bottom-block">
+                    <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="project.gitHubLink"
+                        [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
+                    <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="project.link"
+                        [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
                 </div>
             </div>
 
-            <div class="bottom-block">
-                <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="project.gitHubLink" [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
-                <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="project.link" [iconSrc]="'assets/images/up-right-arrow.svg'"></app-button>
+            <div class="right">
+                <img [src]="project.imageSrc" alt="">
             </div>
         </div>
+    </div>
 
-        <div class="right">
-            <img [src]="project.imageSrc" alt="">
+    <div class="prev-next">
+        <div class="prev-project" [ngClass]="{'opac-zero': project.index === 0}"
+            (click)="openLightBox(project.index-1 < portService.projects.length ? project.index-1 : 0)">
+            <img src="assets/images/prev-project-arrow.svg" alt="">
+            <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
         </div>
-        <div class="next-project" [ngClass]="{'disNone': project.index + 1 === portService.projects.length}"
+        <div class="next-project" [ngClass]="{'opac-zero': project.index + 1 === portService.projects.length}"
             (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
             <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>

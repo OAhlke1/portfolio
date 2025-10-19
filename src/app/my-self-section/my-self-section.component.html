@@ -1,7 +1,7 @@
 <div class="container">
     <div class="outer-container">
         <div class="green-box image">
-            <img src="assets/images/head-icon.svg" alt="">
+            <img src="assets/images/ich.jpg" alt="">
         </div>
 
         <div class="green-box">
@@ -44,19 +44,44 @@
                 <h1 [ngClass]="{'disNone': !portService.englishActivated}">Skill Set</h1>
                 <h1 [ngClass]="{'disNone': !portService.germanActivated}">Skill-Set</h1>
 
-                <p class="top-text">
-                    lorem ipsum.
+                <p [ngClass]="{'disNone': !portService.englishActivated}">
+                    I have four years of experience in web development.
+                    This experience focuses on creating front-end websites.
+                    For these four years, I have been programming in HTML, CSS, and JavaScript.
+                    <br>I was able to learn Angular, TypeScript, and SCSS while participating in the Developer Academy,
+                    which is why I am now proficient in these as well.
+                    <br>Furthermore, the Developer Academy enabled me to acquire skills in using GitHub/Git, Bootstrap,
+                    Firebase/Firestore, and the basics of using REST APIs.
+                </p>
+                <p [ngClass]="{'disNone': !portService.germanActivated}">
+                    Ich bringe eine bislang vierjährige Erfahrungen im Bereich der Webentwicklung mit.
+                    Diese Erfahrungen belaufen sich auf das Erstellen von Websites im Frontend-Bereich.
+                    Seit diesen vier Jahren programmiere ich in HTML, CSS und JavaScript.
+                    <br>Angular, TypeScript, SCSS, konnte ich im Zuge meiner Teilnahme an der Developer Akademie
+                    erlernen, weswegen ich nun auch dies beherrsche.
+                    <br>Zudem konnte ich in der Developer Akademie die Fähigkeiten im Umgang mit GitHub/Git, Bootstrap,
+                    Firebase/Firestore und die Grundlagen für das Verwenden von REST-APIs erwerben.
                 </p>
 
-                <p class="big" [ngClass]="{'disNone': !portService.englishActivated}">
-                    <span style="color: white;">You need</span> another Skill?
-                </p>
-                <p class="big" [ngClass]="{'disNone': !portService.germanActivated}">
-                    <span style="color: white;">Sie brauchen</span> noch weitere Skills?
-                </p>
+                <div class="bottom-text">
+                    <p class="big" [ngClass]="{'disNone': !portService.englishActivated}">
+                        <span style="color: white;">You need</span> another Skill?
+                    </p>
+                    <p [ngClass]="{'disNone': !portService.englishActivated}">
+                        Feel free to contact me. I look forward to expanding on my previous knowledge.
+                    </p>
+                    <p class="big" [ngClass]="{'disNone': !portService.germanActivated}">
+                        <span style="color: white;">Sie brauchen</span> noch weitere Skills?
+                    </p>
+                    <p [ngClass]="{'disNone': !portService.germanActivated}">
+                        Nehmen Sie gerne Kontakt mit mir auf. Ich freue mich darauf, meine bisherigen Kenntnisse zu
+                        erweitern.
+                    </p>
+                </div>
             </div>
 
-            <app-button [englishText]="'Let´s Talk'" [germanText]="'Melden Sie sich'" [url]="'#work-together'"></app-button>
+            <app-button [englishText]="'Let´s Talk'" [germanText]="'Melden Sie sich'"
+                [url]="'#work-together'"></app-button>
         </div>
 
         <div class="icons">

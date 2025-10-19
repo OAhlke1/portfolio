@@ -150,6 +150,10 @@ p {
                 h1 {
                     font-size: 54px;
                 }
+
+                .bottom-text {
+                    @include disFlex($fD: column, $rG: 16px);
+                }
             }
 
             p.big {

@@ -13,7 +13,7 @@ p {
     width: 100%;
 
     .logo-block {
-        @include disFlex($fD: column, $jC: center, $rG: 32px);
+        @include disFlex($fD: column, $jC: center, $rG: 25px);
         width: fit-content;
 
         img {

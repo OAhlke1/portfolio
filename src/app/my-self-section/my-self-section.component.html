@@ -11,24 +11,61 @@
                 <h1 [ngClass]="{'disNone': !portService.englishActivated}">About me</h1>
                 <h1 [ngClass]="{'disNone': !portService.germanActivated}">Über mich</h1>
 
-                <p class="top-text">
-                    lorem ipsum.
+                <p class="top-text" [ngClass]="{'disNone': !portService.englishActivated}">
+                    Hello everyone! My name is Oscar Ahlke.
+                    <br>I'm a front-end web developer with four years of professional experience.
+                    <br>My philosophy is that there are no problems, only solutions.
+                    <br>In my time as a web developer, there has never been a problem that
+                    I couldn't solve.
+                </p>
+                <p class="top-text" [ngClass]="{'disNone': !portService.germanActivated}">
+                    Hallo zusammen! Mein Name ist Oscar Ahlke.
+                    Ich bin Webentwickler im Frontend und bringe eine
+                    bereits vierjährige Berufserfahrung mit.
+                    <br>Meine Einstellung ist, dass es keine Probleme, sondern
+                    nur Lösungen gibt.
+                    Es gab in meiner Zeit als Webentwickler noch nie ein Problem, welches
+                    ich nicht lösen konnte.
                 </p>
 
                 <ul>
                     <li>
-                        Lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
-                        lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        <span [ngClass]="{'disNone': !portService.englishActivated}">
+                            I originally come from Steinfurt, but have been living in Münster, NRW, for a long time.
+                        </span>
+                        <span [ngClass]="{'disNone': !portService.germanActivated}">
+                            Ursprünglich stamme ich aus Steinfurt, wohne aber seit 7 Jahren
+                            in Münster, NRW.
+                        </span>
                         <img src="assets/images/map-needle.svg" alt="" class="li-icon">
                     </li>
                     <li>
-                        Lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
-                        lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        <span [ngClass]="{'disNone': !portService.englishActivated}">
+                            I'm always interested in learning new things,
+                            because our technology continues to evolve.
+                        </span>
+                        <span [ngClass]="{'disNone': !portService.germanActivated}">
+                            Ich bin stehts daran interessiert, neue Dinge zu erlernen,
+                            da sich unsere Technologie immer weiter entwickelt.
+                        </span>
                         <img src="assets/images/head-icon.svg" alt="" class="li-icon">
                     </li>
                     <li>
-                        Lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
-                        lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.lorem ipsum.
+                        <span [ngClass]="{'disNone': !portService.englishActivated}">
+                            When I try to solve a problem, I first look for the most efficient approach.
+                            <br>If implementation shows that my idea works, the next step is to consider how to
+                            implement
+                            the code as leanly as possible.
+                            <br>And if my first idea does not work, I try a second approach until I find the solution.
+                        </span>
+                        <span [ngClass]="{'disNone': !portService.germanActivated}">
+                            Beim Lösen eines Problems suche, schaue ich zunächst was der effizienteste Weg ist.
+                            <br>Wenn sich bei der Umsetzung zeigt, dass meine Idee funktioniert, überlege ich mir im
+                            nächsten Schritt
+                            wie man den Code so schlank wie möglich umsetzen kann.
+                            <br>Und wenn meine erste Idee nicht gut umsetzbar ist, versuche ich einen zweiten Weg, so
+                            lange, bis ich die Lösung gefunden habe.
+                        </span>
                         <img src="assets/images/tic-wheel-icon.svg" alt="" class="li-icon">
                     </li>
                 </ul>

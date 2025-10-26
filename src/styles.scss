@@ -1,3 +1,10 @@
+@import "./app/mixins.scss";
+
+html {
+    // background-color: $standard-black;
+    background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
+}
+
 body {
     max-width: 1440px;
     padding: 0;

@@ -9,6 +9,6 @@ import { PortfolioService } from '../services/portfolio-service.service';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class Footer {
+export class FooterComponent {
   constructor(public portService:PortfolioService) { }
 }

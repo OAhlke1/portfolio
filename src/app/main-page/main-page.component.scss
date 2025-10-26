@@ -14,8 +14,6 @@ top-section {
     width: 100%;
     min-height: 500px;
     height: 100vh;
-    max-height: 900px;
-    background: #080707;
     background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
     padding: $standard-padding;
     @include pos($pos: relative);
@@ -58,8 +56,6 @@ app-footer {
 
 @media only screen and (max-width: 750px) {
     top-section {
-        min-height: 500px;
-        max-height: 844px;
         padding: $standard-padding-mobile;
     }
 

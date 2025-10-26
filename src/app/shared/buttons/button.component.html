@@ -13,7 +13,7 @@
     </div>
 }@else {
     <div class="button-inner" [ngStyle]="buttonStyles">
-        <a [href]="url" target="_blank">
+        <a [href]="url" [attr.target]="inNewTab ? '_blank' : null">
             <p [ngClass]="{'disNone': !portService.englishActivated}">{{ englishText }}</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">{{ germanText }}</p>
             <img [src]="iconSrc" alt="" [ngClass]="{'disBlock': iconSrc || sign}">

@@ -16,6 +16,7 @@ export class ButtonComponent {
   @Input() url!:string;
   @Input() iconSrc!:string;
   @Input() buttonStyles!: {};
+  @Input() inNewTab:boolean = false;
 
   constructor(public portService:PortfolioService) { }
   

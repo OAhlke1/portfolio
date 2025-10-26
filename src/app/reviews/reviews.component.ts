@@ -1,6 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { PortfolioService } from '../shared/services/portfolio-service.service';
 import { NgClass, NgStyle } from "../../../node_modules/@angular/common";
+import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'reviews-section',
@@ -31,9 +32,8 @@ export class ReviewsComponent {
   sliderOffsetOld: number = 0;
   sliderPadding: number = 0;
   animationRuns: boolean = false;
-  slidingForward:boolean = true;
+  slidingForward: boolean = true;
   shiftToLeft: boolean = true;
-  slideAnimationRuns:boolean = false;
   intervalCode: any = 0;
 
   constructor(public portService: PortfolioService) { }
@@ -61,13 +61,14 @@ export class ReviewsComponent {
     this.preshiftSlider();
     this.newActiveSlideOffset = this.newActiveSlide.offsetLeft;
   }
-  
+
   preshiftSlider() {
-    this.slider.style.left = `${(this.sliderOffsetOld + this.sliderOuter.offsetWidth - this.newActiveSlide.offsetWidth)/2}px`;
+    this.slider.style.left = `${(this.sliderOffsetOld + this.sliderOuter.offsetWidth - this.newActiveSlide.offsetWidth) / 2}px`;
   }
-  
+
   setNewSlideActive(index: number) {
-    if (index < 0 || index === this.portService.reviews.length || index === this.newActiveSlideIndex || this.slideAnimationRuns) { return; }
+    if (index < 0 || index === this.portService.reviews.length || index === this.newActiveSlideIndex || this.animationRuns) { return; }
+    this.animationRuns = true;
     this.oldActiveSlideIndex = this.newActiveSlideIndex;
     this.oldActiveSlide = this.slidesArray[this.oldActiveSlideIndex];
     this.portService.reviews[this.oldActiveSlideIndex].isActive = false;
@@ -75,22 +76,22 @@ export class ReviewsComponent {
     this.newActiveSlide = this.slidesArray[this.newActiveSlideIndex];
     this.sliderOffsetOld = this.slider.getBoundingClientRect().left;
     this.shiftToLeft = this.newActiveSlideIndex - this.oldActiveSlideIndex > 0 ? true : false;
-    this.distance = (this.sliderOuter.offsetWidth - this.newActiveSlide.offsetWidth)/2 - this.newActiveSlide.getBoundingClientRect().left + (this.shiftToLeft ? this.widthDifference : -this.widthDifference)/2;
-    this.intervalCode = setInterval(()=>{ this.shiftSlider(); }, 10);
+    this.distance = (this.sliderOuter.offsetWidth - this.newActiveSlide.offsetWidth) / 2 - this.newActiveSlide.getBoundingClientRect().left + (this.shiftToLeft ? this.widthDifference : -this.widthDifference) / 2;
+    this.intervalCode = setInterval(() => { this.shiftSlider(); }, 5);
   }
-  
+
   shiftSlider() {
-    this.slideAnimationRuns = true;
-    if(this.shiftingPerce >= 1) {
+    if (this.shiftingPerce >= 100) {
+      this.animationRuns = false;
       this.shiftingPerce = 0;
       clearInterval(this.intervalCode);
       this.portService.reviews[this.newActiveSlideIndex].isActive = true;
-      this.slideAnimationRuns = false;
+      this.sliderOffset = this.sliderOffsetOld;
       return;
     }
-    this.shiftingPerce += 0.02;
-    this.oldActiveSlide.style.height = `${this.slideHeights.active - this.heightDifference*this.shiftingPerce}px`;
-    this.newActiveSlide.style.height = `${this.slideHeights.unActive + this.heightDifference*this.shiftingPerce}px`;
-    this.slider.style.left = `${this.sliderOffsetOld + this.shiftingPerce*this.distance}px`;
+    this.shiftingPerce += 1;
+    this.oldActiveSlide.style.height = `${this.slideHeights.active - this.heightDifference * this.shiftingPerce / 100}px`;
+    this.newActiveSlide.style.height = `${this.slideHeights.unActive + this.heightDifference * this.shiftingPerce / 100}px`;
+    this.slider.style.left = `${this.sliderOffsetOld + this.shiftingPerce * this.distance / 100}px`;
   }
 }

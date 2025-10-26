@@ -3,14 +3,14 @@ import { TopSectionComponent } from '../top-section/top-section.component';
 import { MySelfSectionComponent } from '../my-self-section/my-self-section.component';
 import { FeaturedProjectsComponent } from '../featured-projects/featured-projects.component';
 import { ReviewsComponent } from '../reviews/reviews.component';
-import { Footer } from '../shared/footer/footer.component';
+import { FooterComponent } from '../shared/footer/footer.component';
 import { WorkTogetherComponent } from '../work-together/work-together.component';
 import { PortfolioService } from '../shared/services/portfolio-service.service';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, Footer, WorkTogetherComponent],
+  imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, FooterComponent, WorkTogetherComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })

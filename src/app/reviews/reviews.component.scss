@@ -137,9 +137,29 @@ p {
                     aspect-ratio: 358 / 360;
                 }
 
-                /* .quotation-marks {
+                .quotation-marks {
                     display: none !important;
-                } */
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .slider-outer {
+        .slider {
+            height: 368px;
+            column-gap: 8px;
+
+            .slide {
+                width: 358px;
+                height: 248px;
+                
+                &.active {
+                    width: 90vw;
+                    max-width: 358px;
+                    aspect-ratio: 358 / 360;
+                }
             }
         }
     }

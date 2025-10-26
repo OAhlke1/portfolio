@@ -103,38 +103,6 @@ export class PortfolioService {
     review: "bla bla bla bla bla lorem ipsum, bla.",
     author: "Max Mustermann VI",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
-    author: "Max Mustermann VI",
-    isActive: false
   }];
 
   constructor() { }

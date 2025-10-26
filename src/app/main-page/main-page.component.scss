@@ -37,6 +37,7 @@ featured-projects {
 work-together {
     @include disFlex($aI: center, $rG: 40px, $cG: 64px);
     padding: 72px 60px;
+    @include pos($pos: relative);
 }
 
 reviews-section {

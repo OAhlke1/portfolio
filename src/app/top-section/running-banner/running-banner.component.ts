@@ -23,8 +23,14 @@ export class RunningBannerComponent {
     for (let i = 0; i < 3; i++) {
       this.bannerKeywords.push({ eng: 'Available for remote work', ger: 'Homeoffice möglich' });
       this.bannerKeywords.push({ eng: 'I can code', ger: 'Ich kann programmieren' });
+      this.bannerKeywords.push({ eng: 'I am reliable', ger: 'Ich bin zuverlässig' });
+      this.bannerKeywords.push({ eng: 'I am dedicated', ger: 'Ich bin engagiert' });
+      this.bannerKeywords.push({ eng: 'I am open minded', ger: 'Ich bin offen für neues' });
       this.bannerKeywords.push({ eng: 'Available for remote work', ger: 'Homeoffice möglich' });
       this.bannerKeywords.push({ eng: 'I can code', ger: 'Ich kann programmieren' });
+      this.bannerKeywords.push({ eng: 'I am reliable', ger: 'Ich bin zuverlässig' });
+      this.bannerKeywords.push({ eng: 'I am dedicated', ger: 'Ich bin engagiert' });
+      this.bannerKeywords.push({ eng: 'I am open minded', ger: 'Ich bin offen für neues' });
     }
   }
 

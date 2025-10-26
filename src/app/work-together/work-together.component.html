@@ -27,33 +27,42 @@
             <br>Schicken Sie mir ihre Idee und ich werde mir nicht überlegen ob sondern, wie man diese umsetzen kann.
         </p>
 
-        <p [ngClass]="{'disNone': !portService.englishActivated}">Need a Frontend developer? <span class="lets-talk" (click)="focusYourNameInput()">Lets talk!</span></p>
-        <p [ngClass]="{'disNone': !portService.germanActivated}">Sie brauchen einen Frontend-Entwickler? <span class="lets-talk" (click)="focusYourNameInput()">Lassen Sie uns sprechen!</span></p>
+        <p [ngClass]="{'disNone': !portService.englishActivated}">Need a Frontend developer? <span class="lets-talk"
+                (click)="focusYourNameInput()">Lets talk!</span></p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">Sie brauchen einen Frontend-Entwickler? <span
+                class="lets-talk" (click)="focusYourNameInput()">Lassen Sie uns sprechen!</span></p>
     </div>
 </div>
 <div class="right">
     <form action="" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
         <div>
-            <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}">What's your name? *</label>
-            <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}">Wie heißen Sie? *</label>
+            <label for="yourname" [ngClass]="{'disNone': !portService.englishActivated}" #yourNameLabelE>What's your
+                name? *</label>
+            <label for="yourname" [ngClass]="{'disNone': !portService.germanActivated}" #yourNameLabelG>Wie heißen Sie?
+                *</label>
             <input [(ngModel)]="contactData.name" type="text" id="yourname" name="yourname"
-                [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required #yourName>
+                [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required
+                #yourNameInput value="'Oscr Ahlke'">
         </div>
         <div>
-            <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your mail? *</label>
-            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre Mail-Adresse?
+            <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}" #yourMailLabelE>What's your
+                mail? *</label>
+            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}" #yourMailLabelG>Wie lautet ihre
+                Mail-Adresse?
                 *</label>
             <input [(ngModel)]="contactData.email" type="email" id="email" name="youremail"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required>
+                pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/"
+                [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required
+                #yourMailInput value="'oahlke1@gmail.com'">
         </div>
         <div>
-            <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}">How can I help you? *</label>
-            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}">Wie kann ich Ihnen helfen?
-                *</label>
+            <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}" #yourMessageLabelE>How can I
+                help you? *</label>
+            <label for="concern" [ngClass]="{'disNone': !portService.germanActivated}" #yourMessageLabelG>Wie kann ich
+                Ihnen helfen? *</label>
             <textarea [(ngModel)]="contactData.message" type="text" id="concern" name="concern"
                 [placeholder]="portService.englishActivated ? 'Hello Oscar, I am initerested in...' : 'Hallo Oscar. Ich wollte fragen...'"
-                required></textarea>
+                required #yourMessageInput value="'Dummytext'"></textarea>
         </div>
         <div class="last">
             <input type="checkbox" #checker id="privacy"
@@ -70,4 +79,14 @@
                 [buttonStyles]="{'width': 'fit-content'}"></app-button>
         </button>
     </form>
+</div>
+
+<div class="mail-sent" #mailSent [ngClass]="{'fade-in' : sentAdviceShown, 'disNone' : !sentAdviceShown}">
+    @if(mailSentSuccessfully) {
+    <p [ngClass]="{'disNone': !portService.englishActivated}">Your mail has been sent successfully!</p>
+    <p [ngClass]="{'disNone': !portService.germanActivated}">Ihre Mail wurde erfolgreich versendet!!</p>
+    } @else {
+    <p [ngClass]="{'disNone': !portService.englishActivated}">Your mail has not been sent successfully!</p>
+    <p [ngClass]="{'disNone': !portService.germanActivated}">Ihre Mail wurde nicht erfolgreich versendet!!</p>
+    }
 </div>

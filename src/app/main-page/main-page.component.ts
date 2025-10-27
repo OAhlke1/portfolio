@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as AOS from 'aos';
 import { TopSectionComponent } from '../top-section/top-section.component';
 import { MySelfSectionComponent } from '../my-self-section/my-self-section.component';
 import { FeaturedProjectsComponent } from '../featured-projects/featured-projects.component';
@@ -12,8 +13,18 @@ import { PortfolioService } from '../shared/services/portfolio-service.service';
   standalone: true,
   imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, FooterComponent, WorkTogetherComponent],
   templateUrl: './main-page.component.html',
-  styleUrl: './main-page.component.scss'
+  styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
-  constructor(public portService:PortfolioService) { }
+  constructor(public portService: PortfolioService) { }
+
+  ngOnInit(): void {
+    AOS.init();
+    console.log('AOS intialized');
+  }
+
+  ngAfterViewInit(): void {
+    AOS.init();
+    AOS.refresh();
+  }
 }

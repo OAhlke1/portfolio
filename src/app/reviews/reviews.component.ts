@@ -68,6 +68,7 @@ export class ReviewsComponent {
 
   setNewSlideActive(index: number) {
     if (index < 0 || index === this.portService.reviews.length || index === this.newActiveSlideIndex || this.animationRuns) { return; }
+    clearInterval(this.intervalCode);
     this.animationRuns = true;
     this.oldActiveSlideIndex = this.newActiveSlideIndex;
     this.oldActiveSlide = this.slidesArray[this.oldActiveSlideIndex];

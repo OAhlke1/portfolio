@@ -43,6 +43,8 @@ p {
 
         .slide {
             @include disFlex($fD: column, $jC: space-between, $rG: 40px);
+            width: 90vw;
+            max-width: 632px;
             height: 90%;
             aspect-ratio: 316 / 137;
             @include pos($pos: relative);

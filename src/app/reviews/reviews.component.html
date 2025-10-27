@@ -1,7 +1,7 @@
 <h1 [ngClass]="{'disNone': !portService.englishActivated}">What my colleagues say about me</h1>
 <h1 [ngClass]="{'disNone': !portService.germanActivated}">Was meine Kollegen über mich sagen</h1>
 
-<div class="slider-outer" #sliderOuter>
+<div class="slider-outer" #sliderOuter (resize)="setNewSlideActive(0)">
     <div class="slider" #slider>
         @for(review of portService.reviews; track review.author; let index = $index) {
         <div class="slide" [ngClass]="{'active': review.isActive}" (click)="setNewSlideActive(index)" #slide>

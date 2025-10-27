@@ -13,7 +13,7 @@
         <a href="{{ portService.links.gitHubLink }}" target="_blank">Github</a>
         <a href="{{ portService.links.linkedInLink }}" target="_blank">LinkedIn</a>
         <a href="mailto:{{ portService.links.mailAddress }}">Email</a>
-        <a href="../../legal-notice.html">Legal Notice</a>
+        <a (click)="routes.navigateByUrl('legal-notice')">Legal Notice</a>
     </div>
 </div>
 

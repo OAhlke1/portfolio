@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren, HostListener } from '@angular/core';
 import { PortfolioService } from '../shared/services/portfolio-service.service';
 import { NgClass, NgStyle } from "../../../node_modules/@angular/common";
 import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
@@ -11,8 +11,8 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
   styleUrl: './reviews.component.scss'
 })
 export class ReviewsComponent {
-  @ViewChild('sliderOuter') sliderOuter!: any;
-  @ViewChild('slider') slider!: any;
+  @ViewChild('sliderOuter', { static: false }) sliderOuter!: any;
+  @ViewChild('slider', { static: false }) slider!: any;
   @ViewChildren('slide') slides!: QueryList<ElementRef>;
   slidesArray: HTMLElement[] = [];
   oldActiveSlide!: HTMLElement;
@@ -26,7 +26,7 @@ export class ReviewsComponent {
   sliderOffset: number = 0;
   sliderWidth: number = 0;
   oldActiveSlideIndex: number = 0;
-  newActiveSlideIndex: number = 0;
+  activeSlideIndex: number = 0;
   shiftingPerce: number = 0;
   newActiveSlideOffset: number = 0;
   sliderOffsetOld: number = 0;
@@ -35,6 +35,7 @@ export class ReviewsComponent {
   slidingForward: boolean = true;
   shiftToLeft: boolean = true;
   intervalCode: any = 0;
+  sliderOuterWidth: number = 0;
 
   constructor(public portService: PortfolioService) { }
 
@@ -48,6 +49,55 @@ export class ReviewsComponent {
     this.setNecessaryValues();
   }
 
+  @HostListener('window:orientationchange', ['$event'])
+  onResize(event: Event) {
+    setTimeout(() => {
+      this.refillSlidesArray()
+      switch (window.orientation) {
+        case 0:
+          this.rotateToNormalScreen();
+          break;
+        case 90:
+          this.rotateToWideScreen();
+          break;
+      }
+    }, 10);
+  }
+
+  refillSlidesArray() {
+    this.slidesArray = [];
+    for (let i = 0; i < this.slides.length; i++) {
+      let slide: HTMLElement = this.slides.toArray()[i].nativeElement as HTMLElement;
+      this.slidesArray.push(slide);
+    }
+  }
+
+  rotateToNormalScreen() {
+    let slideWidth: number;
+    if (this.activeSlideIndex === 0) {
+      slideWidth = this.slidesArray[1].offsetWidth;
+    } else if (this.activeSlideIndex === this.slidesArray.length - 1) {
+      slideWidth = this.slidesArray[0].offsetWidth;
+    } else { slideWidth = this.slidesArray[this.activeSlideIndex - 1].offsetWidth; }
+    let slideActiveWidth = this.slidesArray[this.activeSlideIndex].offsetWidth;
+    let gap = window.innerWidth > 650 ? 40 : 8;
+    let rotOffset = this.sliderOuter.offsetWidth / 2 - (this.activeSlideIndex * (gap + slideWidth) + slideActiveWidth / 2);
+    this.slider.style.left = `${rotOffset}px`;
+  }
+
+  rotateToWideScreen() {
+    let slideWidth: number;
+    if (this.activeSlideIndex === 0) {
+      slideWidth = this.slidesArray[1].offsetWidth;
+    } else if (this.activeSlideIndex === this.slidesArray.length - 1) {
+      slideWidth = this.slidesArray[0].offsetWidth;
+    } else { slideWidth = this.slidesArray[this.activeSlideIndex - 1].offsetWidth; }
+    let slideActiveWidth = this.slidesArray[this.activeSlideIndex].offsetWidth;
+    let gap = window.innerWidth > 650 ? 40 : 8;
+    let rotOffset = this.sliderOuter.offsetWidth / 2 - (this.activeSlideIndex * (gap + slideWidth) + slideActiveWidth / 2);
+    this.slider.style.left = `${rotOffset}px`;
+  }
+
   setNecessaryValues() {
     this.sliderOuter = this.sliderOuter.nativeElement as HTMLElement;
     this.slider = this.slider.nativeElement as HTMLElement;
@@ -57,7 +107,7 @@ export class ReviewsComponent {
     this.slideHeights.unActive = this.slidesArray[1].offsetHeight;
     this.widthDifference = this.slidesArray[0].offsetWidth - this.slidesArray[1].offsetWidth;
     this.heightDifference = this.slidesArray[0].offsetHeight - this.slidesArray[1].offsetHeight;
-    this.portService.reviews[this.newActiveSlideIndex].isActive = true;
+    this.portService.reviews[this.activeSlideIndex].isActive = true;
     this.preshiftSlider();
     this.newActiveSlideOffset = this.newActiveSlide.offsetLeft;
   }
@@ -67,16 +117,15 @@ export class ReviewsComponent {
   }
 
   setNewSlideActive(index: number) {
-    if (index < 0 || index === this.portService.reviews.length || index === this.newActiveSlideIndex || this.animationRuns) { return; }
-    clearInterval(this.intervalCode);
+    if (index < 0 || index === this.portService.reviews.length || index === this.activeSlideIndex || this.animationRuns) { return; }
     this.animationRuns = true;
-    this.oldActiveSlideIndex = this.newActiveSlideIndex;
+    this.oldActiveSlideIndex = this.activeSlideIndex;
     this.oldActiveSlide = this.slidesArray[this.oldActiveSlideIndex];
     this.portService.reviews[this.oldActiveSlideIndex].isActive = false;
-    this.newActiveSlideIndex = index;
-    this.newActiveSlide = this.slidesArray[this.newActiveSlideIndex];
+    this.activeSlideIndex = index;
+    this.newActiveSlide = this.slidesArray[this.activeSlideIndex];
     this.sliderOffsetOld = this.slider.getBoundingClientRect().left;
-    this.shiftToLeft = this.newActiveSlideIndex - this.oldActiveSlideIndex > 0 ? true : false;
+    this.shiftToLeft = this.activeSlideIndex - this.oldActiveSlideIndex > 0 ? true : false;
     this.distance = (this.sliderOuter.offsetWidth - this.newActiveSlide.offsetWidth) / 2 - this.newActiveSlide.getBoundingClientRect().left + (this.shiftToLeft ? this.widthDifference : -this.widthDifference) / 2;
     this.intervalCode = setInterval(() => { this.shiftSlider(); }, 5);
   }
@@ -86,7 +135,7 @@ export class ReviewsComponent {
       this.animationRuns = false;
       this.shiftingPerce = 0;
       clearInterval(this.intervalCode);
-      this.portService.reviews[this.newActiveSlideIndex].isActive = true;
+      this.portService.reviews[this.activeSlideIndex].isActive = true;
       this.sliderOffset = this.sliderOffsetOld;
       return;
     }

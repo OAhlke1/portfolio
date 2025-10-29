@@ -43,9 +43,8 @@ p {
 
         .slide {
             @include disFlex($fD: column, $jC: space-between, $rG: 40px);
-            width: 90vw;
-            max-width: 632px;
-            height: 90%;
+            height: 91.815%;
+            max-height: 91.815%;
             aspect-ratio: 316 / 137;
             @include pos($pos: relative);
             border: 2px solid $standard-green;
@@ -58,7 +57,7 @@ p {
             .review-text {
                 @include disFlex($aI: center, $jC: center);
                 width: 100%;
-                height: 100%;
+                height: 50%;
             }
 
             .author-block {
@@ -83,8 +82,9 @@ p {
             }
 
             &.active {
-                height: 100%;
+                max-height: 100%;
                 background-color: $standard-green-blurry;
+                aspect-ratio: 316 / 137;
 
                 .quotation-marks {
                     display: block;
@@ -134,8 +134,8 @@ p {
                 height: 248px;
                 
                 &.active {
-                    width: 95vw;
-                    max-width: 358px;
+                    /* width: 95vw;
+                    max-width: 358px; */
                     aspect-ratio: 358 / 360;
                 }
 
@@ -154,8 +154,8 @@ p {
             column-gap: 8px;
 
             .slide {
-                width: 358px;
-                height: 248px;
+                /* width: 358px;
+                height: 248px; */
                 
                 &.active {
                     width: 90vw;

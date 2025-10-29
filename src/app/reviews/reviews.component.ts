@@ -53,14 +53,15 @@ export class ReviewsComponent {
   onResize(event: Event) {
     setTimeout(() => {
       this.refillSlidesArray()
-      switch (window.orientation) {
+      /* switch (window.orientation) {
         case 0:
           this.rotateToNormalScreen();
           break;
         case 90:
           this.rotateToWideScreen();
           break;
-      }
+      } */
+      this.rotatingScreen();
     }, 10);
   }
 
@@ -70,6 +71,19 @@ export class ReviewsComponent {
       let slide: HTMLElement = this.slides.toArray()[i].nativeElement as HTMLElement;
       this.slidesArray.push(slide);
     }
+  }
+  
+  rotatingScreen() {
+    let slideWidth: number;
+    if (this.activeSlideIndex === 0) {
+      slideWidth = this.slidesArray[1].offsetWidth;
+    } else if (this.activeSlideIndex === this.slidesArray.length - 1) {
+      slideWidth = this.slidesArray[0].offsetWidth;
+    } else { slideWidth = this.slidesArray[this.activeSlideIndex - 1].offsetWidth; }
+    let slideActiveWidth = this.slidesArray[this.activeSlideIndex].offsetWidth;
+    let gap = window.innerWidth > 650 ? 40 : 8;
+    let rotOffset = this.sliderOuter.offsetWidth / 2 - (this.activeSlideIndex * (gap + slideWidth) + slideActiveWidth / 2);
+    this.slider.style.left = `${rotOffset}px`;
   }
 
   rotateToNormalScreen() {

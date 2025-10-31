@@ -6,6 +6,11 @@
 
 .opac-zero {
     opacity: 0;
+    cursor: auto !important;
+}
+
+h2 {
+    margin: 0;
 }
 
 .headline-block {
@@ -98,8 +103,8 @@ p.description {
     @include disFlex($aI: center, $jC: center, $cG: 88px, $fWrap: wrap);
     width: 80%;
     max-width: 1248px;
-    height: 80vh;
-    max-height: 656px;
+    // max-height: 80vh;
+    // max-height: 656px;
     padding: 60px 91px;
     border-radius: 30px;
     background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
@@ -107,12 +112,23 @@ p.description {
     transform: translate(-50%, -50%);
     box-sizing: border-box;
 
+    .close-lightbox {
+        @include pos($pos: absolute, $t: 5%, $r: 5%);
+        width: 18px;
+        cursor: pointer;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
     &::-webkit-scrollbar {
         display: none;
     }
 
     .outer-container {
-        overflow-y: scroll;
+        // overflow-y: scroll;
         height: 95%;
         padding: 20px;
 
@@ -191,25 +207,15 @@ p.description {
             }
 
             .right {
-                width: 50%;
-                max-width: 520px;
+                width: 520px;
+                aspect-ratio: 16 / 9;
                 border-radius: 30px;
+                background-size: 100% auto;
 
                 img {
                     width: 100%;
-                    height: auto;
+                    aspect-ratio: 16 / 9;
                     border-radius: 30px;
-                }
-            }
-
-            .close-lightbox {
-                @include pos($pos: absolute, $t: calc(7100%/742), $r: calc(95%/11));
-                width: 18px;
-                cursor: pointer;
-
-                img {
-                    width: 100%;
-                    height: auto;
                 }
             }
         }
@@ -217,9 +223,9 @@ p.description {
 
     .prev-next {
         @include disFlex($aI: center, $jC: space-between, $rG: 12px, $cG: 36px, $fWrap: wrap);
-        width: 100%;
+        min-width: 100%;
         padding: 0 calc(95%/11);
-        @include pos($pos: absolute, $b: 5%);
+        // @include pos($pos: absolute, $b: 5%);
         box-sizing: border-box;
 
         .prev-project,
@@ -245,16 +251,19 @@ p.description {
 
 @media only screen and (max-width: 1200px) {
     .project-lightbox {
-        overflow-y: scroll;
+        padding: 20px;
 
         .outer-container {
+            min-width: 80%;
+
             .container {
                 flex-direction: column-reverse;
+                min-width: 100%;
                 row-gap: 40px;
                 height: fit-content;
 
                 .left {
-                    width: 100%;
+                    min-width: 100%;
                 }
 
                 .right {
@@ -350,7 +359,9 @@ p.description {
 
     .project-lightbox {
         .prev-next {
-            .prev-project, .next-project {
+
+            .prev-project,
+            .next-project {
                 p {
                     display: none;
                 }

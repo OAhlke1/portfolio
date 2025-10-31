@@ -8,7 +8,7 @@ import { ReviewsInterface } from '../interfaces/reviews.interface';
 
 export class PortfolioService {
   burgerMenuShiftedIn: boolean = false;
-  burgerMenuShiftedOut: boolean = false;
+  burgerMenuShiftedOut: boolean = true;
   englishActivated: boolean = true;
   germanActivated: boolean = false;
   links = {
@@ -119,7 +119,10 @@ export class PortfolioService {
 
   showHideBurgerMenu(event: Event) {
     let target = event.target as HTMLElement;
-    if (target.closest('.burger-menu')) {
+    console.log(this.burgerMenuShiftedIn, this.burgerMenuShiftedOut);
+    if(target.closest('.lang-switch')) {
+      return;
+    }/* else if (target.closest('.burger-menu')) {
       if (!this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
         this.burgerMenuShiftedIn = true;
       } else if (this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
@@ -135,6 +138,19 @@ export class PortfolioService {
     } else if (target.closest('.top-bar-burger-menu')) {
       this.burgerMenuShiftedIn = true;
       this.burgerMenuShiftedOut = false;
+    } */
+    else if (target.closest('.burger-menu')) {
+      if(this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
+        this.burgerMenuShiftedIn = false;
+        this.burgerMenuShiftedOut = true;
+      }else if(!this.burgerMenuShiftedIn && this.burgerMenuShiftedOut) {
+        this.burgerMenuShiftedIn = true;
+        this.burgerMenuShiftedOut = false;
+      }
+    }
+    else {
+      this.burgerMenuShiftedIn = false;
+      this.burgerMenuShiftedOut = true;
     }
   }
 }

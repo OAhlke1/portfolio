@@ -14,7 +14,7 @@
 
 <div class="list">
     @for(project of portService.projects; track project.name; let index = $index) {
-    <div class="project" (click)="openLightBox(index)">
+    <div class="project" (click)="openLightBox(index, true)">
         <p class="name">{{ project.name }}</p>
         <div class="p-langs">
             @for(lang of project.pLangs; track lang.pLang; let index = $index) {
@@ -29,11 +29,11 @@
 
 @if(project) {
 <div class="project-lightbox" [ngClass]="{'disNone': !overlayShown}">
+    <div class="close-lightbox" (click)="closeLightBox()">
+        <img src="assets/images/close-lightbox.svg" alt="">
+    </div>
     <div class="outer-container">
         <div class="container">
-            <div class="close-lightbox" (click)="overlayShown=false;">
-                <img src="assets/images/close-lightbox.svg" alt="">
-            </div>
 
             <div class="left">
                 <div class="headline-block">
@@ -70,21 +70,21 @@
                 </div>
             </div>
 
-            <div class="right">
-                <img [src]="project.imageSrc" alt="">
+            <div class="right" [ngStyle]="{'background-image': 'url(' + project.imageSrc + ')'}">
+                <!-- <img [src]="project.imageSrc" alt=""> -->
             </div>
         </div>
     </div>
 
     <div class="prev-next">
-        <div class="prev-project" [ngClass]="{'opac-zero': project.index === 0}"
-            (click)="openLightBox(project.index-1 < portService.projects.length ? project.index-1 : 0)">
+        <div class="prev-project" [ngClass]="{'disNone': project.index === 0}"
+            (click)="openLightBox(project.index, false)">
             <img src="assets/images/prev-project-arrow.svg" alt="">
             <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
         </div>
-        <div class="next-project" [ngClass]="{'opac-zero': project.index + 1 === portService.projects.length}"
-            (click)="openLightBox(project.index+1 < portService.projects.length ? project.index+1 : 0)">
+        <div class="next-project" [ngClass]="{'disNone': project.index + 1 === portService.projects.length}"
+            (click)="openLightBox(project.index, true)">
             <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
             <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>
             <img src="assets/images/next-project-arrow.svg" alt="">

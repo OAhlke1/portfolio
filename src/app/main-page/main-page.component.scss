@@ -2,11 +2,18 @@
 
 * {
     box-sizing: border-box;
+    background-color: transparent !important;
+    min-width: 100%;
 }
 
 .all-containing {
     padding-bottom: 80px;
-    background-color: #1c1c1c
+    overflow: hidden !important;
+}
+
+.component-container {
+    width: 100%;
+    overflow: hidden;
 }
 
 top-section {
@@ -14,21 +21,18 @@ top-section {
     width: 100%;
     min-height: 500px;
     height: 100vh;
-    background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
     padding: $standard-padding;
     @include pos($pos: relative);
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 myself-section {
     @include disFlex($aI: center, $jC: center);
     padding: 72px 60px;
-    background-color: $standard-black;
 }
 
 featured-projects {
     @include disFlex($fD: column, $rG: 40px);
-    background-color: $standard-black !important;
     padding: 72px 60px;
     width: 100%;
     @include pos($pos: relative, $zIndex: 1);

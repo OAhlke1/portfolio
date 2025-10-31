@@ -1,7 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren, HostListener } from '@angular/core';
 import { PortfolioService } from '../shared/services/portfolio-service.service';
-import { NgClass, NgStyle } from "../../../node_modules/@angular/common";
-import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
+import { NgClass } from "../../../node_modules/@angular/common";
 
 @Component({
   selector: 'reviews-section',
@@ -52,17 +51,9 @@ export class ReviewsComponent {
   @HostListener('window:orientationchange', ['$event'])
   onResize(event: Event) {
     setTimeout(() => {
-      this.refillSlidesArray()
-      /* switch (window.orientation) {
-        case 0:
-          this.rotateToNormalScreen();
-          break;
-        case 90:
-          this.rotateToWideScreen();
-          break;
-      } */
+      this.refillSlidesArray();
       this.rotatingScreen();
-    }, 10);
+    }, 50);
   }
 
   refillSlidesArray() {
@@ -74,32 +65,6 @@ export class ReviewsComponent {
   }
   
   rotatingScreen() {
-    let slideWidth: number;
-    if (this.activeSlideIndex === 0) {
-      slideWidth = this.slidesArray[1].offsetWidth;
-    } else if (this.activeSlideIndex === this.slidesArray.length - 1) {
-      slideWidth = this.slidesArray[0].offsetWidth;
-    } else { slideWidth = this.slidesArray[this.activeSlideIndex - 1].offsetWidth; }
-    let slideActiveWidth = this.slidesArray[this.activeSlideIndex].offsetWidth;
-    let gap = window.innerWidth > 650 ? 40 : 8;
-    let rotOffset = this.sliderOuter.offsetWidth / 2 - (this.activeSlideIndex * (gap + slideWidth) + slideActiveWidth / 2);
-    this.slider.style.left = `${rotOffset}px`;
-  }
-
-  rotateToNormalScreen() {
-    let slideWidth: number;
-    if (this.activeSlideIndex === 0) {
-      slideWidth = this.slidesArray[1].offsetWidth;
-    } else if (this.activeSlideIndex === this.slidesArray.length - 1) {
-      slideWidth = this.slidesArray[0].offsetWidth;
-    } else { slideWidth = this.slidesArray[this.activeSlideIndex - 1].offsetWidth; }
-    let slideActiveWidth = this.slidesArray[this.activeSlideIndex].offsetWidth;
-    let gap = window.innerWidth > 650 ? 40 : 8;
-    let rotOffset = this.sliderOuter.offsetWidth / 2 - (this.activeSlideIndex * (gap + slideWidth) + slideActiveWidth / 2);
-    this.slider.style.left = `${rotOffset}px`;
-  }
-
-  rotateToWideScreen() {
     let slideWidth: number;
     if (this.activeSlideIndex === 0) {
       slideWidth = this.slidesArray[1].offsetWidth;
@@ -149,8 +114,9 @@ export class ReviewsComponent {
       this.animationRuns = false;
       this.shiftingPerce = 0;
       clearInterval(this.intervalCode);
+      this.newActiveSlide = this.slidesArray[this.activeSlideIndex];
       this.portService.reviews[this.activeSlideIndex].isActive = true;
-      this.sliderOffset = this.sliderOffsetOld;
+      this.sliderOffset = this.newActiveSlide.offsetLeft;
       return;
     }
     this.shiftingPerce += 1;

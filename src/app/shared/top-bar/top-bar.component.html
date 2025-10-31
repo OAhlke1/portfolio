@@ -39,14 +39,14 @@
             <p>DE</p>
         </div>
     </div>
-    <a class="menu-button" href="#projects">
+    <a class="menu-button" href="#projects" (click)="portService.showHideBurgerMenu($event)">
         <p [ngClass]="{'disNone': !portService.englishActivated}">Projects</p>
         <p [ngClass]="{'disNone': !portService.germanActivated}">Projekte</p>
     </a>
-    <a class="menu-button" href="#skills">
+    <a class="menu-button" href="#skills" (click)="portService.showHideBurgerMenu($event)">
         <p>Skills</p>
     </a>
-    <a class="menu-button" href="#about-me">
+    <a class="menu-button" href="#about-me" (click)="portService.showHideBurgerMenu($event)">
         <p [ngClass]="{'disNone': !portService.englishActivated}">About me</p>
         <p [ngClass]="{'disNone': !portService.germanActivated}">Über mich</p>
     </a>

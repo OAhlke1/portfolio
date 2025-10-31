@@ -20,7 +20,6 @@ export class MainPageComponent {
 
   ngOnInit(): void {
     AOS.init();
-    console.log('AOS intialized');
   }
 
   ngAfterViewInit(): void {

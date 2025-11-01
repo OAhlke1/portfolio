@@ -36,7 +36,10 @@ export class WorkTogetherComponent {
   correctlyFilled!: boolean;
   mailSentSuccessfully: boolean = false;
   sentAdviceShown: boolean = false;
-  regEx = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+  namePatternCorrect: any = "false";
+  nameRegex = /^(?:[A-ZÄÖÜ][a-zäöüß]+|[A-ZÄÖÜ]\.) [A-ZÄÖÜ][a-zäöüß]+(?:-[A-ZÄÖÜ][a-zäöüß]+)?$/;
+  mailPatternCorrect: any = "false";
+  mailRegEx = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
 
   constructor(public portService: PortfolioService, public router: Router) { }
 
@@ -58,22 +61,22 @@ export class WorkTogetherComponent {
       return;
     } else { // if (ngForm.submitted && ngForm.form.valid) {
       this.http
-      .post(this.post.endPoint, this.post.body(this.contactData))
-      .subscribe({
-        next: (response) => {
-          ngForm.resetForm();
-        },
-        error: (error) => {
-          console.error(error);
-          this.mailSentSuccessfully = false;
-          this.showSentAdvice();
-        },
-        complete: () => {
-          this.resetForm();
-          this.mailSentSuccessfully = true;
-          this.showSentAdvice();
-        }
-      });
+        .post(this.post.endPoint, this.post.body(this.contactData))
+        .subscribe({
+          next: (response) => {
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+            this.mailSentSuccessfully = false;
+            this.showSentAdvice();
+          },
+          complete: () => {
+            this.resetForm();
+            this.mailSentSuccessfully = true;
+            this.showSentAdvice();
+          }
+        });
     }
   }
 
@@ -89,30 +92,28 @@ export class WorkTogetherComponent {
   }
 
   checkName() {
-    if (this.yourNameInput.nativeElement.value === "") {
+    if (!this.nameRegex.test(this.yourNameInput.nativeElement.value)) {
+      this.namePatternCorrect = false;
       this.yourNameLabelE.nativeElement.style.color = "#ff0000";
       this.yourNameLabelG.nativeElement.style.color = "#ff0000";
       this.correctlyFilled = false;
-    } else {
+    }  else {
+      this.namePatternCorrect = true;
       this.yourNameLabelE.nativeElement.style.color = "#3DCFB6";
       this.yourNameLabelG.nativeElement.style.color = "#3DCFB6";
     }
   }
 
   checkMail() {
-    if (this.yourMailInput.nativeElement.value === "") {
+    if (!this.mailRegEx.test(this.yourMailInput.nativeElement.value)) {
+      this.mailPatternCorrect = false;
       this.yourMailLabelE.nativeElement.style.color = "#ff0000";
       this.yourMailLabelG.nativeElement.style.color = "#ff0000";
       this.correctlyFilled = false;
     } else {
-      if (!this.regEx.test(this.yourMailInput.nativeElement.value)) {
-        this.yourMailLabelE.nativeElement.style.color = "#ff0000";
-        this.yourMailLabelG.nativeElement.style.color = "#ff0000";
-        this.correctlyFilled = false;
-      } else {
+        this.mailPatternCorrect = true;
         this.yourMailLabelE.nativeElement.style.color = "#3DCFB6";
         this.yourMailLabelG.nativeElement.style.color = "#3DCFB6";
-      }
     }
   }
 

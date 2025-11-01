@@ -11,6 +11,9 @@ export class PortfolioService {
   burgerMenuShiftedOut: boolean = true;
   englishActivated: boolean = true;
   germanActivated: boolean = false;
+  overlayJustOpened: boolean = true;
+  overlayShown: boolean = false;
+  project!: ProjectsInterface;
   links = {
     mailAddress: 'mail@oscar-ahlke.de',
     mailIcon: 'assets/images/mail-icon.svg',
@@ -71,36 +74,36 @@ export class PortfolioService {
     }
   ];
 
-  reviews:ReviewsInterface[] = [{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  reviews: ReviewsInterface[] = [{
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann I",
     isActive: true
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann II",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann III",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann IIII",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann V",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann VI",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann VI",
     isActive: false
-  },{
-    review: "bla bla bla bla bla lorem ipsum, bla.",
+  }, {
+    review: "Noch keine Reviews vorhanden",
     author: "Max Mustermann VI",
     isActive: false
   }];
@@ -119,31 +122,14 @@ export class PortfolioService {
 
   showHideBurgerMenu(event: Event) {
     let target = event.target as HTMLElement;
-    console.log(this.burgerMenuShiftedIn, this.burgerMenuShiftedOut);
-    if(target.closest('.lang-switch')) {
+    if (target.closest('.lang-switch')) {
       return;
-    }/* else if (target.closest('.burger-menu')) {
-      if (!this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
-        this.burgerMenuShiftedIn = true;
-      } else if (this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
+    }
+    else if (target.closest('.burger-menu')) {
+      if (this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
         this.burgerMenuShiftedIn = false;
         this.burgerMenuShiftedOut = true;
       } else if (!this.burgerMenuShiftedIn && this.burgerMenuShiftedOut) {
-        this.burgerMenuShiftedIn = true;
-        this.burgerMenuShiftedOut = false;
-      }
-    } else if (!target.closest('.burger-menu') && !target.closest('.top-bar-burger-menu')) {
-      this.burgerMenuShiftedIn = false;
-      this.burgerMenuShiftedOut = true;
-    } else if (target.closest('.top-bar-burger-menu')) {
-      this.burgerMenuShiftedIn = true;
-      this.burgerMenuShiftedOut = false;
-    } */
-    else if (target.closest('.burger-menu')) {
-      if(this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
-        this.burgerMenuShiftedIn = false;
-        this.burgerMenuShiftedOut = true;
-      }else if(!this.burgerMenuShiftedIn && this.burgerMenuShiftedOut) {
         this.burgerMenuShiftedIn = true;
         this.burgerMenuShiftedOut = false;
       }
@@ -152,5 +138,28 @@ export class PortfolioService {
       this.burgerMenuShiftedIn = false;
       this.burgerMenuShiftedOut = true;
     }
+  }
+
+  openLightBox(index: number, nextClicked: boolean) {
+    if (this.overlayJustOpened) {
+      this.project = this.projects[index];
+      this.overlayJustOpened = false;
+      this.overlayShown = true;
+    } else if (index === 0 && !nextClicked) {
+      return;
+    } else if (index + 1 === this.projects.length && nextClicked) {
+      return;
+    } else if (!nextClicked) {
+      this.project = this.projects[index - 1];
+      this.overlayShown = true;
+    } else if (nextClicked) {
+      this.project = this.projects[index + 1];
+      this.overlayShown = true;
+    }
+  }
+
+  closeLightBox() {
+    this.overlayShown = false;
+    this.overlayJustOpened = true;
   }
 }

@@ -5,18 +5,17 @@ import { ProjectsInterface } from '../shared/interfaces/projects.interface';
 import { ButtonComponent } from "../shared/buttons/button.component";
 
 @Component({
-  selector: 'featured-projects',
+  selector: 'project-lightbox',
   standalone: true,
   imports: [NgClass, ButtonComponent, NgStyle],
-  templateUrl: './featured-projects.component.html',
-  styleUrl: './featured-projects.component.scss'
+  templateUrl: './project-lightbox.component.html',
+  styleUrl: './project-lightbox.component.scss'
 })
-export class FeaturedProjectsComponent {
+export class ProjectLightboxComponent {
   overlayShown: boolean = false;
   project!: ProjectsInterface;
   hidePrevProject: boolean = false;
   hideNextProject: boolean = false;
-  overlayJustOpened: boolean = true;
 
   constructor(public portService: PortfolioService) { }
 }

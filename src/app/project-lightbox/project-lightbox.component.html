@@ -1,0 +1,77 @@
+@if(portService.project) {
+<div class="project-lightbox" [ngClass]="{'disNone': !portService.overlayShown}">
+    <div class="close-lightbox" (click)="portService.closeLightBox()">
+        <img src="assets/images/close-lightbox.svg" alt="">
+    </div>
+    <div class="outer-container">
+        <div class="container">
+
+            <div class="left">
+                <div class="headline-block">
+                    @if(portService.project.index < 10) { <h1>0{{ portService.project.index + 1 }}</h1>
+                        }@else {
+                        <h1>{{ portService.project.index + 1 }}</h1>
+                        }
+                        <h2>{{ portService.project.name }}</h2>
+                </div>
+
+                <div class="center-block">
+                    <h2 [ngClass]="{'disNone': !portService.englishActivated}">What is this portService.project about?
+                    </h2>
+                    <h2 [ngClass]="{'disNone': !portService.germanActivated}">Worum geht es in diesem Projekt?</h2>
+
+                    <p class="description" [ngClass]="{'disNone': !portService.englishActivated}">{{
+                        portService.project.description.english
+                        }}</p>
+                    <p class="description" [ngClass]="{'disNone': !portService.germanActivated}">{{
+                        portService.project.description.german
+                        }}</p>
+
+                    <div class="languages">
+                        @for(language of portService.project.pLangs; track language.pIconSrc) {
+                        <img [src]="language.pIconSrc" alt="">
+                        }
+                    </div>
+                </div>
+
+                <div class="bottom-block">
+                    <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="portService.project.gitHubLink"
+                        [iconSrc]="'assets/images/up-right-arrow.svg'" [inNewTab]="true"></app-button>
+                    <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="portService.project.link"
+                        [iconSrc]="'assets/images/up-right-arrow.svg'" [inNewTab]="true"></app-button>
+                </div>
+            </div>
+
+            <div class="right" [ngStyle]="{'background-image': 'url(' + portService.project.imageSrc + ')'}"></div>
+        </div>
+    </div>
+
+    <div class="prev-project" [ngClass]="{'disNone': portService.project.index === 0}"
+        (click)="portService.openLightBox(portService.project.index, false)">
+        <img src="assets/images/prev-project-arrow.svg" alt="">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
+    </div>
+    <div class="next-project" [ngClass]="{'disNone': portService.project.index + 1 === portService.projects.length}"
+        (click)="portService.openLightBox(portService.project.index, true)">
+        <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>
+        <img src="assets/images/next-project-arrow.svg" alt="">
+    </div>
+
+    <!-- <div class="prev-next">
+        <div class="prev-project" [ngClass]="{'disNone': portService.project.index === 0}"
+            (click)="portService.openLightBox(portService.project.index, false)">
+            <img src="assets/images/prev-project-arrow.svg" alt="">
+            <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
+        </div>
+        <div class="next-project" [ngClass]="{'disNone': portService.project.index + 1 === portService.projects.length}"
+            (click)="portService.openLightBox(portService.project.index, true)">
+            <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>
+            <img src="assets/images/next-project-arrow.svg" alt="">
+        </div>
+    </div> -->
+</div>
+}

@@ -7,11 +7,12 @@ import { ReviewsComponent } from '../reviews/reviews.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { WorkTogetherComponent } from '../work-together/work-together.component';
 import { PortfolioService } from '../shared/services/portfolio-service.service';
+import { ProjectLightboxComponent } from '../project-lightbox/project-lightbox.component';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, FooterComponent, WorkTogetherComponent],
+  imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, FooterComponent, WorkTogetherComponent, ProjectLightboxComponent],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })

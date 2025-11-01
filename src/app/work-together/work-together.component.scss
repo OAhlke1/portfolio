@@ -1,5 +1,9 @@
 @import '../mixins.scss';
 
+.disBlock {
+    display: block !important;
+}
+
 .disNone {
     display: none !important;
 }
@@ -108,7 +112,7 @@ h1 {
     @include disFlex($aI: center, $jC: center);
     width: fit-content;
     max-width: 90vw;
-    background: linear-gradient( 28deg,rgb(8, 7, 7) 0%,rgb(8, 70, 59) 100%);
+    background: linear-gradient(28deg, rgb(8, 7, 7) 0%, rgb(8, 70, 59) 100%);
     padding: 15px;
     @include pos($pos: absolute, $t: 50%, $l: 50%);
     transform: translate(-50%, -50%);
@@ -164,8 +168,17 @@ h1 {
                 width: 100%;
                 font-family: 'karla', Verdana, sans-serif;
                 font-size: 24px;
-                color: white;
-                background-color: transparent;
+                color: white !important;
+                background: transparent !important;
+                background-color: transparent !important;
+                outline: none !important;
+
+                &.ng-touched,
+                &.ng-valid,
+                &.ng-touched {
+                    background: transparent !important;
+                    background-color: transparent !important;
+                }
             }
 
             input,
@@ -174,6 +187,19 @@ h1 {
                 outline: 0px;
                 border: unset;
                 padding: 0;
+            }
+
+            .wrong-pattern {
+                display: none;
+                background-color: transparent;
+
+                p {
+                    width: 100%;
+                    font-family: 'karla', Verdana, sans-serif;
+                    font-size: 16px;
+                    color: rgba(255, 255, 255, 0.8);
+                    margin: 0;
+                }
             }
 
             &.last {

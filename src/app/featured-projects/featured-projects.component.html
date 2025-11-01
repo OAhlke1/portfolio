@@ -14,7 +14,7 @@
 
 <div class="list">
     @for(project of portService.projects; track project.name; let index = $index) {
-    <div class="project" (click)="openLightBox(index, true)">
+    <div class="project" (click)="portService.overlayJustOpened=true; portService.openLightBox(index, true)">
         <p class="name">{{ project.name }}</p>
         <div class="p-langs">
             @for(lang of project.pLangs; track lang.pLang; let index = $index) {
@@ -27,7 +27,7 @@
 }
 </div>
 
-@if(project) {
+<!-- @if(project) {
 <div class="project-lightbox" [ngClass]="{'disNone': !overlayShown}">
     <div class="close-lightbox" (click)="closeLightBox()">
         <img src="assets/images/close-lightbox.svg" alt="">
@@ -70,9 +70,7 @@
                 </div>
             </div>
 
-            <div class="right" [ngStyle]="{'background-image': 'url(' + project.imageSrc + ')'}">
-                <!-- <img [src]="project.imageSrc" alt=""> -->
-            </div>
+            <div class="right" [ngStyle]="{'background-image': 'url(' + project.imageSrc + ')'}"></div>
         </div>
     </div>
 
@@ -91,4 +89,4 @@
         </div>
     </div>
 </div>
-}
+} -->

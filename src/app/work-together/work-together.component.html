@@ -43,6 +43,10 @@
             <input [(ngModel)]="contactData.name" type="text" id="yourname" name="yourname"
                 [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required
                 #yourNameInput value="'Oscr Ahlke'">
+            <div class="wrong-pattern" [ngClass]="{'disBlock' : !namePatternCorrect, 'disNone' : namePatternCorrect}">
+                <p [ngClass]="{'disNone' : !portService.englishActivated}">The Name is not pattern <i>Forename Surname</i>. (Abbreviated forename allowed)</p>
+                <p [ngClass]="{'disNone' : !portService.germanActivated}">Name dem Format <i>Vorname Nachname</i> (Abgekürzter Vorname erlaubt)U</p>
+            </div>
         </div>
         <div>
             <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}" #yourMailLabelE>What's your
@@ -54,6 +58,10 @@
                 pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/"
                 [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required
                 #yourMailInput value="'oahlke1@gmail.com'">
+            <div class="wrong-pattern" [ngClass]="{'disBlock' : !mailPatternCorrect, 'disNone' : mailPatternCorrect}">
+                <p [ngClass]="{'disNone' : !portService.englishActivated}">Mail is not of pattern <i>mail&#64;mydomain</i></p>
+                <p [ngClass]="{'disNone' : !portService.germanActivated}">Mail entspricht nicht dem Format <i>mail&#64;meinedomain</i></p>
+            </div>
         </div>
         <div>
             <label for="concern" [ngClass]="{'disNone': !portService.englishActivated}" #yourMessageLabelE>How can I

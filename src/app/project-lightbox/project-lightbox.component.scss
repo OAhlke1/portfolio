@@ -4,112 +4,22 @@
     display: none !important;
 }
 
-.opac-zero {
-    opacity: 0;
-    cursor: auto !important;
-}
-
+p,
+h1,
 h2 {
     margin: 0;
 }
 
-.headline-block {
-    @include disFlex($fD: column, $rG: 20px);
-
-    h1,
-    h2 {
-        color: $standard-green;
-        margin: 0;
-        padding: 0;
-        line-height: 100%;
-    }
-
-    h1 {
-        font-family: 'fira-code', Verdana, sans-serif;
-        font-size: 64px;
-        font-weight: 700;
-    }
-
-    h2 {
-        font-family: 'karla', Verdana, sans-serif;
-    }
-}
-
-p {
-    color: white;
-    margin: 0;
-}
-
-p.description {
-    font-family: 'karla', Verdana, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 120%;
-    letter-spacing: 0;
-    max-width: 880px;
-}
-
-.list {
-    @include disFlex($fD: column);
-    width: 100%;
-    max-width: 880px;
-
-    .project {
-        @include disFlex($aI: center, $jC: space-between, $cG: 40px, $rG: 16px, $fWrap: wrap);
-        width: 100%;
-        padding: 40px 32px;
-        cursor: pointer;
-        border-bottom: 1px solid $standard-green;
-        box-sizing: border-box;
-
-        &:hover {
-            background-color: $standard-green-blurry;
-        }
-
-        &:nth-child(1) {
-            border-top: 1px solid $standard-green;
-        }
-
-        p.name {
-            font-family: 'fira-code', Verdana, sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 120%;
-            letter-spacing: 0;
-        }
-
-        .p-langs {
-            @include disFlex($aI: center, $jC: center, $cG: 4px, $fWrap: wrap);
-
-            p.p-lang {
-                font-family: 'karla', Verdana, sans-serif;
-                font-size: 18px;
-                font-weight: 700;
-                line-height: 120%;
-                letter-spacing: 0;
-                margin: 0;
-            }
-
-            .green-separator {
-                width: 1px;
-                height: 10px;
-                background-color: $standard-green;
-            }
-        }
-    }
-}
-
-.project-lightbox {
+.main-container {
     @include disFlex($aI: center, $jC: center, $cG: 88px, $fWrap: wrap);
     width: 80%;
     max-width: 1248px;
-    // max-height: 80vh;
-    // max-height: 656px;
     padding: 60px 91px;
     border-radius: 30px;
     background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
     @include pos($pos: fixed, $t: 50%, $l: 50%, $zIndex: 50);
     transform: translate(-50%, -50%);
+    height: 80vh; // fit-content;
     box-sizing: border-box;
 
     .close-lightbox {
@@ -128,9 +38,7 @@ p.description {
     }
 
     .outer-container {
-        // overflow-y: scroll;
         height: 95%;
-        padding: 20px;
 
         .container {
             @include disFlex($aI: center, $jC: space-between, $cG: 88px, $fWrap: nowrap);
@@ -166,7 +74,7 @@ p.description {
                 }
 
                 .center-block {
-                    @include disFlex($fD: column, $jC: center, $rG: 40px);
+                    @include disFlex($fD: column, $jC: center, $rG: 20px);
 
                     h2 {
                         font-family: 'fira-code', Verdana, sans-serif;
@@ -249,38 +157,12 @@ p.description {
         right: unset;
         left: 37px;
     }
-
-    .prev-next {
-        @include disFlex($aI: center, $jC: space-between, $rG: 12px, $cG: 36px, $fWrap: wrap);
-        min-width: 100%;
-        padding: 0 calc(95%/11);
-        box-sizing: border-box;
-
-        /* .prev-project,
-        .next-project {
-            @include disFlex($aI: center, $jC: center, $cG: 8px);
-            cursor: pointer;
-            @include pos($pos: absolute, $b: 20px, $r: 37px);
-
-            p {
-                font-family: 'karla', Verdana, sans-serif;
-                font-size: 18px;
-                color: $standard-green;
-                line-height: 120%;
-                letter-spacing: 0;
-            }
-        }
-
-        .prev-project {
-            right: unset;
-            left: 37px;
-        } */
-    }
 }
 
 @media only screen and (max-width: 1200px) {
-    .project-lightbox {
-        padding: 20px;
+    .main-container {
+        padding: 20px 20px 60px 20px;
+        height: fit-content;
 
         .outer-container {
             min-width: 80%;
@@ -288,11 +170,18 @@ p.description {
             .container {
                 flex-direction: column-reverse;
                 min-width: 100%;
-                row-gap: 40px;
+                row-gap: 20px;
                 height: fit-content;
 
                 .left {
                     min-width: 100%;
+
+                    .headline-block {
+                        h1 {
+                            font-size: 64px;
+                            line-height: 100%;
+                        }
+                    }
                 }
 
                 .right {
@@ -305,17 +194,7 @@ p.description {
 }
 
 @media only screen and (max-width: 750px) {
-    /* .list {
-        .project {
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 40px 0;
-        }
-    } */
-
-    .project-lightbox {
-        padding: 95px 15px;
-
+    .main-container {
         .outer-container {
             .container {
                 flex-direction: column-reverse;
@@ -380,19 +259,26 @@ p.description {
 }
 
 @media only screen and (max-width: 650px) {
-    /* .headline-block {
-        h1 {
-            font-size: 54px;
+    .main-container {
+        .prev-project,
+        .next-project {
+            p {
+                display: none;
+            }
         }
-    } */
+    }
+}
 
-    .project-lightbox {
-        .prev-next {
-
-            .prev-project,
-            .next-project {
-                p {
-                    display: none;
+@media only screen and (max-height: 800px) {
+    .main-container {
+        .outer-container {
+            max-height: 400px;
+            overflow-y: scroll;
+            
+            .container {
+                .right {
+                    height: 153px;
+                    width: 272px;
                 }
             }
         }

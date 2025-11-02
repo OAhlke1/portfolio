@@ -8,6 +8,16 @@
     display: none !important;
 }
 
+h1 {
+    font-family: 'fira-code', Verdana, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+    color: $standard-green;
+    width: 100%;
+    margin: 0;
+}
+
 h2,
 h3,
 a,
@@ -99,4 +109,12 @@ app-footer {
     background-color: transparent;
     padding: 72px 60px;
     position: relative;
+}
+
+@media only screen and (max-width: 650px) {
+    h1 {
+        font-size: 32px;
+        color: white;
+        text-align: left;
+    }
 }

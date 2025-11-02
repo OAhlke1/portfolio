@@ -60,13 +60,24 @@ h2 {
 }
 
 .all-containing {
+    @include disFlex($fD: column, $jC: space-between);
+    overflow: hidden;
+    height: fit-content;
+    min-height: 100vh;
+}
+
+.top {
+    width: 100%;
     overflow: hidden;
 }
 
 .block {
+    width: 100%;
+    max-width: 1440px;
+    
     top-bar {
         @include disFlex($aI: center, $jC: space-between);
-        width: 100%;
+        min-width: 100%;
         max-width: 1440px;
         min-height: 98px;
         padding: 36px 0;
@@ -115,5 +126,9 @@ app-footer {
     app-footer,
     .block {
         padding: 24px 15px;
+    }
+
+    .block top-bar {
+        flex-direction: row-reverse;
     }
 }

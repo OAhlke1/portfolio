@@ -1,32 +1,37 @@
 <div class="all-containing" (click)="portService.showHideBurgerMenu($event)">
-    <div class="block">
-        <top-bar></top-bar>
-    </div>
-
-    <div class="block terms">
-        <div class="inner-block">
-            <h2 [ngClass]="{'disNone': !portService.englishActivated}">Legal Notice</h2>
-            <h2 [ngClass]="{'disNone': !portService.germanActivated}">Impressum</h2>
-            <p>Oscar Ahlke</p>
-            <p>Maikottenweg 124</p>
-            <p [ngClass]="{'disNone': !portService.englishActivated}">Germany</p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">Deutschland</p>
+    <div class="top">
+        <div class="block">
+            <top-bar></top-bar>
         </div>
-    </div>
-    <div class="block terms">
-        <div class="inner-block">
-            <h2 [ngClass]="{'disNone': !portService.englishActivated}">Contact</h2>
-            <h2 [ngClass]="{'disNone': !portService.germanActivated}">Kontakt</h2>
-            <p [ngClass]="{'disNone': !portService.englishActivated}">Phone: <a href="tel:004915901951784">+49 1590 1951784</a></p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">Telefon: <a href="tel:004915901951784">+49 1590 1951784</a></p>
-            <p>Mail: <a [href]="'mailto:' + portService.links.mailAddress">{{ portService.links.mailAddress }}</a></p>
+        <div class="block terms">
+            <div class="inner-block">
+                <h2 [ngClass]="{'disNone': !portService.englishActivated}">Legal Notice</h2>
+                <h2 [ngClass]="{'disNone': !portService.germanActivated}">Impressum</h2>
+                <p>Oscar Ahlke</p>
+                <p>Maikottenweg 124</p>
+                <p [ngClass]="{'disNone': !portService.englishActivated}">Germany</p>
+                <p [ngClass]="{'disNone': !portService.germanActivated}">Deutschland</p>
+            </div>
         </div>
-    </div>
-    <div class="block terms">
-        <div class="inner-block">
-            <h2 [ngClass]="{'disNone': !portService.englishActivated}">Person responsible for editorial content:</h2>
-            <h2 [ngClass]="{'disNone': !portService.germanActivated}">Redaktionell verantwortlich:</h2>
-            <p>Oscar Ahlke</p>
+        <div class="block terms">
+            <div class="inner-block">
+                <h2 [ngClass]="{'disNone': !portService.englishActivated}">Contact</h2>
+                <h2 [ngClass]="{'disNone': !portService.germanActivated}">Kontakt</h2>
+                <p [ngClass]="{'disNone': !portService.englishActivated}">Phone: <a href="tel:004915901951784">+49 1590
+                        1951784</a></p>
+                <p [ngClass]="{'disNone': !portService.germanActivated}">Telefon: <a href="tel:004915901951784">+49 1590
+                        1951784</a></p>
+                <p>Mail: <a [href]="'mailto:' + portService.links.mailAddress">{{ portService.links.mailAddress }}</a>
+                </p>
+            </div>
+        </div>
+        <div class="block terms">
+            <div class="inner-block">
+                <h2 [ngClass]="{'disNone': !portService.englishActivated}">Person responsible for editorial content:
+                </h2>
+                <h2 [ngClass]="{'disNone': !portService.germanActivated}">Redaktionell verantwortlich:</h2>
+                <p>Oscar Ahlke</p>
+            </div>
         </div>
     </div>
     <app-footer></app-footer>

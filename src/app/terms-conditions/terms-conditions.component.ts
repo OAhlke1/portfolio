@@ -14,4 +14,10 @@ import { FooterComponent } from "../shared/footer/footer.component";
 })
 export class TermsConditionsComponent {
   constructor(public portService:PortfolioService, public routes:Router) { }
+
+  ngOnInit() {
+    this.portService.burgerMenuShiftedIn = false;
+    this.portService.burgerMenuShiftedOut = false;
+    console.log(this.portService.burgerMenuShiftedIn, this.portService.burgerMenuShiftedOut);
+  }
 }

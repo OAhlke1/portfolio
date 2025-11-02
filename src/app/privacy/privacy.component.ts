@@ -14,4 +14,9 @@ import { FooterComponent } from "../shared/footer/footer.component";
 })
 export class PrivacyComponent {
   constructor(public portService:PortfolioService, public routes:Router) { }
+
+  ngAfterViewInit() {
+    this.portService.burgerMenuShiftedOut = "null";
+    this.portService.burgerMenuShiftedIn = "null";
+  }
 }

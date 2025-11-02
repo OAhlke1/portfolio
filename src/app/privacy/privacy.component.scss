@@ -54,22 +54,29 @@ h2 {
     color: white;
 }
 
-top-bar {
-    @include disFlex($aI: center, $jC: space-between);
-    width: 100%;
-    max-width: 1440px;
-    min-height: 98px;
-    padding: 36px 104px;
-    background-color: $standard-black;
-    @include pos($pos: relative, $t: 0, $l: 50%, $zIndex: 5);
-    transform: translateX(-50%);
-    z-index: 50;
+.all-containing {
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .block {
     @include disFlex($fD: column, $jC: space-between, $rG: 16px);
-    background-color: $standard-black;
     padding: 12px 60px 12px 60px;
+    width: 100%;
+    max-width: 1440px;
+
+    top-bar {
+        @include disFlex($fD: row-reverse, $aI: center, $jC: space-between);
+        width: 100%;
+        max-width: 1440px;
+        min-height: 98px;
+        padding: 36px 0;
+        background-color: transparent;
+        @include pos($pos: relative, $t: 0, $l: 50%, $zIndex: 5);
+        transform: translateX(-50%);
+        z-index: 50;
+        background-color: transparent;
+    }
 
     &.terms {
         row-gap: 16px;
@@ -79,7 +86,8 @@ top-bar {
         @include disFlex($fD: column, $jC: space-between, $rG: 4px);
     }
 
-    a, span {
+    a,
+    span {
         color: white;
     }
 }
@@ -88,7 +96,7 @@ app-footer {
     @include disFlex($fD: column, $aI: center, $jC: space-between, $rG: 36px, $fWrap: wrap);
     width: 100%;
     max-width: 1440px;
-    background-color: $standard-black;
+    background-color: transparent;
     padding: 72px 60px;
     position: relative;
 }

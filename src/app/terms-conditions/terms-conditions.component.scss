@@ -96,6 +96,8 @@ top-bar {
     @include disFlex($fD: column, $jC: space-between, $rG: 16px);
     background-color: transparent;
     padding: 12px 60px 12px 60px;
+    width: 100%;
+    max-width: 1440px;
 
     &.terms {
         row-gap: 16px;

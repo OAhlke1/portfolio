@@ -9,10 +9,11 @@ import { ReviewsInterface } from '../interfaces/reviews.interface';
 export class PortfolioService {
   burgerMenuShiftedIn: any = "null";
   burgerMenuShiftedOut: any = "null";
-  englishActivated: boolean = true;
-  germanActivated: boolean = false;
+  englishActivated: boolean = false;
+  germanActivated: boolean = true;
   overlayJustOpened: boolean = true;
   overlayShown: boolean = false;
+  onLoad: boolean = true;
   project!: ProjectsInterface;
   links = {
     mailAddress: 'mail@oscar-ahlke.de',
@@ -75,35 +76,35 @@ export class PortfolioService {
   ];
 
   reviews: ReviewsInterface[] = [{
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann I",
     isActive: true
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann II",
     isActive: false
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann III",
     isActive: false
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann IIII",
     isActive: false
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann V",
     isActive: false
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann VI",
     isActive: false
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann VI",
     isActive: false
   }, {
-    review: "Noch keine Reviews vorhanden",
+    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
     author: "Max Mustermann VI",
     isActive: false
   }];
@@ -125,12 +126,18 @@ export class PortfolioService {
     if (target.closest('.lang-switch')) {
       return;
     }
+    if(this.onLoad && target.closest('.burger-menu')) {
+      this.onLoad = false;
+      this.burgerMenuShiftedIn = false;
+      this.burgerMenuShiftedOut = true;
+    }
     if(this.burgerMenuShiftedIn === "null" && this.burgerMenuShiftedOut === "null") {
       this.burgerMenuShiftedIn = false;
       this.burgerMenuShiftedOut = true;
       return;
     }
     else if (target.closest('.burger-menu')) {
+      // this.onLoad = false;
       if (this.burgerMenuShiftedIn === true && this.burgerMenuShiftedOut === false) {
         this.burgerMenuShiftedIn = false;
         this.burgerMenuShiftedOut = true;
@@ -138,8 +145,7 @@ export class PortfolioService {
         this.burgerMenuShiftedIn = true;
         this.burgerMenuShiftedOut = false;
       }
-    }
-    else {
+    } else {
       this.burgerMenuShiftedIn = false;
       this.burgerMenuShiftedOut = true;
     }

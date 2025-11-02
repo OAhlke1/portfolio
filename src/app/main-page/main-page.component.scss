@@ -21,6 +21,7 @@ top-section {
     width: 100%;
     min-height: 500px;
     height: 100vh;
+    max-height: 1920px;
     padding: $standard-padding;
     @include pos($pos: relative);
     // overflow: hidden;

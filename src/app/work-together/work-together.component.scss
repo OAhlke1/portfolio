@@ -108,6 +108,14 @@ h1 {
     display: none;
 }
 
+.input-cont {
+    @include pos($pos: relative);
+}
+
+.hide-at-750 {
+    display: block;
+}
+
 .mail-sent {
     @include disFlex($aI: center, $jC: center);
     width: fit-content;
@@ -192,12 +200,18 @@ h1 {
             .wrong-pattern {
                 display: none;
                 background-color: transparent;
+                @include pos($pos: absolute, $t: 50%, $l: 0);
+                transform: translate(-100%, -50%);
+                text-align: center;
+                background-color: $standard-black;
+                padding: 10px;
+                border: 1px solid $standard-green;
 
                 p {
                     width: 100%;
                     font-family: 'karla', Verdana, sans-serif;
                     font-size: 16px;
-                    color: rgba(255, 255, 255, 0.8);
+                    color: $standard-green;
                     margin: 0;
                 }
             }
@@ -229,13 +243,14 @@ h1 {
         button[disabled] {
             opacity: 0.5;
             cursor: not-allowed !important;
-            
+
             &:hover {
                 transform: scale(1);
             }
 
             .button-inner {
                 cursor: not-allowed;
+
                 &:hover {
                     transform: scale(1);
                 }
@@ -306,6 +321,23 @@ h1 {
 
     .show-at-under-650 {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .right {
+        form div {
+            .wrong-pattern {
+                position: static;
+                padding: 0;
+                border: unset;
+                transform: unset;
+            }
+        }
+    }
+
+    .hide-at-750 {
+        display: none;
     }
 }
 

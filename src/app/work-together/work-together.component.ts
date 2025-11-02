@@ -5,12 +5,11 @@ import { PortfolioService } from '../shared/services/portfolio-service.service';
 import { ButtonComponent } from "../shared/buttons/button.component";
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'work-together',
   standalone: true,
-  imports: [NgClass, ButtonComponent, FormsModule],
+  imports: [NgClass, FormsModule],
   templateUrl: './work-together.component.html',
   styleUrl: './work-together.component.scss'
 })
@@ -40,6 +39,8 @@ export class WorkTogetherComponent {
   nameRegex = /^(?:[A-ZÄÖÜ][a-zäöüß]+|[A-ZÄÖÜ]\.) [A-ZÄÖÜ][a-zäöüß]+(?:-[A-ZÄÖÜ][a-zäöüß]+)?$/;
   mailPatternCorrect: any = "false";
   mailRegEx = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+  messageInputcontainsText: boolean = false;
+  checkerChecked: boolean = false;
 
   constructor(public portService: PortfolioService, public router: Router) { }
 
@@ -60,6 +61,7 @@ export class WorkTogetherComponent {
     if (!this.correctlyFilled) {
       return;
     } else { // if (ngForm.submitted && ngForm.form.valid) {
+      console.log(ngForm);
       this.http
         .post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
@@ -88,7 +90,7 @@ export class WorkTogetherComponent {
     this.checkName();
     this.checkMail();
     this.checkMessage();
-    this.checkerChecked();
+    this.checkerChecking();
   }
 
   checkName() {
@@ -102,6 +104,7 @@ export class WorkTogetherComponent {
       this.yourNameLabelE.nativeElement.style.color = "#3DCFB6";
       this.yourNameLabelG.nativeElement.style.color = "#3DCFB6";
     }
+    this.enableDisableButton();
   }
 
   checkMail() {
@@ -111,10 +114,11 @@ export class WorkTogetherComponent {
       this.yourMailLabelG.nativeElement.style.color = "#ff0000";
       this.correctlyFilled = false;
     } else {
-        this.mailPatternCorrect = true;
-        this.yourMailLabelE.nativeElement.style.color = "#3DCFB6";
-        this.yourMailLabelG.nativeElement.style.color = "#3DCFB6";
+      this.yourMailLabelE.nativeElement.style.color = "#3DCFB6";
+      this.yourMailLabelG.nativeElement.style.color = "#3DCFB6";
+      this.mailPatternCorrect = true;
     }
+    this.enableDisableButton();
   }
 
   checkMessage() {
@@ -122,20 +126,35 @@ export class WorkTogetherComponent {
       this.yourMessageLabelE.nativeElement.style.color = "#ff0000";
       this.yourMessageLabelG.nativeElement.style.color = "#ff0000";
       this.correctlyFilled = false;
+      this.messageInputcontainsText = false;
     } else {
       this.yourMessageLabelE.nativeElement.style.color = "#3DCFB6";
       this.yourMessageLabelG.nativeElement.style.color = "#3DCFB6";
+      this.correctlyFilled = true;
+      this.messageInputcontainsText = true;
     }
+    this.enableDisableButton();
   }
 
-  checkerChecked() {
-    if (!this.checker.nativeElement.checked) {
+  checkerChecking() {
+    if (!this.checkerChecked) {
       this.checker.nativeElement.style.outline = "2px solid #ff0000";
       this.checker.nativeElement.style.background = "#ff0000";
       this.correctlyFilled = false;
     } else {
       this.checker.nativeElement.style.outline = "2px solid #3DCFB6";
       this.checker.nativeElement.style.background = "#3DCFB6";
+    }
+    this.enableDisableButton();
+  }
+
+  enableDisableButton() {
+    if(this.namePatternCorrect && this.mailPatternCorrect && this.messageInputcontainsText && this.checkerChecked) {
+      this.submitButton.nativeElement.removeAttribute('disabled');
+      this.correctlyFilled = true;
+    }else {
+      this.correctlyFilled = false;
+      this.submitButton.nativeElement.setAttribute('disabled', true);
     }
   }
 

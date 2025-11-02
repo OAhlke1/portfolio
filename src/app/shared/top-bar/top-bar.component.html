@@ -30,7 +30,7 @@
     <a href="#top"><img src="../../../assets/images/logo.svg" alt=""></a>
 </div>
 
-<div class="top-bar-burger-menu" [ngClass]="{'shifted-in': portService.burgerMenuShiftedIn, 'shifted-out': portService.burgerMenuShiftedOut}">
+<div class="top-bar-burger-menu" [ngClass]="{'shifted-in': portService.burgerMenuShiftedIn === true, 'shifted-out': portService.burgerMenuShiftedOut === true}">
     <div class="lang-switch" (click)="portService.switchLanguage()">
         <div class="lang" [ngClass]="{'activated': portService.englishActivated}">
             <p>EN</p>

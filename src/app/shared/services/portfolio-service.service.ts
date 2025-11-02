@@ -7,8 +7,8 @@ import { ReviewsInterface } from '../interfaces/reviews.interface';
 })
 
 export class PortfolioService {
-  burgerMenuShiftedIn: boolean = false;
-  burgerMenuShiftedOut: boolean = true;
+  burgerMenuShiftedIn: any = "null";
+  burgerMenuShiftedOut: any = "null";
   englishActivated: boolean = true;
   germanActivated: boolean = false;
   overlayJustOpened: boolean = true;
@@ -125,11 +125,16 @@ export class PortfolioService {
     if (target.closest('.lang-switch')) {
       return;
     }
+    if(this.burgerMenuShiftedIn === "null" && this.burgerMenuShiftedOut === "null") {
+      this.burgerMenuShiftedIn = false;
+      this.burgerMenuShiftedOut = true;
+      return;
+    }
     else if (target.closest('.burger-menu')) {
-      if (this.burgerMenuShiftedIn && !this.burgerMenuShiftedOut) {
+      if (this.burgerMenuShiftedIn === true && this.burgerMenuShiftedOut === false) {
         this.burgerMenuShiftedIn = false;
         this.burgerMenuShiftedOut = true;
-      } else if (!this.burgerMenuShiftedIn && this.burgerMenuShiftedOut) {
+      } else if (this.burgerMenuShiftedIn === false && this.burgerMenuShiftedOut === true) {
         this.burgerMenuShiftedIn = true;
         this.burgerMenuShiftedOut = false;
       }

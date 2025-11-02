@@ -4,6 +4,10 @@
     display: none !important;
 }
 
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
 p {
     margin: 0;
 }
@@ -32,6 +36,7 @@ p {
                 font-weight: 400;
                 line-height: 120%;
                 white-space: nowrap;
+                margin: 0;
             }
         }
     }
@@ -52,6 +57,19 @@ p {
             }
         }
 
+        p {
+            font-family: 'fira-code', Verdana, sans-serif;
+            font-size: 16px;
+            color: white;
+            font-weight: 400;
+            line-height: 120%;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        div {
+            @include disFlex($jC: center, $fD: column, $fWrap: wrap);
+        }
     }
 }
 

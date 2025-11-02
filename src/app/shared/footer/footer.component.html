@@ -2,10 +2,10 @@
     <div class="logo-block">
         <a href="#top"><img src="../../../assets/images/logo.svg" alt=""></a>
         <div class="text-block">
-            <p [ngClass]="{'disNone': portService.englishActivated}">Oscar Ahlke, Web developer</p>
-            <p [ngClass]="{'disNone': portService.germanActivated}">Oscar Ahlke, Webentwickler</p>
-            <p [ngClass]="{'disNone': portService.englishActivated}">Münster Germany</p>
-            <p [ngClass]="{'disNone': portService.germanActivated}">Münster Deutschland</p>
+            <p [ngClass]="{'disNone': !portService.englishActivated}">Oscar Ahlke, Web developer</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">Oscar Ahlke, Webentwickler</p>
+            <p [ngClass]="{'disNone': !portService.englishActivated}">Münster Germany</p>
+            <p [ngClass]="{'disNone': !portService.germanActivated}">Münster Deutschland</p>
         </div>
     </div>
 
@@ -13,7 +13,14 @@
         <a href="{{ portService.links.gitHubLink }}" target="_blank">Github</a>
         <a href="{{ portService.links.linkedInLink }}" target="_blank">LinkedIn</a>
         <a href="mailto:{{ portService.links.mailAddress }}">Email</a>
-        <a (click)="routes.navigateByUrl('legal-notice')">Legal Notice</a>
+        <div>
+            <a (click)="routes.navigateByUrl('terms-conditions')" class="cursor-pointer"><span [ngClass]="{'disNone': !portService.englishActivated}">Terms and Conditions</span></a>
+            <a (click)="routes.navigateByUrl('terms-conditions')" class="cursor-pointer"><span [ngClass]="{'disNone': !portService.germanActivated}">AGB</span></a>
+            <a (click)="routes.navigateByUrl('legal-notice')" class="cursor-pointer"><span [ngClass]="{'disNone': !portService.englishActivated}">Legal Notice</span></a>
+            <a (click)="routes.navigateByUrl('legal-notice')" class="cursor-pointer"><span [ngClass]="{'disNone': !portService.germanActivated}">Impressum</span></a>
+            <a (click)="routes.navigateByUrl('privacy-policy')" class="cursor-pointer"><span [ngClass]="{'disNone': !portService.englishActivated}">Privacy Policy</span></a>
+            <a (click)="routes.navigateByUrl('privacy-policy')" class="cursor-pointer"><span [ngClass]="{'disNone': !portService.germanActivated}">Datenschutzerklärung</span></a>
+        </div>
     </div>
 </div>
 

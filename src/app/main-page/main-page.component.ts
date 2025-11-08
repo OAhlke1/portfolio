@@ -8,18 +8,26 @@ import { FooterComponent } from '../shared/footer/footer.component';
 import { WorkTogetherComponent } from '../work-together/work-together.component';
 import { PortfolioService } from '../shared/services/portfolio-service.service';
 import { ProjectLightboxComponent } from '../project-lightbox/project-lightbox.component';
+import { NgClass } from "../../../node_modules/@angular/common";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, FooterComponent, WorkTogetherComponent, ProjectLightboxComponent],
+  imports: [TopSectionComponent, MySelfSectionComponent, FeaturedProjectsComponent, ReviewsComponent, FooterComponent, WorkTogetherComponent, ProjectLightboxComponent, NgClass],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent {
   constructor(public portService: PortfolioService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if(localStorage.getItem('lang') === "eng") {
+      this.portService.englishActivated = true;
+      this.portService.germanActivated = false;
+    }else  {
+      this.portService.englishActivated = false;
+      this.portService.germanActivated = true;
+    }
     AOS.init();
   }
 

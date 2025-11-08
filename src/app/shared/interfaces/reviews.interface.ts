@@ -1,5 +1,6 @@
 export interface ReviewsInterface {
-    review: string;
+    reviewEng: string;
+    reviewGer: string;
     author: string;
     isActive: boolean;
 }

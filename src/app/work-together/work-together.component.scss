@@ -112,7 +112,7 @@ h1 {
     @include pos($pos: relative);
 }
 
-.hide-at-750 {
+.hide-at-1100 {
     display: block;
 }
 
@@ -324,7 +324,7 @@ h1 {
     }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1100px) {
     .right {
         form div {
             .wrong-pattern {
@@ -336,7 +336,7 @@ h1 {
         }
     }
 
-    .hide-at-750 {
+    .hide-at-1100 {
         display: none;
     }
 }

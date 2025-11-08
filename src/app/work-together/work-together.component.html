@@ -44,8 +44,8 @@
                 [placeholder]="portService.englishActivated ? 'Your name goes here' : 'Ihr Name'" required
                 #yourNameInput value="'Oscr Ahlke'" (keyup)="checkName()" (change)="checkName()">
             <div class="wrong-pattern" [ngClass]="{'disBlock' : !namePatternCorrect, 'disNone' : namePatternCorrect}">
-                <p [ngClass]="{'disNone' : !portService.englishActivated}">Allowed pattern:<br class="hide-at-750"><i>Forename Surname</i> /<br class="hide-at-750"><i>F. Surname</i> </p>
-                <p [ngClass]="{'disNone' : !portService.germanActivated}">Erlaubtes Format:<br class="hide-at-750"><i>Vorname Nachname</i> /<br class="hide-at-750"><i>V. Nachname</i></p>
+                <p [ngClass]="{'disNone' : !portService.englishActivated}">Allowed pattern:<br class="hide-at-1100"><i>Forename Surname</i> /<br class="hide-at-1100"><i>F. Surname</i> </p>
+                <p [ngClass]="{'disNone' : !portService.germanActivated}">Erlaubtes Format:<br class="hide-at-1100"><i>Vorname Nachname</i> /<br class="hide-at-1100"><i>V. Nachname</i></p>
             </div>
         </div>
         <div class="input-cont">
@@ -59,8 +59,8 @@
                 [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required
                 #yourMailInput value="'oahlke1@gmail.com'" (keyup)="checkMail()" (change)="checkMail()">
             <div class="wrong-pattern" [ngClass]="{'disBlock' : !mailPatternCorrect, 'disNone' : mailPatternCorrect}">
-                <p [ngClass]="{'disNone' : !portService.englishActivated}">Allowed pattern:<br class="hide-at-750"><i>mail&#64;mydomain</i></p>
-                <p [ngClass]="{'disNone' : !portService.germanActivated}">Erlaubtes Format:<br class="hide-at-750"><i>mail&#64;meinedomain</i></p>
+                <p [ngClass]="{'disNone' : !portService.englishActivated}">Allowed pattern:<br class="hide-at-1100"><i>mail&#64;mydomain</i></p>
+                <p [ngClass]="{'disNone' : !portService.germanActivated}">Erlaubtes Format:<br class="hide-at-1100"><i>mail&#64;meinedomain</i></p>
             </div>
         </div>
         <div class="input-cont">

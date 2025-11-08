@@ -17,5 +17,5 @@
     <div class="component-container">
         <app-footer id="footer" data-aos="fade-up"></app-footer>
     </div>
-    <project-lightbox></project-lightbox>
+    <project-lightbox [ngClass]="{'disNone': !portService.overlayShown}"></project-lightbox>
 </div>

@@ -6,10 +6,13 @@
         @for(review of portService.reviews; track review.author; let index = $index) {
         <div class="slide" [ngClass]="{'active': review.isActive}" (click)="setNewSlideActive(index)" #slide>
             <img src="assets/images/big-quotations.svg" alt="" class="quotation-marks">
-            <div class="review-text"><p>{{ review.review }}</p></div>
+            <div class="review-text">
+                <p [ngClass]="{'disNone': !portService.englishActivated}">{{ review.reviewEng }}</p>
+                <p [ngClass]="{'disNone': !portService.germanActivated}">{{ review.reviewGer }}</p>
+            </div>
             <div class="author-block">
                 <div class="white-line"></div>
-                <p>{{ review.author}}</p>
+                <p>{{ review.author }}</p>
             </div>
         </div>
         }

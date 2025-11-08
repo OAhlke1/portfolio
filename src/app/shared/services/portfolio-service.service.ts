@@ -11,7 +11,7 @@ export class PortfolioService {
   burgerMenuShiftedOut: any = "null";
   englishActivated: boolean = false;
   germanActivated: boolean = true;
-  overlayJustOpened: boolean = true;
+  overlayJustOpened: boolean = false;
   overlayShown: boolean = false;
   onLoad: boolean = true;
   project!: ProjectsInterface;
@@ -75,37 +75,29 @@ export class PortfolioService {
     }
   ];
 
-  reviews: ReviewsInterface[] = [{
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann I",
+  reviews: ReviewsInterface[] = [
+  {
+    reviewEng: "I'll leave the slider in for now because I think it's so cool! There's still a group project coming up :-)",
+    reviewGer: "Ich lasse den Slider erstmal noch drin, weil ich den so cool finde!  Es steht ja noch eine gruppenarbeit an :-)",
+    author: "Max Mustermann IIII",
     isActive: true
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann II",
-    isActive: false
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann III",
-    isActive: false
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
+  },
+  {
+    reviewEng: "I'll leave the slider in for now because I think it's so cool! There's still a group project coming up :-)",
+    reviewGer: "Ich lasse den Slider erstmal noch drin, weil ich den so cool finde!  Es steht ja noch eine gruppenarbeit an :-)",
     author: "Max Mustermann IIII",
     isActive: false
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann V",
+  },
+  {
+    reviewEng: "I'll leave the slider in for now because I think it's so cool! There's still a group project coming up :-)",
+    reviewGer: "Ich lasse den Slider erstmal noch drin, weil ich den so cool finde!  Es steht ja noch eine gruppenarbeit an :-)",
+    author: "Max Mustermann IIII",
     isActive: false
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann VI",
-    isActive: false
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann VI",
-    isActive: false
-  }, {
-    review: "Es sind noch keine Texte vorhanden, da ich noch von keinem eine Rückmeldung bekommen habe.\nUnd wenn ich den Slider aufgrund dessen herausgenommen hätte, hätte man mir doch gesagt, dass ich einen Slider programmieren sollte. Und mir ist auch bewusst, dass das Textfeld nicht scrollbar sein soll, deswegen nehme ich das hinterher wieder heraus.",
-    author: "Max Mustermann VI",
+  },
+  {
+    reviewEng: "I'll leave the slider in for now because I think it's so cool! There's still a group project coming up :-)",
+    reviewGer: "Ich lasse den Slider erstmal noch drin, weil ich den so cool finde!  Es steht ja noch eine gruppenarbeit an :-)",
+    author: "Max Mustermann IIII",
     isActive: false
   }];
 
@@ -115,9 +107,11 @@ export class PortfolioService {
     if (this.englishActivated) {
       this.englishActivated = false;
       this.germanActivated = true;
+      localStorage.setItem('lang', 'ger');
     } else if (this.germanActivated) {
       this.englishActivated = true;
       this.germanActivated = false;
+      localStorage.setItem('lang', 'eng');
     }
   }
 

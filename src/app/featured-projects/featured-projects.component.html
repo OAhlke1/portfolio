@@ -14,7 +14,7 @@
 
 <div class="list">
     @for(project of portService.projects; track project.name; let index = $index) {
-    <div class="project" (click)="portService.overlayJustOpened=true; portService.openLightBox(index, true)">
+    <div class="project" (click)="portService.overlayShown=true; portService.openLightBox(index, true)">
         <p class="name">{{ project.name }}</p>
         <div class="p-langs">
             @for(lang of project.pLangs; track lang.pLang; let index = $index) {
@@ -26,67 +26,3 @@
 </div>
 }
 </div>
-
-<!-- @if(project) {
-<div class="project-lightbox" [ngClass]="{'disNone': !overlayShown}">
-    <div class="close-lightbox" (click)="closeLightBox()">
-        <img src="assets/images/close-lightbox.svg" alt="">
-    </div>
-    <div class="outer-container">
-        <div class="container">
-
-            <div class="left">
-                <div class="headline-block">
-                    @if(project.index < 10) { <h1>0{{ project.index + 1 }}</h1>
-                        }@else {
-                        <h1>{{ project.index + 1 }}</h1>
-                        }
-                        <h2>{{ project.name }}</h2>
-                </div>
-
-                <div class="center-block">
-                    <h2 [ngClass]="{'disNone': !portService.englishActivated}">What is this project about?</h2>
-                    <h2 [ngClass]="{'disNone': !portService.germanActivated}">Worum geht es in diesem Projekt?</h2>
-
-                    <p class="description" [ngClass]="{'disNone': !portService.englishActivated}">{{
-                        project.description.english
-                        }}</p>
-                    <p class="description" [ngClass]="{'disNone': !portService.germanActivated}">{{
-                        project.description.german
-                        }}</p>
-
-                    <div class="languages">
-                        @for(language of project.pLangs; track language.pIconSrc) {
-                        <img [src]="language.pIconSrc" alt="">
-                        }
-                    </div>
-                </div>
-
-                <div class="bottom-block">
-                    <app-button [englishText]="'GitHub'" [germanText]="'GitHub'" [url]="project.gitHubLink"
-                        [iconSrc]="'assets/images/up-right-arrow.svg'" [inNewTab]="true"></app-button>
-                    <app-button [englishText]="'Live Test'" [germanText]="'Live Test'" [url]="project.link"
-                        [iconSrc]="'assets/images/up-right-arrow.svg'" [inNewTab]="true"></app-button>
-                </div>
-            </div>
-
-            <div class="right" [ngStyle]="{'background-image': 'url(' + project.imageSrc + ')'}"></div>
-        </div>
-    </div>
-
-    <div class="prev-next">
-        <div class="prev-project" [ngClass]="{'disNone': project.index === 0}"
-            (click)="openLightBox(project.index, false)">
-            <img src="assets/images/prev-project-arrow.svg" alt="">
-            <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
-        </div>
-        <div class="next-project" [ngClass]="{'disNone': project.index + 1 === portService.projects.length}"
-            (click)="openLightBox(project.index, true)">
-            <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>
-            <img src="assets/images/next-project-arrow.svg" alt="">
-        </div>
-    </div>
-</div>
-} -->

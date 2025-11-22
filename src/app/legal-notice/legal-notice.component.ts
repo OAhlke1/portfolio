@@ -16,8 +16,18 @@ export class LegalNoticeComponent {
   constructor(public portService:PortfolioService, public routes:Router) { }
 
   ngOnInit() {
+    this.setLang();
     this.portService.burgerMenuShiftedIn = false;
     this.portService.burgerMenuShiftedOut = true;
-    console.log(this.portService.burgerMenuShiftedIn, this.portService.burgerMenuShiftedOut);
+  }
+
+  setLang() {
+    if(localStorage.getItem('lang') === "eng") {
+      this.portService.englishActivated = true;
+      this.portService.germanActivated = false;
+    }else  {
+      this.portService.englishActivated = false;
+      this.portService.germanActivated = true;
+    }
   }
 }

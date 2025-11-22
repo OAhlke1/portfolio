@@ -19,4 +19,19 @@ export class FeaturedProjectsComponent {
   overlayJustOpened: boolean = true;
 
   constructor(public portService: PortfolioService) { }
+
+  showHideSidePic(index: number) {
+    this.hideAllSidePics();
+    if (this.portService.projects[index].sideImageShown) {
+      this.portService.projects[index].sideImageShown = false;
+    } else if (!this.portService.projects[index].sideImageShown) {
+      this.portService.projects[index].sideImageShown = true;
+    }
+  }
+
+  hideAllSidePics() {
+    for(let project of this.portService.projects) {
+      project.sideImageShown = false;
+    }
+  }
 }

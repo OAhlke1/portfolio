@@ -14,7 +14,13 @@
 
 <div class="list">
     @for(project of portService.projects; track project.name; let index = $index) {
-    <div class="project" (click)="portService.overlayShown=true; portService.openLightBox(index, true)">
+    <div class="project" (click)="portService.overlayShown=true; portService.openLightBox(index, true)" (mouseover)="showHideSidePic(index)" (mouseleave)="hideAllSidePics()">
+        <div class="side-image" [ngClass]="{'disNone': !project.sideImageShown}">
+            <div class="side-image-inner">
+                <div class="img-box" [style]="{'background-image': 'url(' + project.imageSrc + ')'}"></div>
+                <div class="bg-box"></div>
+            </div>
+        </div>
         <p class="name">{{ project.name }}</p>
         <div class="p-langs">
             @for(lang of project.pLangs; track lang.pLang; let index = $index) {

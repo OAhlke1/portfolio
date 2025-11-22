@@ -55,6 +55,41 @@ p.description {
     max-width: 880px;
 
     .project {
+        @include pos($pos: relative);
+
+        .side-image {
+            width: 300px;
+            height: 133.5px;
+            @include pos($pos: absolute, $t: 50%, $r: 0);
+            transform: translate(110%, -50%);
+            
+            .side-image-inner {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                border-radius: 30px;
+                @include pos($pos: relative);
+
+                .img-box {
+                    @include pos($pos: absolute, $t: 0, $l: 0, $zIndex: 1);
+                    width: 90%;
+                    height: 90%;
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    border-radius: 11.25px;
+                }
+
+                .bg-box {
+                    @include pos($pos: absolute, $r: 0, $b: 0, $zIndex: 0);
+                    width: 90%;
+                    height: 90%; 
+                    background-image: url("../../assets/images/stripes.svg");
+                    background-size: auto 100%;
+                    background-repeat: repeat-x;
+                    border-radius: 11.25px;
+                }
+            }
+        }
+
         @include disFlex($aI: center, $jC: space-between, $cG: 40px, $rG: 16px, $fWrap: wrap);
         width: 100%;
         padding: 40px 32px;
@@ -94,6 +129,16 @@ p.description {
                 width: 1px;
                 height: 10px;
                 background-color: $standard-green;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .list {
+        .project {
+            .side-image {
+                display: none !important
             }
         }
     }

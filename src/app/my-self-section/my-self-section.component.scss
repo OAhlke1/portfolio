@@ -1,5 +1,15 @@
 @import '../mixins.scss';
 
+@keyframes fade-in-background {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-5%, 5%);
+    }
+}
+
 .disNone {
     display: none !important;
 }
@@ -37,12 +47,33 @@ p {
         height: fit-content;
 
         &.image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
             border-radius: 30px;
-            background-color: red;
+            @include pos($pos: relative);
+
+            &.with-bg-image {
+                background-image: url('../../assets/images/stripes.svg');
+                background-size: 90% auto;
+                background-position: bottom left;
+
+                .bg-image {
+                    animation: fade-in-background 0.25s linear;
+                    transform: translate(-5%, 5%);
+                }
+            }
+
+            .bg-image {
+                width: 100%;
+                height: 100%;
+                @include pos($pos: absolute, $t: 0, $r: 0);
+                transform: translate(0%, 0%);
+            }
 
             img {
                 width: 100%;
                 height: auto;
+                @include pos($pos: absolute, $b: 0, $l: 0, $zIndex: 1);
             }
         }
 
@@ -50,6 +81,13 @@ p {
             align-self: flex-start !important;
             max-width: 568px;
             margin-bottom: 0 !important;
+
+            .bottom {
+                &.box {
+                    background: radial-gradient(circle, rgba(8, 70, 59, 1) 30%, rgba(28, 28, 28, 1) 100%) !important;
+                    overflow: hidden !important;
+                }
+            }
         }
 
         h2 {
@@ -82,7 +120,8 @@ p {
                 padding: 0;
             }
 
-            p, p.outer-container-text {
+            p,
+            p.outer-container-text {
                 font-family: 'karla', Verdana, sans-serif;
                 color: white;
             }
@@ -123,6 +162,10 @@ p {
         img {
             width: 104px;
             height: auto;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ $standard-green-blurry: #3dcfb630;
 $standard-black: #1c1c1c;
 $standard-padding: 0 104px;
 $standard-padding-mobile: 0 15px;
+$linear-background: linear-gradient(37deg,rgba(28, 28, 28, 1) 70%, rgba(8, 70, 59, 1) 100%);
 
 @mixin disFlex($fD: row, $aI: flex-start, $jC: flex-start, $rG: 0, $cG: 0, $fWrap: nowrap) {
     display: flex;

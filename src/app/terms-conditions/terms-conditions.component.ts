@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { FooterComponent } from "../shared/footer/footer.component";
 
 @Component({
-  selector: 'app-disclaimer',
+  selector: 'app-terms-conditions',
   standalone: true,
   imports: [TopBarComponent, NgClass, FooterComponent],
   templateUrl: './terms-conditions.component.html',
@@ -16,8 +16,18 @@ export class TermsConditionsComponent {
   constructor(public portService:PortfolioService, public routes:Router) { }
 
   ngOnInit() {
+    this.setLang();
     this.portService.burgerMenuShiftedIn = false;
     this.portService.burgerMenuShiftedOut = false;
-    console.log(this.portService.burgerMenuShiftedIn, this.portService.burgerMenuShiftedOut);
+  }
+
+  setLang() {
+    if(localStorage.getItem('lang') === "eng") {
+      this.portService.englishActivated = true;
+      this.portService.germanActivated = false;
+    }else  {
+      this.portService.englishActivated = false;
+      this.portService.germanActivated = true;
+    }
   }
 }

@@ -1,7 +1,8 @@
 <div class="container">
     <div class="outer-container">
-        <div class="green-box image">
+        <div class="green-box image" (mouseover)="imgBgShown = true;" (mouseleave)="imgBgShown = false;" [ngClass]="{'with-bg-image': imgBgShown}">
             <img src="assets/images/ich.jpg" alt="">
+            <img src="../../assets/images/stripes.svg" alt="" class="bg-image">
         </div>
 
         <div class="green-box">
@@ -115,10 +116,9 @@
                         erweitern.
                     </p>
                 </div>
+                <app-button [englishText]="'Let´s Talk'" [germanText]="'Melden Sie sich'" [url]="'#work-together'"></app-button>
             </div>
 
-            <app-button [englishText]="'Let´s Talk'" [germanText]="'Melden Sie sich'"
-                [url]="'#work-together'"></app-button>
         </div>
 
         <div class="icons">

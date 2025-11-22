@@ -6,4 +6,5 @@ export interface ProjectsInterface {
   imageSrc: string;
   gitHubLink: string;
   link: string;
+  sideImageShown: boolean;
 }

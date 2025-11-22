@@ -12,11 +12,9 @@ h2 {
 
 .main-container {
     @include disFlex($aI: center, $jC: center, $cG: 88px, $fWrap: wrap);
-    width: 100%;
+    width: 80%;
     max-width: 1248px;
     padding: 60px 91px;
-    height: 80%;
-    max-height: 800px;
     border-radius: 30px;
     background: linear-gradient(28deg, rgba(8, 7, 7, 1) 0%, rgba(8, 70, 59, 1) 100%);
     box-sizing: border-box;
@@ -42,8 +40,6 @@ h2 {
     }
 
     .outer-container {
-        height: 95%;
-
         .container {
             @include disFlex($aI: center, $jC: space-between, $cG: 88px, $fWrap: nowrap);
             width: 100%;
@@ -99,12 +95,6 @@ h2 {
 
                         &::-webkit-scrollbar {
                             display: none;
-                        }
-
-                        &:hover {
-                            &::-webkit-scrollbar {
-                                display: block;
-                            }
                         }
                     }
 
@@ -163,11 +153,12 @@ h2 {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
     .main-container {
         width: 80%;
+        max-width: 366px;
         height: fit-content;
-        padding: 20px 20px 60px 20px;
+        padding: 95px 15px !important;
 
         .outer-container {
             min-width: 80%;
@@ -191,14 +182,21 @@ h2 {
 
                 .right {
                     width: 100%;
-                    max-width: 520px;
+                    aspect-ratio: 16 / 9;
                 }
+            }
+        }
+
+        .prev-project,
+        .next-project {
+            p {
+                display: none;
             }
         }
     }
 }
 
-@media (min-width: 749px) {
+@media (max-width: 750px) {
     .main-container {
         .outer-container {
             .container {
@@ -253,7 +251,7 @@ h2 {
                 }
 
                 .right {
-                    width: 100%;
+                    max-width: 100%;
 
                     img {
                         border-radius: 16px;
@@ -264,18 +262,7 @@ h2 {
     }
 }
 
-@media (max-width: 650px) {
-    .main-container {
-        .prev-project,
-        .next-project {
-            p {
-                display: none;
-            }
-        }
-    }
-}
-
-@media (max-height: 800px) {
+@media (max-height: 700px) {
     .main-container {
         .outer-container {
             max-height: 400px;

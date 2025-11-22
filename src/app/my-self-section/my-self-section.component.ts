@@ -11,5 +11,6 @@ import { ButtonComponent } from '../shared/buttons/button.component';
   styleUrl: './my-self-section.component.scss'
 })
 export class MySelfSectionComponent {
+  imgBgShown: boolean = false;
   constructor(public portService:PortfolioService) { }
 }

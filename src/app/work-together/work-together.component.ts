@@ -57,11 +57,9 @@ export class WorkTogetherComponent {
 
   onSubmit(ngForm: NgForm) {
     this.correctlyFilled = true;
-    this.filledOutCorrectly();
     if (!this.correctlyFilled) {
       return;
-    } else { // if (ngForm.submitted && ngForm.form.valid) {
-      console.log(ngForm);
+    } else {
       this.http
         .post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
@@ -93,7 +91,8 @@ export class WorkTogetherComponent {
     this.checkerChecking();
   }
 
-  checkName() {
+  checkName(event: any = null) {
+    if(this.yourNameInput.nativeElement.value === "" && event.key === "Tab") { return; }
     if (!this.nameRegex.test(this.yourNameInput.nativeElement.value)) {
       this.namePatternCorrect = false;
       this.yourNameLabelE.nativeElement.style.color = "#ff0000";
@@ -107,7 +106,8 @@ export class WorkTogetherComponent {
     this.enableDisableButton();
   }
 
-  checkMail() {
+  checkMail(event: any = null) {
+    if(this.yourMailInput.nativeElement.value === "" && event.key === "Tab") { return; }
     if (!this.mailRegEx.test(this.yourMailInput.nativeElement.value)) {
       this.mailPatternCorrect = false;
       this.yourMailLabelE.nativeElement.style.color = "#ff0000";
@@ -121,7 +121,8 @@ export class WorkTogetherComponent {
     this.enableDisableButton();
   }
 
-  checkMessage() {
+  checkMessage(event: any = null) {
+    if(this.yourMailInput.nativeElement.value === "" && event.key === "Tab") { return; }
     if (this.yourMessageInput.nativeElement.value === "") {
       this.yourMessageLabelE.nativeElement.style.color = "#ff0000";
       this.yourMessageLabelG.nativeElement.style.color = "#ff0000";

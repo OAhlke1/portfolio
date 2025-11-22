@@ -39,7 +39,8 @@ export class PortfolioService {
       },
       imageSrc: "assets/images/join.png",
       gitHubLink: "https://github.com/OAhlke1/join.git",
-      link: "https://oscar-ahlke.de/join/"
+      link: "https://oscar-ahlke.de/join/",
+      sideImageShown: false
     },
     {
       name: 'Space Jumper',
@@ -55,7 +56,8 @@ export class PortfolioService {
       },
       imageSrc: "assets/images/space-jumper.png",
       gitHubLink: "https://github.com/OAhlke1/game.git",
-      link: "https://oscar-ahlke.de/games/space-jumper"
+      link: "https://oscar-ahlke.de/games/space-jumper",
+      sideImageShown: false
     },
     {
       name: 'Pokedex',
@@ -71,7 +73,8 @@ export class PortfolioService {
       },
       imageSrc: "assets/images/pokedex.png",
       gitHubLink: "https://github.com/OAhlke1/pokedex.git",
-      link: "https://oscar-ahlke.de/pokedex"
+      link: "https://oscar-ahlke.de/pokedex",
+      sideImageShown: false
     }
   ];
 

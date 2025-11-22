@@ -64,6 +64,7 @@ h2 {
     overflow: hidden;
     height: fit-content;
     min-height: 100vh;
+    background: $linear-background;
 }
 
 .top {
@@ -74,10 +75,10 @@ h2 {
 .block {
     width: 100%;
     max-width: 1440px;
-    
+
     top-bar {
         @include disFlex($aI: center, $jC: space-between);
-        min-width: 100%;
+        width: 100%;
         max-width: 1440px;
         min-height: 98px;
         padding: 36px 0;
@@ -115,6 +116,14 @@ app-footer {
     position: relative;
 }
 
+@media only screen and (max-width: 750px) {
+    .block {
+        top-bar {
+            flex-direction: row-reverse !important;
+        }
+    }
+}
+
 @media only screen and (max-width: 650px) {
     h1 {
         font-size: 32px;
@@ -126,9 +135,5 @@ app-footer {
     app-footer,
     .block {
         padding: 24px 15px;
-    }
-
-    .block top-bar {
-        flex-direction: row-reverse;
     }
 }

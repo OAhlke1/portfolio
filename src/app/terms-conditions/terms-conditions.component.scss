@@ -14,7 +14,7 @@
     justify-content: space-between;
     height: 100vh;
     overflow-y: scroll;
-    background: $linear-background;
+    // background: $linear-background;
 }
 
 h1 {
@@ -100,6 +100,7 @@ top-bar {
     padding: 12px 60px 12px 60px;
     width: 100%;
     max-width: 1440px;
+    margin: 0 auto;
 
     &.terms {
         row-gap: 16px;

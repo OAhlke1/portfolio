@@ -92,7 +92,6 @@ export class WorkTogetherComponent {
     this.checkName(event);
     this.checkMail(event);
     this.checkMessage(event);
-    // this.checkerChecking();
   }
 
   checkName(event: any = null) {
@@ -117,12 +116,6 @@ export class WorkTogetherComponent {
       this.messageInputcontainsText = false;
     } else { this.messageInputcontainsText = true; }
     this.enableDisableButton();
-  }
-
-  checkerChecking() {
-    if (this.checkerChecked === "0" || !this.checkerChecked) {
-      this.checkerChecked = true;
-    }
   }
 
   enableDisableButton() {

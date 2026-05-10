@@ -64,7 +64,6 @@ h2 {
     overflow: hidden;
     height: fit-content;
     min-height: 100vh;
-    background: $linear-background;
 }
 
 .top {
@@ -73,8 +72,10 @@ h2 {
 }
 
 .block {
+    padding: 12px 60px 12px 60px;
     width: 100%;
     max-width: 1440px;
+    margin: 0 auto;
 
     top-bar {
         @include disFlex($aI: center, $jC: space-between);

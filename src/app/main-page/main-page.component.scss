@@ -1,0 +1,121 @@
+@import '../mixins.scss';
+
+* {
+    box-sizing: border-box;
+    background-color: transparent !important;
+    // min-width: 100%;
+}
+
+.disNone {
+    display: none !important;
+}
+
+.all-containing {
+    padding-bottom: 80px;
+    overflow: hidden !important;
+}
+
+.component-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+top-section {
+    display: block;
+    width: 100%;
+    min-height: 500px;
+    height: 100vh;
+    max-height: 1920px;
+    padding: $standard-padding;
+    @include pos($pos: relative);
+    background: $linear-background;
+}
+
+myself-section {
+    @include disFlex($aI: center, $jC: center);
+    padding: 72px 60px;
+}
+
+featured-projects {
+    @include disFlex($fD: column, $rG: 40px);
+    padding: 72px 60px;
+    width: 100%;
+    @include pos($pos: relative, $zIndex: 1);
+}
+
+.lightbox {
+    @include disFlex($aI: center, $jC: center);
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000099 !important;
+    @include pos($pos: fixed, $t: 0, $l: 0, $zIndex: 5000000);
+
+    project-lightbox {
+        @include disFlex($aI: center, $jC: center);
+        width: fit-content;
+        max-width: 1248px;
+        height: 80%;
+        max-height: 687px;
+        @include pos($pos: relative);
+    }
+}
+
+work-together {
+    @include disFlex($aI: center, $rG: 40px, $cG: 64px);
+    padding: 72px 60px;
+    @include pos($pos: relative);
+}
+
+reviews-section {
+    @include disFlex($fD: column, $aI: center, $rG: 40px);
+    background-color: $standard-black;
+    padding: 72px 60px;
+}
+
+app-footer {
+    @include disFlex($fD: column, $aI: center, $jC: space-between, $rG: 36px, $fWrap: wrap);
+    width: 100%;
+    max-width: 1440px;
+    background-color: $standard-black;
+    padding: 0 60px;
+    position: relative;
+}
+
+@media only screen and (max-width: 1100px) {
+    work-together {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    top-section {
+        padding: $standard-padding-mobile;
+    }
+
+    myself-section {
+        padding: 50px 15px;
+    }
+
+    featured-projects {
+        padding: 50px 15px;
+    }
+
+    work-together {
+        flex-direction: column;
+        padding: 50px 15px;
+
+        .left,
+        .right {
+            width: 100%;
+        }
+    }
+
+    reviews-section {
+        padding: 50px 15px;
+    }
+
+    app-footer {
+        padding: 50px 15px 0 15px;
+    }
+}

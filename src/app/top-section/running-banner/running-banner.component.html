@@ -1,0 +1,16 @@
+<div class="banner-inner" (mouseover)="hovering=true;" (mouseleave)="hovering=false;" (touchstart)="hovering=true;" (touchend)="hovering=false;">
+    <div class="first-textband-half" #firstHalf>
+        @for(keyWord of bannerKeywords; track keyWord.eng) {
+        <p [ngClass]="{'disNone': !portService.englishActivated}">{{ keyWord.eng }}</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">{{ keyWord.ger }}</p>
+        <div class="banner-point"></div>
+        }
+    </div>
+    <div class="second-textband-half" #secondHalf>
+        @for(keyWord of bannerKeywords; track keyWord.eng) {
+        <p [ngClass]="{'disNone': !portService.englishActivated}">{{ keyWord.eng }}</p>
+        <p [ngClass]="{'disNone': !portService.germanActivated}">{{ keyWord.ger }}</p>
+        <div class="banner-point"></div>
+        }
+    </div>
+</div>

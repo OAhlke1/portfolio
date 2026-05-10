@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Join",
+    "index": 0,
+    "pLangs": [
+      {
+        "pLang": "HTML",
+        "pIconSrc": "assets/images/html-icon.svg"
+      },
+      {
+        "pLang": "CSS",
+        "pIconSrc": "assets/images/css-icon.svg"
+      },
+      {
+        "pLang": "JavaScript",
+        "pIconSrc": "assets/images/java-script-icon.svg"
+      },
+      {
+        "pLang": "Firebase",
+        "pIconSrc": "assets/images/firebase-icon.svg"
+      }
+    ],
+    "description": {
+      "english": "A task manager inpsired by the kanban System. Create and organize tasks, using drag and drop functions, assign users and categries.",
+      "german": "Ein Task-Manager in Form eines Kanban-Systems. Erstellen und organisieren Sie Aufgaben mittels Drag-and-Drop-Funktionen und weisen Sie diesen Aufgaben Teilnehmer und Kategorien zu."
+    },
+    "imageScr": "",
+    "gitBubLink": "https://github.com/OAhlke1/join.git",
+    "link": "https://oscar-ahlke.de/games/join.git"
+  },
+  {
+    "name": "Space Jumper",
+    "index": 1,
+    "pLangs": [
+      {
+        "pLang": "HTML",
+        "pIconSrc": "assets/images/html-icon.svg"
+      },
+      {
+        "pLang": "CSS",
+        "pIconSrc": "assets/images/css-icon.svg"
+      },
+      {
+        "pLang": "JavaScript",
+        "pIconSrc": "assets/images/java-script-icon.svg"
+      }
+    ],
+    "description": {
+      "english": "A jump'n'run game, in which you have to to fight against enemies while shooting and jumping in a space-ship.",
+      "german": "Ein Jump'n'Run-spiel, in welchem man durch Schießen und Springen in einem Raumschiff Gegner besiegen muss."
+    },
+    "imageScr": "",
+    "gitBubLink": "https://github.com/OAhlke1/game.git",
+    "link": "https://oscar-ahlke.de/games/space-jumper"
+  }
+]

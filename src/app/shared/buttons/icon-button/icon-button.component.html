@@ -1,0 +1,11 @@
+<div class="button-inner">
+    @if(containsMailAddress) {
+        <a [href]="'mailto:'+link" target="_blank">
+            <img [src]="iconSource" alt="">
+        </a>
+    }@else {
+        <a [href]="link" target="_blank">
+            <img [src]="iconSource" alt="">
+        </a>
+    }
+</div>

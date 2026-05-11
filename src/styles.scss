@@ -15,5 +15,26 @@ body {
 app-root {
     display: block;
     width: 100%;
-    background: $linear-background; // linear-gradient(37deg,rgba(28, 28, 28, 1) 70%, rgba(8, 70, 59, 1) 100%) no-repeat;
+    background: linear-gradient(37deg,rgba(28, 28, 28, 1) 60%, rgba(8, 70, 59, 1) 100%) no-repeat;
+}
+
+.all-containing {
+    position: relative;
+}
+
+.blurrer {
+    width: calc((100vw - 1440px)/2);
+    height: 100%;
+    @include pos($pos: absolute, $t: 0, $l: 0, $zIndex: 5000);
+    background-color: #0f0f0f !important;
+    opacity: 46%;
+
+    &.right {
+        left: unset;
+        right: 0;
+    }
+}
+
+app-footer {
+    margin: 0 auto;
 }

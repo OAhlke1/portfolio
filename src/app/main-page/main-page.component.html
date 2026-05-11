@@ -1,4 +1,5 @@
 <div (click)="portService.showHideBurgerMenu($event)" class="all-containing">
+    <div class="blurrer"></div>
     <div class="component-container">
         <top-section id="top"></top-section>
     </div>
@@ -20,4 +21,5 @@
     <div class="component-container lightbox" [ngClass]="{'disNone': !portService.overlayShown}" (click)="hideOverlay($event)">
         <project-lightbox [ngClass]="{'disNone': !portService.overlayShown}"></project-lightbox>
     </div>
+    <div class="blurrer right"></div>
 </div>

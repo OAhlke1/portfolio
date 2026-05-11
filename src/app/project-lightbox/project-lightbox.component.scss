@@ -31,7 +31,6 @@ h2 {
         height: auto;
         margin: 0;
         padding: 0;
-        background-color: $standard-black;
     }
 }
 
@@ -54,6 +53,10 @@ h2 {
         width: 100%;
         height: fit-content;
         box-sizing: border-box;
+
+        &::-webkit-scrollbar-thumb {
+            width: 1px;
+        }
 
         .left {
             @include disFlex($fD: column, $jC: center, $rG: 40px);
@@ -213,12 +216,6 @@ h2 {
 }
 
 @media (max-width: 750px) {
-    /* .close-lightbox {
-        top: 31px;
-        right: 31px;
-        background-color: black !important;
-    } */
-
     .main-container {
         flex-direction: column-reverse;
         align-items: center;

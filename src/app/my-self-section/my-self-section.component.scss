@@ -84,7 +84,7 @@ p {
 
             .bottom {
                 &.box {
-                    background: radial-gradient(circle, rgba(8, 70, 59, 1) 30%, rgba(28, 28, 28, 1) 100%) !important;
+                    background: $linear-background; // radial-gradient(circle, rgba(8, 70, 59, 1) 30%, rgba(28, 28, 28, 1) 100%) !important;
                     overflow: hidden !important;
                 }
             }

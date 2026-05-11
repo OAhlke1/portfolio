@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-    background-color: transparent !important;
+    background-color: transparent;
     // min-width: 100%;
 }
 
@@ -19,7 +19,7 @@
 .component-container {
     width: 100%;
     max-width: 1440px;
-    overflow: hidden;
+    // overflow: hidden;
     margin: 0 auto;
 }
 
@@ -50,7 +50,8 @@ featured-projects {
     width: 100vw;
     height: 100vh;
     background-color: #00000099 !important;
-    @include pos($pos: fixed, $t: 0, $l: 0, $zIndex: 5000000);
+    @include pos($pos: fixed, $t: 0, $l: 50%, $zIndex: 5000000);
+    transform: translateX(-50%);
 
     project-lightbox {
         @include disFlex($aI: center, $jC: center);

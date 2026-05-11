@@ -110,11 +110,11 @@ top-bar {
 
 running-banner {
     @include disFlex($aI: center, $jC: center, $cG: 56px, $rG: 24px, $fWrap: nowrap);
-    @include pos($pos: absolute, $b: 4.75%, $l: 0, $zIndex: 5);
-    width: 102%;
+    @include pos($pos: absolute, $b: 8%, $l: 50%, $zIndex: 5);
+    width: 99%;
     height: 62px;
     background-color: rgba(255, 255, 255, 0.12);
-    transform: translate(0%, 0%) rotate(-3deg);
+    transform: translate(-50%, 0%) rotate(-3deg);
     overflow: hidden;
 }
 

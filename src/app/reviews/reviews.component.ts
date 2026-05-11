@@ -112,7 +112,6 @@ export class ReviewsComponent {
     this.sliderOffsetOld = this.slider.getBoundingClientRect().left;
     this.shiftToLeft = this.activeSlideIndex - this.oldActiveSlideIndex > 0 ? true : false;
     this.distance = (this.sliderOuter.offsetWidth - this.newActiveSlide.offsetWidth) / 2 - this.newActiveSlide.getBoundingClientRect().left + (this.shiftToLeft ? this.widthDifference : -this.widthDifference) / 2;
-    // this.intervalCode = setInterval(() => { this.shiftSlider(); }, 5);
     requestAnimationFrame(this.shiftSlider);
   }
 
@@ -121,10 +120,9 @@ export class ReviewsComponent {
       this.actualizeSlider();
       return;
     }
-    this.shiftingPerce += 16;
+    this.shiftingPerce += 4;
     this.oldActiveSlide.style.height = `${this.slideHeights.active - this.heightDifference * this.shiftingPerce / 100}px`;
     this.newActiveSlide.style.height = `${this.slideHeights.unActive + this.heightDifference * this.shiftingPerce / 100}px`;
-    // console.log(this.shiftingPerce, this.sliderOffset);
     this.slider.style.left = `${this.sliderOffsetOld + this.shiftingPerce * this.distance / 100}px`;
     requestAnimationFrame(this.shiftSlider);
   }

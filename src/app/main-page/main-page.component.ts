@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import * as AOS from 'aos';
 import { TopSectionComponent } from '../top-section/top-section.component';
 import { MySelfSectionComponent } from '../my-self-section/my-self-section.component';
@@ -18,7 +18,7 @@ import { Event } from '@angular/router';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent {
+export class MainPageComponent {  
   constructor(public portService: PortfolioService) { }
 
   ngOnInit() {
@@ -38,6 +38,6 @@ export class MainPageComponent {
   }
 
   hideOverlay(event: any = null) {
-    if(event.target.classList.contains('lightbox')) { this.portService.overlayShown = !this.portService.overlayShown; }
+    if(event.target.classList.contains('lightbox')) { this.portService.closeLightBox(); }
   }
 }

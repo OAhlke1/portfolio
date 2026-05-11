@@ -1,4 +1,4 @@
-import { ElementRef, Injectable } from '@angular/core';
+import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { ProjectsInterface } from '../interfaces/projects.interface';
 import { ReviewsInterface } from '../interfaces/reviews.interface';
 
@@ -15,6 +15,7 @@ export class PortfolioService {
   overlayShown: boolean = false;
   onLoad: boolean = true;
   project!: ProjectsInterface;
+  @ViewChild('#projectsLightboxLeft') projectsLightboxLeft!: ElementRef;
   links = {
     mailAddress: 'mail@oscar-ahlke.de',
     mailIcon: 'assets/images/mail-icon.svg',
@@ -134,7 +135,6 @@ export class PortfolioService {
       return;
     }
     else if (target.closest('.burger-menu')) {
-      // this.onLoad = false;
       if (this.burgerMenuShiftedIn === true && this.burgerMenuShiftedOut === false) {
         this.burgerMenuShiftedIn = false;
         this.burgerMenuShiftedOut = true;
@@ -149,7 +149,6 @@ export class PortfolioService {
   }
 
   openLightBox(index: number, nextClicked: boolean) {
-    console.log(index);
     if (this.overlayJustOpened) {
       this.project = this.projects[index];
       this.overlayJustOpened = false;

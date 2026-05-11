@@ -4,7 +4,7 @@
 </div>
 <div class="main-container" [ngClass]="{'disNone': !portService.overlayShown}">
     <div class="container">
-        <div class="left">
+        <div class="left" #projectsLightboxLeft>
             <div class="headline-block">
                 @if(portService.project.index < 10) { <h1>0{{ portService.project.index + 1 }}</h1>
                     }@else {

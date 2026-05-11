@@ -13,6 +13,5 @@ import { PortfolioService } from './shared/services/portfolio-service.service';
 })
 export class AppComponent {
   title = 'portfolio';
-
   constructor() { }
 }

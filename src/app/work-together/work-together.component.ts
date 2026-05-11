@@ -88,7 +88,6 @@ export class WorkTogetherComponent {
   
   filledOutCorrectly(event: any = null) {
     if(!this.formFocused) { this.formFocused = !this.formFocused; }
-    console.log(this.checkerChecked, this.formFocused);
     this.checkName(event);
     this.checkMail(event);
     this.checkMessage(event);

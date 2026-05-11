@@ -19,9 +19,4 @@ export class ProjectLightboxComponent {
   @ViewChild('projectsLightboxLeft') projectsLightboxLeft!: ElementRef;
 
   constructor(public portService: PortfolioService) { }
-
-  ngAfterViewInit() {
-    console.log(this.projectsLightboxLeft);
-    this.portService.projectsLightboxLeft = this.projectsLightboxLeft;
-  }
 }

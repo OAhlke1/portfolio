@@ -166,6 +166,10 @@ export class PortfolioService {
     }
   }
 
+  hideOverlay(event: any = null) {
+    if (event.target.classList.contains('lightbox')) { this.closeLightBox(); }
+  }
+
   closeLightBox() {
     this.overlayShown = false;
     this.overlayJustOpened = true;

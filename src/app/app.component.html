@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<router-outlet>
+    <div class="component-container lightbox" [ngClass]="{'disNone': !portService.overlayShown}" (click)="portService.hideOverlay($event)">
+        <project-lightbox [ngClass]="{'disNone': !portService.overlayShown}"></project-lightbox>
+    </div>
+</router-outlet>

@@ -1,0 +1,30 @@
+@import url("mixins.scss");
+
+.disNone {
+    display: none !important;
+}
+
+.lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.99) !important;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5000000;
+
+    project-lightbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 65vw;
+        max-width: 1248px;
+        height: 80vh;
+        max-height: 702px;
+        position: relative;
+    }
+}

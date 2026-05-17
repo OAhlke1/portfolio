@@ -116,14 +116,14 @@ export class ReviewsComponent {
   }
 
   shiftSlider = () => {
-    if (this.shiftingPerce >= 100) {
+    if (this.shiftingPerce >= 28) {
       this.actualizeSlider();
       return;
     }
     this.shiftingPerce += 4;
-    this.oldActiveSlide.style.height = `${this.slideHeights.active - this.heightDifference * this.shiftingPerce / 100}px`;
-    this.newActiveSlide.style.height = `${this.slideHeights.unActive + this.heightDifference * this.shiftingPerce / 100}px`;
-    this.slider.style.left = `${this.sliderOffsetOld + this.shiftingPerce * this.distance / 100}px`;
+    this.oldActiveSlide.style.height = `${this.slideHeights.active - this.heightDifference * this.shiftingPerce / 28}px`;
+    this.newActiveSlide.style.height = `${this.slideHeights.unActive + this.heightDifference * this.shiftingPerce / 28}px`;
+    this.slider.style.left = `${this.sliderOffsetOld + this.shiftingPerce * this.distance / 28}px`;
     requestAnimationFrame(this.shiftSlider);
   }
 

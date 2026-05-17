@@ -45,7 +45,7 @@ featured-projects {
     @include pos($pos: relative, $zIndex: 1);
 }
 
-.lightbox {
+/* .lightbox {
     @include disFlex($aI: center, $jC: center);
     width: 100vw;
     height: 100vh;
@@ -61,7 +61,7 @@ featured-projects {
         max-height: 702px;
         @include pos($pos: relative);
     }
-}
+} */
 
 work-together {
     @include disFlex($aI: center, $rG: 40px, $cG: 64px);

@@ -83,17 +83,12 @@ p.copyright {
     color: $standard-green;
     font-weight: 400;
     line-height: 120%;
-    @include pos($pos: absolute, $b: 36px, $l: 50%);
-    transform: translateX(-50%);
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 850px) {
     .center-block {
-        align-items: flex-start;
-    }
-
-    p.copyright {
-        position: static;
-        transform: unset;
+        .links {
+            align-items: flex-start !important;
+        }
     }
 }

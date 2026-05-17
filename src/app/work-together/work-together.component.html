@@ -49,13 +49,13 @@
             </div>
         </div>
         <div class="input-cont">
-            <label for="youremail" [ngClass]="{'disNone': !portService.englishActivated}">What's your
+            <label for="email" [ngClass]="{'disNone': !portService.englishActivated}">What's your
                 mail? *</label>
-            <label for="youremail" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre
+            <label for="email" [ngClass]="{'disNone': !portService.germanActivated}">Wie lautet ihre
                 Mail-Adresse?
                 *</label>
-            <input [(ngModel)]="contactData.email" type="email" id="email" name="youremail"
-                pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$"
+            <input [(ngModel)]="contactData.email" type="email" id="email" name="email"
+                pattern="^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+ \.[A-Za-z]{2,}$"
                 [placeholder]="portService.englishActivated ? 'yourmail@email.com' : 'ihremail@email.com'" required
                 #yourMailInput value="'oahlke1@gmail.com'" (keypress)="checkMail($event)" (change)="filledOutCorrectly($event)">
             <div class="wrong-pattern" [ngClass]="{'disBlock' : !mailPatternCorrect, 'disNone' : mailPatternCorrect}">

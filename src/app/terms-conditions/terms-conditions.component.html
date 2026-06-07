@@ -1,4 +1,5 @@
 <div class="all-containing" (click)="portService.showHideBurgerMenu($event)">
+    <div class="blurrer"></div>
     <div class="block">
         <top-bar></top-bar>
         <h1 [ngClass]="{'disNone': !portService.englishActivated}">Terms and conditions</h1>
@@ -203,4 +204,5 @@
         </div>
     </div>
     <app-footer></app-footer>
+    <div class="blurrer right"></div>
 </div>

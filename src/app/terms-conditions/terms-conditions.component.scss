@@ -9,12 +9,14 @@
 }
 
 .all-containing {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    overflow-y: scroll;
-    // background: $linear-background;
+    overflow-y: scroll; */
+    width: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(37deg,rgba(28, 28, 28, 1) 0%, rgba(8, 70, 59, 1) 100%) no-repeat;
 }
 
 h1 {
@@ -74,7 +76,7 @@ h2 {
 }
 
 .all-containing {
-    overflow: hidden scroll !important;
+    // overflow: hidden scroll !important;
 
     &::-webkit-scrollbar {
         display: none;

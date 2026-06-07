@@ -55,7 +55,7 @@ export class PortfolioService {
         english: "A jump'n'run game, in which you have to to fight against enemies while shooting and jumping in a space-ship.",
         german: "Ein Jump'n'Run-spiel, in welchem man durch Schießen und Springen in einem Raumschiff Gegner besiegen muss."
       },
-      imageSrc: "assets/images/space-jumper.png",
+      imageSrc: "assets/images/space-jumper.webp",
       gitHubLink: "https://github.com/OAhlke1/game.git",
       link: "https://oscar-ahlke.de/games/space-jumper",
       sideImageShown: false

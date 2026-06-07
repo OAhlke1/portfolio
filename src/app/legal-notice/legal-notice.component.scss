@@ -64,6 +64,7 @@ h2 {
     overflow: hidden;
     height: fit-content;
     min-height: 100vh;
+    background: linear-gradient(37deg,rgba(28, 28, 28, 1) 0%, rgba(8, 70, 59, 1) 100%) no-repeat;
 }
 
 .top {
@@ -137,4 +138,8 @@ app-footer {
     .block {
         padding: 24px 15px;
     }
+}
+
+app-root {
+    background: linear-gradient(37deg,rgba(28, 28, 28, 1) 0%, rgba(8, 70, 59, 1) 100%) no-repeat !important;
 }

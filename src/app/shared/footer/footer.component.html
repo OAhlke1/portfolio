@@ -12,24 +12,24 @@
     <div class="links">
         <div class="link-row">
             <a href="{{ portService.links.gitHubLink }}" target="_blank">Github</a>
-            <p>/</p>
+            <p>|</p>
             <a href="{{ portService.links.linkedInLink }}" target="_blank">LinkedIn</a>
-            <p>/</p>
+            <p>|</p>
             <a href="mailto:{{ portService.links.mailAddress }}">Email</a>
         </div>
         <div class="link-row" [ngClass]="{'disNone': !portService.englishActivated}">
             <a (click)="routes.navigateByUrl('terms-conditions')" class="cursor-pointer"><span>Terms and
                     Conditions</span></a>
-            <p>/</p>
+            <p>|</p>
             <a (click)="routes.navigateByUrl('legal-notice')" class="cursor-pointer"><span>Legal Notice</span></a>
-            <p>/</p>
+            <p>|</p>
             <a (click)="routes.navigateByUrl('privacy-policy')" class="cursor-pointer"><span>Privacy Policy</span></a>
         </div>
         <div class="link-row" [ngClass]="{'disNone': !portService.germanActivated}">
             <a (click)="routes.navigateByUrl('terms-conditions')" class="cursor-pointer"><span>AGB</span></a>
-            <p>/</p>
+            <p>|</p>
             <a (click)="routes.navigateByUrl('legal-notice')" class="cursor-pointer"><span>Impressum</span></a>
-            <p>/</p>
+            <p>|</p>
             <a (click)="routes.navigateByUrl('privacy-policy')"
                 class="cursor-pointer"><span>Datenschutzerklärung</span></a>
         </div>

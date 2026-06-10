@@ -19,16 +19,26 @@
                 <h2 [ngClass]="{'disNone': !portService.germanActivated}">Worum geht es in diesem Projekt?</h2>
 
                 <p class="description text-shadowing" [ngClass]="{'disNone': !portService.englishActivated}">{{
-                    portService.project.description.english
-                    }}</p>
+                    portService.project.description.english }}</p>
                 <p class="description text-shadowing" [ngClass]="{'disNone': !portService.germanActivated}">{{
                     portService.project.description.german
                     }}</p>
 
-                <div class="languages">
-                    @for(language of portService.project.pLangs; track language.pIconSrc) {
-                    <img [src]="language.pIconSrc" alt="">
-                    }
+                <div class="lang-cont">
+                    <!-- <h3 [ngClass]="{'disNone': !portService.englishActivated}"
+                        [ngStyle]="{'font-family': 'karla', 'color': 'white'}">This project was written in</h3>
+                    <h3 [ngClass]="{'disNone': !portService.germanActivated}"
+                        [ngStyle]="{'font-family': 'karla', 'color': 'white'}">Geschrieben in</h3> -->
+                    <div class="languages">
+                        @for(language of portService.project.pLangs; track language.pIconSrc) {
+                        <table class="icon-container">
+                            <tr>
+                                <td><img [src]="language.pIconSrc" [alt]="language.pLang"></td>
+                            </tr>
+                            <caption>{{ language.pLang }}</caption>
+                        </table>
+                        }
+                    </div>
                 </div>
             </div>
 
@@ -42,21 +52,6 @@
 
         <div class="right" [ngStyle]="{'background-image': 'url(' + portService.project.imageSrc + ')'}"></div>
     </div>
-
-    <!-- <div class="prev-next">
-        <div class="prev-project" [ngClass]="{'disNone': portService.project.index === 0}"
-            (click)="portService.openLightBox(portService.project.index, false)">
-            <img src="assets/images/prev-project-arrow.svg" alt="">
-            <p [ngClass]="{'disNone': !portService.englishActivated}">previous project</p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">vorheriges Projekt</p>
-        </div>
-        <div class="next-project" [ngClass]="{'disNone': portService.project.index + 1 === portService.projects.length}"
-            (click)="portService.openLightBox(portService.project.index, true)">
-            <p [ngClass]="{'disNone': !portService.englishActivated}">next project</p>
-            <p [ngClass]="{'disNone': !portService.germanActivated}">nächstes Projekt</p>
-            <img src="assets/images/next-project-arrow.svg" alt="">
-        </div>
-    </div> -->
 </div>
 
 <div class="prev-next">

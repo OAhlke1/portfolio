@@ -54,7 +54,7 @@ h2 {
         width: 100%;
         height: 100%;
         box-sizing: border-box;
-        
+
         &::-webkit-scrollbar {
             display: none !important;
         }
@@ -117,13 +117,43 @@ h2 {
                     }
                 }
 
-                .languages {
-                    @include disFlex($cG: 16px, $rG: 20px, $fWrap: wrap);
+                .lang-cont {
+                    @include disFlex($fD: column, $rG: 15px);
+                    
+                    h3 {
+                        font-family: 'karla', Verdana, Geneva, Tahoma, sans-serif;
+                        font-size: 16px;
+                        color: white;
+                        margin: 0;
+                    }
+                    
+                    .languages {
+                        @include disFlex($cG: 16px, $rG: 20px, $fWrap: wrap);
 
-                    img {
-                        width: 65px;
-                        height: auto;
-                        filter: contrast($standard-green);
+                        .icon-container {
+                            @include disFlex($fD: column, $aI: center, $jC: center, $rG: 5px);
+                            width: 65px;
+                            height: 65px;
+                            background-size: 100% auto;
+                            background-position: center top;
+                            background-repeat: no-repeat;
+                            @include pos($pos: relative);
+
+                            img {
+                                width: 100%;
+                                height: auto;
+                                filter: contrast($standard-green);
+                            }
+
+                            caption {
+                                font-size: 14px;
+                                font-family: 'karla';
+                                color: white;
+                                word-break: normal;
+                                @include pos($pos: absolute, $b: 0, $l: 50%);
+                                transform: translateX(-50%);
+                            }
+                        }
                     }
                 }
             }
@@ -293,9 +323,22 @@ h2 {
     }
 }
 
-@media only screen and (max-width: 750px), (max-height: 750px) {
+@media only screen and (max-width: 750px),
+(max-height: 750px) {
     .main-container {
+        justify-content: center;
+        padding: 20px !important;
+
         .container {
+            width: fit-content;
+            height: fit-content;
+
+            .left {
+                width: fit-content;
+                max-width: unset;
+                height: fit-content;
+            }
+
             .right {
                 display: none;
                 width: 272px;
